@@ -9,5 +9,8 @@ import Foundation
 import SwiftUI
 
 extension Color {
-    public static let lightGray = Color(red: 239/255, green: 238/255, blue: 239/255)
+    public static let background = Color(red: 47, green: 48, blue: 52)
+    public static let placeholder = Color(red: 135/255, green: 135/255, blue: 138/255)
+    public static let buttonColor = Color(red: 68/255, green: 72/255, blue: 76/255)
+    
 }

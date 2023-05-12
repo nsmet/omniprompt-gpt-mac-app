@@ -11,7 +11,7 @@ struct BackgroundView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 1)
-                .background(Color.lightGray)
+                .background(Color.background)
         }
     }
 }

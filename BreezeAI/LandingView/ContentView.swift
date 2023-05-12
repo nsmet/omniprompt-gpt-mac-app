@@ -17,6 +17,9 @@ struct ContentView: View {
             BackgroundView()
             VStack{
                 textField
+                Divider()
+                    .foregroundColor(.gray)
+                textEditor
                 Spacer()
                 Divider()
                     .foregroundColor(.gray)
@@ -37,9 +40,18 @@ struct ContentView_Previews: PreviewProvider {
 extension ContentView {
     
     var textField: some View {
-        HStack {
-            TextField("What would you like to do?", text: $contentVM.searchBar)
-            Image(systemName: "mic")
+        HStack(spacing: 0) {
+            TextField("", text: $contentVM.searchBar)
+                .placeholder(when: contentVM.searchBar.isEmpty) {
+                    Text("What would you like to do?").foregroundColor(Color.placeholder)
+            }
+            .frame(height: 55)
+            .textFieldStyle(PlainTextFieldStyle())
+            .padding([.horizontal], 10)
+            Image(systemName: "arrow.uturn.left")
+                .padding(.vertical, 20.5)
+                .padding(.trailing, 10)
+                .foregroundColor(.gray)
         }
     }
 
@@ -51,10 +63,22 @@ extension ContentView {
             } label: {
                 Text("Copy to clipboard")
                     .padding(5)
+                    .background(Color.buttonColor)
+                    .foregroundColor(Color.white)
             }
-            .padding(.trailing, 20)
+            .buttonStyle(.borderless)
+            .cornerRadius(5)
+            .padding(.trailing, 15)
             .padding(.bottom, 10)
             
         }
+    }
+    var textEditor: some View {
+        TextEditor(text: $contentVM.textEditor)
+            .placeholder(when: contentVM.textEditor.isEmpty) {
+                Text("Paste text, start typing or let us generate text").foregroundColor(Color.placeholder)
+            }
+        .padding([.leading, .top], 10)
+        .background(Color.black)
     }
 }
