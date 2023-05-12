@@ -10,12 +10,24 @@ import Core
 
 @main
 struct BreezeAIApp: App {
-    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             ContentView(contentVM: ContentViewModel())
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            
+        }
+        MenuBarExtra("", systemImage: "checkerboard.rectangle") {
+            
+            Link("Open BreezeAI", destination: URL(string: "https://apple.com")!)
+                .keyboardShortcut("G")
+            Link("Settings", destination: URL(string: "https://google.com")!)
+            
+            
+            Button("Quit") {
+                NSApplication.shared.terminate(nil)
+            }.keyboardShortcut("q")
+            
+            
         }
     }
 }
