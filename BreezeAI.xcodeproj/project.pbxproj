@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */; };
+		68767BB62A0E17E300E6D3B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BB52A0E17E300E6D3B5 /* ContentView.swift */; };
+		68767BB82A0E17E600E6D3B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68767BB72A0E17E600E6D3B5 /* Assets.xcassets */; };
+		68767BBB2A0E17E600E6D3B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68767BBA2A0E17E600E6D3B5 /* Preview Assets.xcassets */; };
+		68767BBD2A0E17E600E6D3B5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BBC2A0E17E600E6D3B5 /* Persistence.swift */; };
+		68767BC02A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68767BBE2A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld */; };
+		68767BCB2A0E17E600E6D3B5 /* BreezeAITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BCA2A0E17E600E6D3B5 /* BreezeAITests.swift */; };
+		68767BD52A0E17E600E6D3B5 /* BreezeAIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BD42A0E17E600E6D3B5 /* BreezeAIUITests.swift */; };
+		68767BD72A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BD62A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		68767BC72A0E17E600E6D3B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68767BA82A0E17E300E6D3B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68767BAF2A0E17E300E6D3B5;
+			remoteInfo = BreezeAI;
+		};
+		68767BD12A0E17E600E6D3B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68767BA82A0E17E300E6D3B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68767BAF2A0E17E300E6D3B5;
+			remoteInfo = BreezeAI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		68767BB02A0E17E300E6D3B5 /* BreezeAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreezeAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAIApp.swift; sourceTree = "<group>"; };
+		68767BB52A0E17E300E6D3B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		68767BB72A0E17E600E6D3B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68767BBA2A0E17E600E6D3B5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		68767BBC2A0E17E600E6D3B5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		68767BBF2A0E17E600E6D3B5 /* BreezeAI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BreezeAI.xcdatamodel; sourceTree = "<group>"; };
+		68767BC12A0E17E600E6D3B5 /* BreezeAI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BreezeAI.entitlements; sourceTree = "<group>"; };
+		68767BC62A0E17E600E6D3B5 /* BreezeAITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreezeAITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68767BCA2A0E17E600E6D3B5 /* BreezeAITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAITests.swift; sourceTree = "<group>"; };
+		68767BD02A0E17E600E6D3B5 /* BreezeAIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreezeAIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68767BD42A0E17E600E6D3B5 /* BreezeAIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAIUITests.swift; sourceTree = "<group>"; };
+		68767BD62A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		68767BAD2A0E17E300E6D3B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68767BC32A0E17E600E6D3B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68767BCD2A0E17E600E6D3B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68767BA72A0E17E300E6D3B5 = {
+			isa = PBXGroup;
+			children = (
+				68767BB22A0E17E300E6D3B5 /* BreezeAI */,
+				68767BC92A0E17E600E6D3B5 /* BreezeAITests */,
+				68767BD32A0E17E600E6D3B5 /* BreezeAIUITests */,
+				68767BB12A0E17E300E6D3B5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		68767BB12A0E17E300E6D3B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				68767BB02A0E17E300E6D3B5 /* BreezeAI.app */,
+				68767BC62A0E17E600E6D3B5 /* BreezeAITests.xctest */,
+				68767BD02A0E17E600E6D3B5 /* BreezeAIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		68767BB22A0E17E300E6D3B5 /* BreezeAI */ = {
+			isa = PBXGroup;
+			children = (
+				68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */,
+				68767BB52A0E17E300E6D3B5 /* ContentView.swift */,
+				68767BB72A0E17E600E6D3B5 /* Assets.xcassets */,
+				68767BBC2A0E17E600E6D3B5 /* Persistence.swift */,
+				68767BC12A0E17E600E6D3B5 /* BreezeAI.entitlements */,
+				68767BBE2A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld */,
+				68767BB92A0E17E600E6D3B5 /* Preview Content */,
+			);
+			path = BreezeAI;
+			sourceTree = "<group>";
+		};
+		68767BB92A0E17E600E6D3B5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				68767BBA2A0E17E600E6D3B5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		68767BC92A0E17E600E6D3B5 /* BreezeAITests */ = {
+			isa = PBXGroup;
+			children = (
+				68767BCA2A0E17E600E6D3B5 /* BreezeAITests.swift */,
+			);
+			path = BreezeAITests;
+			sourceTree = "<group>";
+		};
+		68767BD32A0E17E600E6D3B5 /* BreezeAIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				68767BD42A0E17E600E6D3B5 /* BreezeAIUITests.swift */,
+				68767BD62A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift */,
+			);
+			path = BreezeAIUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		68767BAF2A0E17E300E6D3B5 /* BreezeAI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68767BDA2A0E17E600E6D3B5 /* Build configuration list for PBXNativeTarget "BreezeAI" */;
+			buildPhases = (
+				68767BAC2A0E17E300E6D3B5 /* Sources */,
+				68767BAD2A0E17E300E6D3B5 /* Frameworks */,
+				68767BAE2A0E17E300E6D3B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BreezeAI;
+			productName = BreezeAI;
+			productReference = 68767BB02A0E17E300E6D3B5 /* BreezeAI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		68767BC52A0E17E600E6D3B5 /* BreezeAITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68767BDD2A0E17E600E6D3B5 /* Build configuration list for PBXNativeTarget "BreezeAITests" */;
+			buildPhases = (
+				68767BC22A0E17E600E6D3B5 /* Sources */,
+				68767BC32A0E17E600E6D3B5 /* Frameworks */,
+				68767BC42A0E17E600E6D3B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68767BC82A0E17E600E6D3B5 /* PBXTargetDependency */,
+			);
+			name = BreezeAITests;
+			productName = BreezeAITests;
+			productReference = 68767BC62A0E17E600E6D3B5 /* BreezeAITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		68767BCF2A0E17E600E6D3B5 /* BreezeAIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68767BE02A0E17E600E6D3B5 /* Build configuration list for PBXNativeTarget "BreezeAIUITests" */;
+			buildPhases = (
+				68767BCC2A0E17E600E6D3B5 /* Sources */,
+				68767BCD2A0E17E600E6D3B5 /* Frameworks */,
+				68767BCE2A0E17E600E6D3B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68767BD22A0E17E600E6D3B5 /* PBXTargetDependency */,
+			);
+			name = BreezeAIUITests;
+			productName = BreezeAIUITests;
+			productReference = 68767BD02A0E17E600E6D3B5 /* BreezeAIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		68767BA82A0E17E300E6D3B5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					68767BAF2A0E17E300E6D3B5 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					68767BC52A0E17E600E6D3B5 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 68767BAF2A0E17E300E6D3B5;
+					};
+					68767BCF2A0E17E600E6D3B5 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 68767BAF2A0E17E300E6D3B5;
+					};
+				};
+			};
+			buildConfigurationList = 68767BAB2A0E17E300E6D3B5 /* Build configuration list for PBXProject "BreezeAI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 68767BA72A0E17E300E6D3B5;
+			productRefGroup = 68767BB12A0E17E300E6D3B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				68767BAF2A0E17E300E6D3B5 /* BreezeAI */,
+				68767BC52A0E17E600E6D3B5 /* BreezeAITests */,
+				68767BCF2A0E17E600E6D3B5 /* BreezeAIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		68767BAE2A0E17E300E6D3B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68767BBB2A0E17E600E6D3B5 /* Preview Assets.xcassets in Resources */,
+				68767BB82A0E17E600E6D3B5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68767BC42A0E17E600E6D3B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68767BCE2A0E17E600E6D3B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68767BAC2A0E17E300E6D3B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68767BC02A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld in Sources */,
+				68767BBD2A0E17E600E6D3B5 /* Persistence.swift in Sources */,
+				68767BB62A0E17E300E6D3B5 /* ContentView.swift in Sources */,
+				68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68767BC22A0E17E600E6D3B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68767BCB2A0E17E600E6D3B5 /* BreezeAITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68767BCC2A0E17E600E6D3B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68767BD72A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift in Sources */,
+				68767BD52A0E17E600E6D3B5 /* BreezeAIUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		68767BC82A0E17E600E6D3B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68767BAF2A0E17E300E6D3B5 /* BreezeAI */;
+			targetProxy = 68767BC72A0E17E600E6D3B5 /* PBXContainerItemProxy */;
+		};
+		68767BD22A0E17E600E6D3B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68767BAF2A0E17E300E6D3B5 /* BreezeAI */;
+			targetProxy = 68767BD12A0E17E600E6D3B5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		68767BD82A0E17E600E6D3B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		68767BD92A0E17E600E6D3B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		68767BDB2A0E17E600E6D3B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BreezeAI/BreezeAI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BreezeAI/Preview Content\"";
+				DEVELOPMENT_TEAM = 7LPSTH4CZ2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tappagency.breezeai.BreezeAI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		68767BDC2A0E17E600E6D3B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BreezeAI/BreezeAI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BreezeAI/Preview Content\"";
+				DEVELOPMENT_TEAM = 7LPSTH4CZ2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tappagency.breezeai.BreezeAI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		68767BDE2A0E17E600E6D3B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7LPSTH4CZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tappagency.breezeai.BreezeAITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreezeAI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BreezeAI";
+			};
+			name = Debug;
+		};
+		68767BDF2A0E17E600E6D3B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7LPSTH4CZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tappagency.breezeai.BreezeAITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreezeAI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BreezeAI";
+			};
+			name = Release;
+		};
+		68767BE12A0E17E600E6D3B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7LPSTH4CZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tappagency.breezeai.BreezeAIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = BreezeAI;
+			};
+			name = Debug;
+		};
+		68767BE22A0E17E600E6D3B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7LPSTH4CZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tappagency.breezeai.BreezeAIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = BreezeAI;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		68767BAB2A0E17E300E6D3B5 /* Build configuration list for PBXProject "BreezeAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68767BD82A0E17E600E6D3B5 /* Debug */,
+				68767BD92A0E17E600E6D3B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68767BDA2A0E17E600E6D3B5 /* Build configuration list for PBXNativeTarget "BreezeAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68767BDB2A0E17E600E6D3B5 /* Debug */,
+				68767BDC2A0E17E600E6D3B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68767BDD2A0E17E600E6D3B5 /* Build configuration list for PBXNativeTarget "BreezeAITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68767BDE2A0E17E600E6D3B5 /* Debug */,
+				68767BDF2A0E17E600E6D3B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68767BE02A0E17E600E6D3B5 /* Build configuration list for PBXNativeTarget "BreezeAIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68767BE12A0E17E600E6D3B5 /* Debug */,
+				68767BE22A0E17E600E6D3B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		68767BBE2A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				68767BBF2A0E17E600E6D3B5 /* BreezeAI.xcdatamodel */,
+			);
+			currentVersion = 68767BBF2A0E17E600E6D3B5 /* BreezeAI.xcdatamodel */;
+			path = BreezeAI.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 68767BA82A0E17E300E6D3B5 /* Project object */;
+}
