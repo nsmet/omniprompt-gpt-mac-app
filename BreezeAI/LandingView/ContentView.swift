@@ -42,22 +42,39 @@ extension ContentView {
     var textField: some View {
         HStack(spacing: 0) {
             TextField("", text: $contentVM.searchBar)
+                .font(.custom("Roboto-Medium", size: 20))
                 .placeholder(when: contentVM.searchBar.isEmpty) {
                     Text("What would you like to do?").foregroundColor(Color.placeholder)
+                        .font(.custom("Roboto-Medium", size: 20))
             }
             .frame(height: 55)
             .textFieldStyle(PlainTextFieldStyle())
-            .padding([.horizontal], 10)
+            .foregroundColor(Color.inputText)
+            .padding(.leading, 16)
             Image(systemName: "arrow.uturn.left")
+                .font(.custom("Roboto-Medium", size: 20))
                 .padding(.vertical, 20.5)
-                .padding(.trailing, 10)
+                .padding(.trailing, 16)
                 .foregroundColor(.gray)
         }
     }
 
     var copyToClipBoardBtn: some View {
-        HStack{
+        HStack(spacing: 1){
             Spacer()
+            Button{
+                
+            } label: {
+                Text("Replace selected text")
+                    .padding(5)
+                    .background(Color.buttonColor)
+                    .foregroundColor(Color.white)
+            }
+            .buttonStyle(.borderless)
+            .cornerRadius(5)
+            .padding(.trailing, 15)
+            .padding(.bottom, 10)
+            
             Button{
                 
             } label: {
@@ -74,11 +91,17 @@ extension ContentView {
         }
     }
     var textEditor: some View {
-        TextEditor(text: $contentVM.textEditor)
-            .placeholder(when: contentVM.textEditor.isEmpty) {
-                Text("Paste text, start typing or let us generate text").foregroundColor(Color.placeholder)
-            }
-        .padding([.leading, .top], 10)
-        .background(Color.black)
+        VStack{
+            TextEditor(text: $contentVM.textEditor)
+                .placeholder(when: contentVM.textEditor.isEmpty) {
+                    Text("Paste text, start typing or let us generate text").foregroundColor(Color.placeholder)
+                        .font(.custom("Roboto-Medium", size: 14))
+                }
+                .padding(.leading, 5)
+                .padding(.top, 10)
+                .background(Color.black)
+                .foregroundColor(Color.inputText)
+        }
+        .padding([.leading, .trailing], 10)
     }
 }
