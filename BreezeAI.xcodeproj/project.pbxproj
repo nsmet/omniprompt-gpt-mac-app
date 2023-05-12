@@ -16,6 +16,14 @@
 		68767BCB2A0E17E600E6D3B5 /* BreezeAITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BCA2A0E17E600E6D3B5 /* BreezeAITests.swift */; };
 		68767BD52A0E17E600E6D3B5 /* BreezeAIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BD42A0E17E600E6D3B5 /* BreezeAIUITests.swift */; };
 		68767BD72A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BD62A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift */; };
+		68767BF02A0E1C0A00E6D3B5 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68767BE82A0E1C0900E6D3B5 /* Core.framework */; };
+		68767BF72A0E1C0A00E6D3B5 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BF62A0E1C0A00E6D3B5 /* CoreTests.swift */; };
+		68767BF82A0E1C0A00E6D3B5 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 68767BEA2A0E1C0900E6D3B5 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68767BFB2A0E1C0A00E6D3B5 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68767BE82A0E1C0900E6D3B5 /* Core.framework */; };
+		68767BFC2A0E1C0A00E6D3B5 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 68767BE82A0E1C0900E6D3B5 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		68767C0D2A0E1E1A00E6D3B5 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767C0C2A0E1E1A00E6D3B5 /* BackgroundView.swift */; };
+		68767C0F2A0E1F2E00E6D3B5 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767C0E2A0E1F2E00E6D3B5 /* ContentViewModel.swift */; };
+		68767C112A0E26F800E6D3B5 /* Colors+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767C102A0E26F800E6D3B5 /* Colors+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +41,42 @@
 			remoteGlobalIDString = 68767BAF2A0E17E300E6D3B5;
 			remoteInfo = BreezeAI;
 		};
+		68767BF12A0E1C0A00E6D3B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68767BA82A0E17E300E6D3B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68767BE72A0E1C0900E6D3B5;
+			remoteInfo = Core;
+		};
+		68767BF32A0E1C0A00E6D3B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68767BA82A0E17E300E6D3B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68767BAF2A0E17E300E6D3B5;
+			remoteInfo = BreezeAI;
+		};
+		68767BF92A0E1C0A00E6D3B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68767BA82A0E17E300E6D3B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68767BE72A0E1C0900E6D3B5;
+			remoteInfo = Core;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		68767C002A0E1C0A00E6D3B5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				68767BFC2A0E1C0A00E6D3B5 /* Core.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		68767BB02A0E17E300E6D3B5 /* BreezeAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreezeAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +92,13 @@
 		68767BD02A0E17E600E6D3B5 /* BreezeAIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreezeAIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68767BD42A0E17E600E6D3B5 /* BreezeAIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAIUITests.swift; sourceTree = "<group>"; };
 		68767BD62A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		68767BE82A0E1C0900E6D3B5 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68767BEA2A0E1C0900E6D3B5 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
+		68767BEF2A0E1C0A00E6D3B5 /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68767BF62A0E1C0A00E6D3B5 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
+		68767C0C2A0E1E1A00E6D3B5 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		68767C0E2A0E1F2E00E6D3B5 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		68767C102A0E26F800E6D3B5 /* Colors+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68767BFB2A0E1C0A00E6D3B5 /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,12 +124,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		68767BE52A0E1C0900E6D3B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68767BEC2A0E1C0A00E6D3B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68767BF02A0E1C0A00E6D3B5 /* Core.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		68767BA72A0E17E300E6D3B5 = {
 			isa = PBXGroup;
 			children = (
+				68767BE92A0E1C0900E6D3B5 /* Core */,
+				68767BF52A0E1C0A00E6D3B5 /* CoreTests */,
 				68767BB22A0E17E300E6D3B5 /* BreezeAI */,
 				68767BC92A0E17E600E6D3B5 /* BreezeAITests */,
 				68767BD32A0E17E600E6D3B5 /* BreezeAIUITests */,
@@ -92,6 +160,8 @@
 				68767BB02A0E17E300E6D3B5 /* BreezeAI.app */,
 				68767BC62A0E17E600E6D3B5 /* BreezeAITests.xctest */,
 				68767BD02A0E17E600E6D3B5 /* BreezeAIUITests.xctest */,
+				68767BE82A0E1C0900E6D3B5 /* Core.framework */,
+				68767BEF2A0E1C0A00E6D3B5 /* CoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,8 +169,9 @@
 		68767BB22A0E17E300E6D3B5 /* BreezeAI */ = {
 			isa = PBXGroup;
 			children = (
+				68767C0B2A0E1DEB00E6D3B5 /* CommonView */,
+				68767C0A2A0E1DD900E6D3B5 /* LandingView */,
 				68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */,
-				68767BB52A0E17E300E6D3B5 /* ContentView.swift */,
 				68767BB72A0E17E600E6D3B5 /* Assets.xcassets */,
 				68767BBC2A0E17E600E6D3B5 /* Persistence.swift */,
 				68767BC12A0E17E600E6D3B5 /* BreezeAI.entitlements */,
@@ -135,7 +206,100 @@
 			path = BreezeAIUITests;
 			sourceTree = "<group>";
 		};
+		68767BE92A0E1C0900E6D3B5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				68767C092A0E1C8400E6D3B5 /* Constants */,
+				68767C082A0E1C7D00E6D3B5 /* Extensions */,
+				68767C072A0E1C7600E6D3B5 /* Models */,
+				68767C062A0E1C6000E6D3B5 /* Protocols */,
+				68767C052A0E1C5A00E6D3B5 /* Services */,
+				68767C042A0E1C4500E6D3B5 /* ViewModels */,
+				68767BEA2A0E1C0900E6D3B5 /* Core.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		68767BF52A0E1C0A00E6D3B5 /* CoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				68767BF62A0E1C0A00E6D3B5 /* CoreTests.swift */,
+			);
+			path = CoreTests;
+			sourceTree = "<group>";
+		};
+		68767C042A0E1C4500E6D3B5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				68767C0E2A0E1F2E00E6D3B5 /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		68767C052A0E1C5A00E6D3B5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		68767C062A0E1C6000E6D3B5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		68767C072A0E1C7600E6D3B5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		68767C082A0E1C7D00E6D3B5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				68767C102A0E26F800E6D3B5 /* Colors+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		68767C092A0E1C8400E6D3B5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		68767C0A2A0E1DD900E6D3B5 /* LandingView */ = {
+			isa = PBXGroup;
+			children = (
+				68767BB52A0E17E300E6D3B5 /* ContentView.swift */,
+			);
+			path = LandingView;
+			sourceTree = "<group>";
+		};
+		68767C0B2A0E1DEB00E6D3B5 /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				68767C0C2A0E1E1A00E6D3B5 /* BackgroundView.swift */,
+			);
+			path = CommonView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		68767BE32A0E1C0900E6D3B5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68767BF82A0E1C0A00E6D3B5 /* Core.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		68767BAF2A0E17E300E6D3B5 /* BreezeAI */ = {
@@ -145,10 +309,12 @@
 				68767BAC2A0E17E300E6D3B5 /* Sources */,
 				68767BAD2A0E17E300E6D3B5 /* Frameworks */,
 				68767BAE2A0E17E300E6D3B5 /* Resources */,
+				68767C002A0E1C0A00E6D3B5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				68767BFA2A0E1C0A00E6D3B5 /* PBXTargetDependency */,
 			);
 			name = BreezeAI;
 			productName = BreezeAI;
@@ -191,6 +357,43 @@
 			productReference = 68767BD02A0E17E600E6D3B5 /* BreezeAIUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		68767BE72A0E1C0900E6D3B5 /* Core */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68767BFD2A0E1C0A00E6D3B5 /* Build configuration list for PBXNativeTarget "Core" */;
+			buildPhases = (
+				68767BE32A0E1C0900E6D3B5 /* Headers */,
+				68767BE42A0E1C0900E6D3B5 /* Sources */,
+				68767BE52A0E1C0900E6D3B5 /* Frameworks */,
+				68767BE62A0E1C0900E6D3B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Core;
+			productName = Core;
+			productReference = 68767BE82A0E1C0900E6D3B5 /* Core.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		68767BEE2A0E1C0A00E6D3B5 /* CoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68767C012A0E1C0A00E6D3B5 /* Build configuration list for PBXNativeTarget "CoreTests" */;
+			buildPhases = (
+				68767BEB2A0E1C0A00E6D3B5 /* Sources */,
+				68767BEC2A0E1C0A00E6D3B5 /* Frameworks */,
+				68767BED2A0E1C0A00E6D3B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68767BF22A0E1C0A00E6D3B5 /* PBXTargetDependency */,
+				68767BF42A0E1C0A00E6D3B5 /* PBXTargetDependency */,
+			);
+			name = CoreTests;
+			productName = CoreTests;
+			productReference = 68767BEF2A0E1C0A00E6D3B5 /* CoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -212,6 +415,14 @@
 						CreatedOnToolsVersion = 14.3;
 						TestTargetID = 68767BAF2A0E17E300E6D3B5;
 					};
+					68767BE72A0E1C0900E6D3B5 = {
+						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
+					};
+					68767BEE2A0E1C0A00E6D3B5 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 68767BAF2A0E17E300E6D3B5;
+					};
 				};
 			};
 			buildConfigurationList = 68767BAB2A0E17E300E6D3B5 /* Build configuration list for PBXProject "BreezeAI" */;
@@ -230,6 +441,8 @@
 				68767BAF2A0E17E300E6D3B5 /* BreezeAI */,
 				68767BC52A0E17E600E6D3B5 /* BreezeAITests */,
 				68767BCF2A0E17E600E6D3B5 /* BreezeAIUITests */,
+				68767BE72A0E1C0900E6D3B5 /* Core */,
+				68767BEE2A0E1C0A00E6D3B5 /* CoreTests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,6 +471,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		68767BE62A0E1C0900E6D3B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68767BED2A0E1C0A00E6D3B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -265,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68767C0D2A0E1E1A00E6D3B5 /* BackgroundView.swift in Sources */,
 				68767BC02A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld in Sources */,
 				68767BBD2A0E17E600E6D3B5 /* Persistence.swift in Sources */,
 				68767BB62A0E17E300E6D3B5 /* ContentView.swift in Sources */,
@@ -289,6 +517,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		68767BE42A0E1C0900E6D3B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68767C0F2A0E1F2E00E6D3B5 /* ContentViewModel.swift in Sources */,
+				68767C112A0E26F800E6D3B5 /* Colors+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68767BEB2A0E1C0A00E6D3B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68767BF72A0E1C0A00E6D3B5 /* CoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -301,6 +546,21 @@
 			isa = PBXTargetDependency;
 			target = 68767BAF2A0E17E300E6D3B5 /* BreezeAI */;
 			targetProxy = 68767BD12A0E17E600E6D3B5 /* PBXContainerItemProxy */;
+		};
+		68767BF22A0E1C0A00E6D3B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68767BE72A0E1C0900E6D3B5 /* Core */;
+			targetProxy = 68767BF12A0E1C0A00E6D3B5 /* PBXContainerItemProxy */;
+		};
+		68767BF42A0E1C0A00E6D3B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68767BAF2A0E17E300E6D3B5 /* BreezeAI */;
+			targetProxy = 68767BF32A0E1C0A00E6D3B5 /* PBXContainerItemProxy */;
+		};
+		68767BFA2A0E1C0A00E6D3B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68767BE72A0E1C0900E6D3B5 /* Core */;
+			targetProxy = 68767BF92A0E1C0A00E6D3B5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -421,6 +681,7 @@
 		68767BDB2A0E17E600E6D3B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BreezeAI/BreezeAI.entitlements;
@@ -448,6 +709,7 @@
 		68767BDC2A0E17E600E6D3B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BreezeAI/BreezeAI.entitlements;
@@ -544,6 +806,109 @@
 			};
 			name = Release;
 		};
+		68767BFE2A0E1C0A00E6D3B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7LPSTH4CZ2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tappagency.breezeai.Core;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		68767BFF2A0E1C0A00E6D3B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7LPSTH4CZ2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tappagency.breezeai.Core;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		68767C022A0E1C0A00E6D3B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7LPSTH4CZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tappagency.breezeai.CoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreezeAI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BreezeAI";
+			};
+			name = Debug;
+		};
+		68767C032A0E1C0A00E6D3B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7LPSTH4CZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tappagency.breezeai.CoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreezeAI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BreezeAI";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -579,6 +944,24 @@
 			buildConfigurations = (
 				68767BE12A0E17E600E6D3B5 /* Debug */,
 				68767BE22A0E17E600E6D3B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68767BFD2A0E1C0A00E6D3B5 /* Build configuration list for PBXNativeTarget "Core" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68767BFE2A0E1C0A00E6D3B5 /* Debug */,
+				68767BFF2A0E1C0A00E6D3B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68767C012A0E1C0A00E6D3B5 /* Build configuration list for PBXNativeTarget "CoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68767C022A0E1C0A00E6D3B5 /* Debug */,
+				68767C032A0E1C0A00E6D3B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

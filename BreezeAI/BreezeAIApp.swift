@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Core
 
 @main
 struct BreezeAIApp: App {
@@ -13,7 +14,7 @@ struct BreezeAIApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(contentVM: ContentViewModel())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
