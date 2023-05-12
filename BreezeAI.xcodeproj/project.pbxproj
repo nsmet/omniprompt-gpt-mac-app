@@ -37,6 +37,7 @@
 		68767C2B2A0E561B00E6D3B5 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68767C1F2A0E561B00E6D3B5 /* Roboto-Light.ttf */; };
 		68767C2C2A0E561B00E6D3B5 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68767C202A0E561B00E6D3B5 /* Roboto-Medium.ttf */; };
 		68767C2D2A0E561B00E6D3B5 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68767C212A0E561B00E6D3B5 /* Roboto-Regular.ttf */; };
+		68767C312A0E5ADC00E6D3B5 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767C302A0E5ADC00E6D3B5 /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		68767C202A0E561B00E6D3B5 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		68767C212A0E561B00E6D3B5 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		68767C2E2A0E56CE00E6D3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		68767C302A0E5ADC00E6D3B5 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				68767C2E2A0E56CE00E6D3B5 /* Info.plist */,
 				68767C142A0E55A600E6D3B5 /* Fonts */,
 				68767C0B2A0E1DEB00E6D3B5 /* CommonView */,
+				68767C2F2A0E5AC200E6D3B5 /* SettingView */,
 				68767C0A2A0E1DD900E6D3B5 /* LandingView */,
 				68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */,
 				68767BB72A0E17E600E6D3B5 /* Assets.xcassets */,
@@ -343,6 +346,14 @@
 				68767C1E2A0E561B00E6D3B5 /* Roboto-ThinItalic.ttf */,
 			);
 			path = Roboto;
+			sourceTree = "<group>";
+		};
+		68767C2F2A0E5AC200E6D3B5 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				68767C302A0E5ADC00E6D3B5 /* SettingView.swift */,
+			);
+			path = SettingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,6 +575,7 @@
 				68767C0D2A0E1E1A00E6D3B5 /* BackgroundView.swift in Sources */,
 				68767BC02A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld in Sources */,
 				68767BBD2A0E17E600E6D3B5 /* Persistence.swift in Sources */,
+				68767C312A0E5ADC00E6D3B5 /* SettingView.swift in Sources */,
 				68767BB62A0E17E300E6D3B5 /* ContentView.swift in Sources */,
 				68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */,
 			);

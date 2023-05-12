@@ -10,7 +10,9 @@ import Core
 
 @main
 struct BreezeAIApp: App {
-
+    
+    @Environment(\.openWindow) var settingWindow
+    
     var body: some Scene {
         WindowGroup {
             ContentView(contentVM: ContentViewModel())
@@ -18,16 +20,19 @@ struct BreezeAIApp: App {
         }
         MenuBarExtra("", systemImage: "checkerboard.rectangle") {
             
-            Link("Open BreezeAI", destination: URL(string: "https://apple.com")!)
-                .keyboardShortcut("G")
-            Link("Settings", destination: URL(string: "https://google.com")!)
             
+            Button("Setting") {
+                settingWindow(id: "settings")
+            }
             
             Button("Quit") {
                 NSApplication.shared.terminate(nil)
             }.keyboardShortcut("q")
             
             
+        }
+        Window("Settings", id: "settings") {
+            SettingView()
         }
     }
 }
