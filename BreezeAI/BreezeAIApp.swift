@@ -32,7 +32,7 @@ struct BreezeAIApp: App {
             
         }
         Window("Settings", id: "settings") {
-            SettingView()
+            SettingView(settingVM: SettingViewModel())
         }
     }
 }

@@ -6,15 +6,67 @@
 //
 
 import SwiftUI
+import Core
 
 struct SettingView: View {
+    @ObservedObject var settingVM: SettingViewModel
+    @State var selected =  "gpt-3.5-turbo"
     var body: some View {
-        Text("Setting View")
+        ZStack{
+            BackgroundView()
+            VStack{
+                generalButton
+                Divider()
+                    .foregroundColor(.gray)
+                apiKeyTextField
+                openApiModelView
+                Spacer()
+            }
+        }
     }
 }
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView()
+        SettingView(settingVM: SettingViewModel())
+    }
+}
+extension SettingView {
+    var generalButton: some View {
+        VStack{
+            Image(systemName: "gearshape")
+                .foregroundColor(.white)
+                .padding(.top, 20)
+            Text("General")
+                .foregroundColor(.white)
+        }
+    }
+    
+    var apiKeyTextField: some View {
+        HStack{
+            Text("OpenAI API key")
+                .foregroundColor(Color.inputText)
+            SecureField("", text: $settingVM.apiKeyTF)
+                .accentColor(Color.inputText)
+                .foregroundColor(Color.inputText)
+                .textFieldStyle(PlainTextFieldStyle())
+                .padding(5)
+                .overlay(RoundedRectangle(cornerRadius: 2).stroke(Color.gray))
+                .padding(.trailing, 5)
+                .padding(.leading, 50)
+        }
+        .padding([.leading, .trailing], 40)
+    }
+    var openApiModelView: some View {
+        HStack{
+            Text("Desired OpenAI Model")
+                .foregroundColor(Color.inputText)
+            Picker("", selection: $selected) {
+                ForEach(settingVM.openAPIModel, id:\.self ) { i in
+                        Text(i)
+                    }
+                }
+        }
+        .padding([.leading, .trailing], 40)
     }
 }
