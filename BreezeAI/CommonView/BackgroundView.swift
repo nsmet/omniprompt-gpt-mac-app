@@ -13,6 +13,7 @@ struct BackgroundView: View {
             RoundedRectangle(cornerRadius: 1)
                 .background(Color.background)
         }
+        .padding(.top, -50)
     }
 }
 

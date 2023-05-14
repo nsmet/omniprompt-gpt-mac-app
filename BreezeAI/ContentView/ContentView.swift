@@ -15,7 +15,6 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             BackgroundView()
-                .padding(.top, -50)
             VStack{
                 textField
                 Divider()
@@ -47,16 +46,15 @@ extension ContentView {
                 .placeholder(when: contentVM.searchBar.isEmpty) {
                     Text("What would you like to do?").foregroundColor(Color.placeholder)
                         .font(.custom("Roboto-Medium", size: 20))
-            }
-//            .frame(height: 55)
-            .textFieldStyle(PlainTextFieldStyle())
-            .foregroundColor(Color.inputText)
-            .padding(.leading, 16)
+                }
+                .textFieldStyle(PlainTextFieldStyle())
+                .foregroundColor(Color.inputText)
+                .padding(.leading, 16)
             Image("enterBtn")
                 .padding(.trailing, 16)
         }
     }
-
+    
     var copyToClipBoardBtn: some View {
         HStack(spacing: 1){
             Spacer()

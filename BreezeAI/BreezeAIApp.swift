@@ -13,32 +13,29 @@ struct BreezeAIApp: App {
     
     @Environment(\.openWindow) var settingWindow
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    @ObservedObject var appState = AppState()
     
     var body: some Scene {
         
         WindowGroup {
-            ContentView(contentVM: ContentViewModel())
-            
+            switch appState.router {
+            case .contentView:
+                ContentView(contentVM: .init())
+            case .settingsView:
+                SettingView(settingVM: .init())
+            }
         }
         
         
-//        MenuBarExtra("", systemImage: "checkerboard.rectangle") {
-//
-//
-//            Button("Setting") {
-//                settingWindow(id: "settings")
-//            }
-//
-//            Button("Quit") {
-//                NSApplication.shared.terminate(nil)
-//            }.keyboardShortcut("q")
-//
-//
-//        }
-//        Window("Settings", id: "settings") {
-//            SettingView(settingVM: SettingViewModel())
-//        }
-//        .windowStyle(HiddenTitleBarWindowStyle())
+        MenuBarExtra("", systemImage: "checkerboard.rectangle") {
+            Button("Setting") {
+                appState.router = .settingsView
+            }
+            
+            Button("Quit") {
+                NSApplication.shared.terminate(nil)
+            }.keyboardShortcut("q")
+        }
     }
 }
 
