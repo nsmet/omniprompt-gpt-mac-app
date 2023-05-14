@@ -19,15 +19,18 @@ struct BreezeAIApp: App {
         
         WindowGroup {
             switch appState.router {
-            case .contentView:
-                ContentView(contentVM: .init())
             case .settingsView:
                 SettingView(settingVM: .init())
+            default:
+                ContentView(contentVM: .init())
             }
         }
         
         
         MenuBarExtra("", systemImage: "checkerboard.rectangle") {
+            Button("Open BreezeAI") {
+                appState.router = .contentView
+            }
             Button("Setting") {
                 appState.router = .settingsView
             }
