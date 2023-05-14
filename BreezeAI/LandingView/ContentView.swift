@@ -15,6 +15,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             BackgroundView()
+                .padding(.top, -50)
             VStack{
                 textField
                 Divider()
@@ -47,15 +48,12 @@ extension ContentView {
                     Text("What would you like to do?").foregroundColor(Color.placeholder)
                         .font(.custom("Roboto-Medium", size: 20))
             }
-            .frame(height: 55)
+//            .frame(height: 55)
             .textFieldStyle(PlainTextFieldStyle())
             .foregroundColor(Color.inputText)
             .padding(.leading, 16)
-            Image(systemName: "arrow.uturn.left")
-                .font(.custom("Roboto-Medium", size: 20))
-                .padding(.vertical, 20.5)
+            Image("enterBtn")
                 .padding(.trailing, 16)
-                .foregroundColor(.gray)
         }
     }
 
