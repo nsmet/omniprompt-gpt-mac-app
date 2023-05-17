@@ -26,7 +26,7 @@ struct ContentView: View {
                 copyToClipBoardBtn
             }
             if contentVM.showLoadingAnimation {
-                loadingView
+                errorView
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.black).opacity(0.8)
             }
@@ -129,6 +129,33 @@ extension ContentView {
                 .foregroundColor(.white)
                 .font(.custom("Roboto-Bold", size: 14))
             
+        }
+    }
+    var errorView: some View {
+        VStack {
+            Text("Oh snap!")
+                .foregroundColor(.white)
+                .font(.custom("Roboto-Bold", size: 28))
+            Text("Something went wrong....")
+                .foregroundColor(.white)
+                .font(.custom("Roboto-Bold", size: 28))
+            Text("Please make sure you provided us with a valid OpenAI API key")
+                .foregroundColor(.white)
+                .font(.custom("Roboto-Bold", size: 16))
+                .padding(.top, 20)
+            Button{
+                
+            } label: {
+                Text("Ok, I'll check")
+                    .font(.custom("Roboto-Medium", size: 12))
+                    .padding(5)
+                    .background(Color.buttonColor)
+                    .foregroundColor(Color.white)
+            }
+            .buttonStyle(.borderless)
+            .cornerRadius(5)
+            .padding(.trailing, 15)
+            .padding(.bottom, 10)
         }
     }
 }
