@@ -73,7 +73,9 @@ extension ContentView {
             .padding(.bottom, 10)
             
             Button{
-                
+                let pasteboard = NSPasteboard.general
+                pasteboard.clearContents()
+                pasteboard.setString(contentVM.textEditor, forType: .string)
             } label: {
                 Text("Copy to clipboard")
                     .font(.custom("Roboto-Medium", size: 12))
@@ -85,6 +87,7 @@ extension ContentView {
             .cornerRadius(5)
             .padding(.trailing, 15)
             .padding(.bottom, 10)
+            
             
         }
     }
