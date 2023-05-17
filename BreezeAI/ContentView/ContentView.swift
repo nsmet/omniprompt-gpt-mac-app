@@ -149,12 +149,13 @@ extension ContentView {
     }
     
     var loadingView: some View {
-        VStack(alignment: .center) {
+        VStack(spacing: -50) {
             QLImage("animation_300_lhabwwiy")
-            .frame(width: 100, height: 150, alignment: .center)
+            .frame(width: 200, height: 200, alignment: .center)
             Text("Loading some AI magic...")
                 .foregroundColor(.white)
                 .font(.custom("Roboto-Bold", size: 14))
+                .padding(.bottom, 100)
             
         }
     }
