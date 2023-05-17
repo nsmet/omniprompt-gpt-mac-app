@@ -16,17 +16,24 @@ struct ContentView: View {
         ZStack {
             BackgroundView()
             VStack{
-                textField
+                HStack(spacing: 0){
+                    textField
+                    if contentVM.showEnterBtn {
+                        btnView
+                    }
+                }
                 Divider()
                     .foregroundColor(.gray)
                 textEditor
                 Spacer()
                 Divider()
                     .foregroundColor(.gray)
-                copyToClipBoardBtn
+                if contentVM.showBtns {
+                    copyToClipBoardBtn
+                }
             }
             if contentVM.showLoadingAnimation {
-                errorView
+                loadingView
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.black).opacity(0.8)
             }
@@ -44,7 +51,7 @@ struct ContentView_Previews: PreviewProvider {
 extension ContentView {
     
     var textField: some View {
-        HStack(spacing: 0) {
+        
             TextField("", text: $contentVM.searchBar)
                 .font(.custom("Roboto-Medium", size: 20))
                 .placeholder(when: contentVM.searchBar.isEmpty) {
@@ -54,9 +61,21 @@ extension ContentView {
                 .textFieldStyle(PlainTextFieldStyle())
                 .foregroundColor(Color.inputText)
                 .padding(.leading, 16)
-            Image("enterBtn")
-                .padding(.trailing, 16)
-        }
+                .onChange(of: contentVM.searchBar) { newValue in
+                    if newValue.isEmpty {
+                        self.contentVM.showEnterBtn = false
+                    } else {
+                        self.contentVM.showEnterBtn = true
+                    }
+                    
+                }
+
+            
+        
+    }
+    var btnView: some View {
+        Image("enterBtn")
+            .padding(.trailing, 16)
     }
     
     var copyToClipBoardBtn: some View {
@@ -117,6 +136,14 @@ extension ContentView {
                 .padding(.top, 10)
                 .background(Color.textEditorBackgroundColor)
                 .foregroundColor(Color.inputText)
+                .onChange(of: contentVM.textEditor) { newValue in
+                    if newValue.isEmpty {
+                        self.contentVM.showBtns = false
+                    } else {
+                        self.contentVM.showBtns = true
+                    }
+                    
+                }
         }
         .padding([.leading, .trailing], 10)
     }
