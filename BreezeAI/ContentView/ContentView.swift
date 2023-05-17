@@ -62,6 +62,7 @@ extension ContentView {
                 
             } label: {
                 Text("Replace selected text")
+                    .font(.custom("Roboto-Medium", size: 12))
                     .padding(5)
                     .background(Color.buttonColor)
                     .foregroundColor(Color.white)
@@ -75,6 +76,7 @@ extension ContentView {
                 
             } label: {
                 Text("Copy to clipboard")
+                    .font(.custom("Roboto-Medium", size: 12))
                     .padding(5)
                     .background(Color.buttonColor)
                     .foregroundColor(Color.white)
