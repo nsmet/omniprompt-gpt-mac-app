@@ -89,9 +89,10 @@ extension ContentView {
     var textEditor: some View {
         VStack{
             TextEditor(text: $contentVM.textEditor)
+                .font(.custom("Inter-Regular", size: 14))
                 .placeholder(when: contentVM.textEditor.isEmpty) {
                     Text("Paste text, start typing or let us generate text").foregroundColor(Color.placeholder)
-                        .font(.custom("Roboto-Medium", size: 14))
+                        .font(.custom("Inter-Regular", size: 14))
                 }
                 .padding(.leading, 5)
                 .padding(.top, 10)
