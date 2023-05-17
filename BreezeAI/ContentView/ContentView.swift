@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView()
+//            BackgroundView()
             VStack{
                 HStack(spacing: 0){
                     textField
@@ -38,6 +38,7 @@ struct ContentView: View {
                 .background(Color.black).opacity(0.8)
             }
         }
+        .background(Color.backgroundColor)
     }
     
 }
