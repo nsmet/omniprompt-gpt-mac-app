@@ -41,6 +41,8 @@
 		68767C332A0E6E6000E6D3B5 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767C322A0E6E6000E6D3B5 /* SettingViewModel.swift */; };
 		68DADFD42A14E6F900835173 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68DADFD32A14E6F900835173 /* Inter-Regular.ttf */; };
 		68DADFD62A14E89900835173 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68DADFD52A14E89900835173 /* Inter-Light.ttf */; };
+		68DADFD82A14F58800835173 /* GifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DADFD72A14F58800835173 /* GifImageView.swift */; };
+		68DADFDA2A14F78300835173 /* animation_300_lhabwwiy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 68DADFD92A14F78300835173 /* animation_300_lhabwwiy.gif */; };
 		AA5863882A11015F0007FA10 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5863872A11015F0007FA10 /* AppState.swift */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +137,8 @@
 		68767C322A0E6E6000E6D3B5 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		68DADFD32A14E6F900835173 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		68DADFD52A14E89900835173 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		68DADFD72A14F58800835173 /* GifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageView.swift; sourceTree = "<group>"; };
+		68DADFD92A14F78300835173 /* animation_300_lhabwwiy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animation_300_lhabwwiy.gif; sourceTree = "<group>"; };
 		AA5863872A11015F0007FA10 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -326,7 +330,9 @@
 		68767C0B2A0E1DEB00E6D3B5 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				68DADFD92A14F78300835173 /* animation_300_lhabwwiy.gif */,
 				68767C0C2A0E1E1A00E6D3B5 /* BackgroundView.swift */,
+				68DADFD72A14F58800835173 /* GifImageView.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 				68767C252A0E561B00E6D3B5 /* Roboto-Bold.ttf in Resources */,
 				68767C242A0E561B00E6D3B5 /* Roboto-Italic.ttf in Resources */,
 				68767C2D2A0E561B00E6D3B5 /* Roboto-Regular.ttf in Resources */,
+				68DADFDA2A14F78300835173 /* animation_300_lhabwwiy.gif in Resources */,
 				68767C272A0E561B00E6D3B5 /* Roboto-MediumItalic.ttf in Resources */,
 				68767C262A0E561B00E6D3B5 /* Roboto-Black.ttf in Resources */,
 				68767C222A0E561B00E6D3B5 /* Roboto-LightItalic.ttf in Resources */,
@@ -598,6 +605,7 @@
 				68767BC02A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld in Sources */,
 				68767BBD2A0E17E600E6D3B5 /* Persistence.swift in Sources */,
 				68767C312A0E5ADC00E6D3B5 /* SettingView.swift in Sources */,
+				68DADFD82A14F58800835173 /* GifImageView.swift in Sources */,
 				68767BB62A0E17E300E6D3B5 /* ContentView.swift in Sources */,
 				68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */,
 			);

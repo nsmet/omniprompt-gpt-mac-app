@@ -25,8 +25,12 @@ struct ContentView: View {
                     .foregroundColor(.gray)
                 copyToClipBoardBtn
             }
+            if contentVM.showLoadingAnimation {
+                loadingView
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.black).opacity(0.8)
+            }
         }
-        
     }
     
 }
@@ -59,7 +63,17 @@ extension ContentView {
         HStack(spacing: 1){
             Spacer()
             Button{
-                
+                withAnimation(.easeIn) {
+                    contentVM.showLoadingAnimation.toggle()
+                    let pasteboard = NSPasteboard.general
+                    pasteboard.declareTypes([.string], owner: nil)
+                    pasteboard.setString("Recipe text from Instgram", forType: .string)
+                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+                        withAnimation(.easeInOut(duration: 3)) {
+                            self.contentVM.showLoadingAnimation.toggle()
+                        }
+                    }
+                }
             } label: {
                 Text("Replace selected text")
                     .font(.custom("Roboto-Medium", size: 12))
@@ -105,5 +119,16 @@ extension ContentView {
                 .foregroundColor(Color.inputText)
         }
         .padding([.leading, .trailing], 10)
+    }
+    
+    var loadingView: some View {
+        VStack(alignment: .center) {
+            QLImage("animation_300_lhabwwiy")
+            .frame(width: 100, height: 150, alignment: .center)
+            Text("Loading some AI magic...")
+                .foregroundColor(.white)
+                .font(.custom("Roboto-Bold", size: 14))
+            
+        }
     }
 }
