@@ -98,7 +98,7 @@ extension ContentView {
                 }
                 .padding(.leading, 5)
                 .padding(.top, 10)
-                .background(Color.black)
+                .background(Color.textEditorBackgroundColor)
                 .foregroundColor(Color.inputText)
         }
         .padding([.leading, .trailing], 10)
