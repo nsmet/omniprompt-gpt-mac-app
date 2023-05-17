@@ -99,7 +99,7 @@ extension ContentView {
                     .font(.custom("Roboto-Medium", size: 12))
                     .padding(5)
                     .background(Color.buttonColor)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.inputText)
             }
             .buttonStyle(.borderless)
             .cornerRadius(5)
@@ -115,7 +115,7 @@ extension ContentView {
                     .font(.custom("Roboto-Medium", size: 12))
                     .padding(5)
                     .background(Color.buttonColor)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.inputText)
             }
             .buttonStyle(.borderless)
             .cornerRadius(5)
