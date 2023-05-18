@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Core
+import HotKey
 
 @main
 struct BreezeAIApp: App {
@@ -14,6 +15,12 @@ struct BreezeAIApp: App {
     @Environment(\.openWindow) var settingWindow
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @ObservedObject var appState = AppState()
+    
+    let hotKey = HotKey(key: .b, modifiers: [.command, .shift], keyDownHandler: {
+        NSApplication.shared.activate(ignoringOtherApps: true)
+        NSApp.windows.first?.orderFrontRegardless()
+        
+    })
     
     var body: some Scene {
         

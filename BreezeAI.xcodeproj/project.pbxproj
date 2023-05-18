@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		686D430A2A15FC2E0070C969 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 686D43092A15FC2E0070C969 /* HotKey */; };
 		68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */; };
 		68767BB62A0E17E300E6D3B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BB52A0E17E300E6D3B5 /* ContentView.swift */; };
 		68767BB82A0E17E600E6D3B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68767BB72A0E17E600E6D3B5 /* Assets.xcassets */; };
@@ -147,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				686D430A2A15FC2E0070C969 /* HotKey in Frameworks */,
 				68767BFB2A0E1C0A00E6D3B5 /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +413,9 @@
 				68767BFA2A0E1C0A00E6D3B5 /* PBXTargetDependency */,
 			);
 			name = BreezeAI;
+			packageProductDependencies = (
+				686D43092A15FC2E0070C969 /* HotKey */,
+			);
 			productName = BreezeAI;
 			productReference = 68767BB02A0E17E300E6D3B5 /* BreezeAI.app */;
 			productType = "com.apple.product-type.application";
@@ -528,6 +533,9 @@
 				Base,
 			);
 			mainGroup = 68767BA72A0E17E300E6D3B5;
+			packageReferences = (
+				686D43082A15FC2E0070C969 /* XCRemoteSwiftPackageReference "HotKey" */,
+			);
 			productRefGroup = 68767BB12A0E17E300E6D3B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1083,6 +1091,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		686D43082A15FC2E0070C969 /* XCRemoteSwiftPackageReference "HotKey" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soffes/HotKey";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		686D43092A15FC2E0070C969 /* HotKey */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 686D43082A15FC2E0070C969 /* XCRemoteSwiftPackageReference "HotKey" */;
+			productName = HotKey;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		68767BBE2A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld */ = {
