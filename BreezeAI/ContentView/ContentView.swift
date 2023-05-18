@@ -80,7 +80,7 @@ extension ContentView {
     }
     
     var copyToClipBoardBtn: some View {
-        HStack(spacing: 1){
+        HStack(spacing: 10){
             Spacer()
             Button{
                 withAnimation(.easeIn) {
@@ -103,7 +103,6 @@ extension ContentView {
             }
             .buttonStyle(.borderless)
             .cornerRadius(5)
-            .padding(.trailing, 15)
             .padding(.bottom, 10)
             
             Button{
