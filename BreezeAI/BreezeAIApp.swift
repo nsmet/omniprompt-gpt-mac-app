@@ -12,17 +12,14 @@ import HotKey
 @main
 struct BreezeAIApp: App {
     
-    @Environment(\.openWindow) var settingWindow
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @StateObject var appState = AppState.shared
     @Environment(\.scenePhase) var scenePhase
     
-    
-    
     let hotKey = HotKey(key: .b, modifiers: [.command, .shift], keyDownHandler: {
         let systemWideElement = AXUIElementCreateSystemWide()
         var focusedElement : AnyObject?
-
+        
         let error = AXUIElementCopyAttributeValue(systemWideElement, kAXFocusedUIElementAttribute as CFString, &focusedElement)
         if (error != .success){
             print("Couldn't get the focused element. Probably a webkit application")
@@ -41,11 +38,12 @@ struct BreezeAIApp: App {
         NSApplication.shared.activate(ignoringOtherApps: true)
         NSApp.windows.first?.orderFrontRegardless()
         
+        
     })
     
     var body: some Scene {
         
-        WindowGroup {
+        WindowGroup{
             switch appState.router {
             case .settingsView:
                 SettingView(settingVM: .init())
@@ -67,7 +65,7 @@ struct BreezeAIApp: App {
             Button("Open BreezeAI") {
                 let systemWideElement = AXUIElementCreateSystemWide()
                 var focusedElement : AnyObject?
-
+                
                 let error = AXUIElementCopyAttributeValue(systemWideElement, kAXFocusedUIElementAttribute as CFString, &focusedElement)
                 if (error != .success){
                     print("Couldn't get the focused element. Probably a webkit application")
@@ -86,7 +84,7 @@ struct BreezeAIApp: App {
                 NSApp.windows.first?.orderFrontRegardless()
                 appState.router = .contentView
             }
-            Button("Setting") {
+            Button("Settings") {
                 appState.router = .settingsView
             }
             
@@ -108,8 +106,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         window.standardWindowButton(.zoomButton)?.isHidden = true
         window.standardWindowButton(.miniaturizeButton)?.isHidden = true
         window.standardWindowButton(.closeButton)?.isHidden = true
-        
+        window.isReleasedWhenClosed = false
+        window.delegate = self
     }
     
+}
+
+extension AppDelegate: NSWindowDelegate {
+    func windowShouldClose(_ sender: NSWindow) -> Bool {
+        NSApp.hide(nil)
+        return false
+    }
 }
 
