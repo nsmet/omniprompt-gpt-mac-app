@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		686D430A2A15FC2E0070C969 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 686D43092A15FC2E0070C969 /* HotKey */; };
+		686D430C2A1604B10070C969 /* AXUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D430B2A1604B10070C969 /* AXUIElement+Extension.swift */; };
 		68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */; };
 		68767BB62A0E17E300E6D3B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BB52A0E17E300E6D3B5 /* ContentView.swift */; };
 		68767BB82A0E17E600E6D3B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68767BB72A0E17E600E6D3B5 /* Assets.xcassets */; };
@@ -100,6 +101,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		686D430B2A1604B10070C969 /* AXUIElement+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AXUIElement+Extension.swift"; sourceTree = "<group>"; };
 		68767BB02A0E17E300E6D3B5 /* BreezeAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreezeAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAIApp.swift; sourceTree = "<group>"; };
 		68767BB52A0E17E300E6D3B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			children = (
 				68767C102A0E26F800E6D3B5 /* Colors+Extension.swift */,
 				68767C122A0E4C8100E6D3B5 /* TextView+Extension.swift */,
+				686D430B2A1604B10070C969 /* AXUIElement+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				68767C0F2A0E1F2E00E6D3B5 /* ContentViewModel.swift in Sources */,
 				AA5863882A11015F0007FA10 /* AppState.swift in Sources */,
 				68767C132A0E4C8100E6D3B5 /* TextView+Extension.swift in Sources */,
+				686D430C2A1604B10070C969 /* AXUIElement+Extension.swift in Sources */,
 				68767C112A0E26F800E6D3B5 /* Colors+Extension.swift in Sources */,
 				68767C332A0E6E6000E6D3B5 /* SettingViewModel.swift in Sources */,
 			);
@@ -816,7 +820,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BreezeAI/Info.plist;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -845,7 +849,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BreezeAI/Info.plist;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

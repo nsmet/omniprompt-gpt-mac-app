@@ -18,6 +18,8 @@ struct BreezeAIApp: App {
     
     let hotKey = HotKey(key: .b, modifiers: [.command, .shift], keyDownHandler: {
         NSApplication.shared.activate(ignoringOtherApps: true)
+        print("Pasted: \(AXUIElement.focusedElement?.selectedText)")
+//        print(getSelectedText())
         NSApp.windows.first?.orderFrontRegardless()
         
     })

@@ -131,6 +131,7 @@ extension ContentView {
                 .placeholder(when: contentVM.textEditor.isEmpty) {
                     Text("Paste text, start typing or let us generate text").foregroundColor(Color.placeholder)
                         .font(.custom("Inter-Regular", size: 14))
+                        .padding(.leading, 5)
                 }
                 .padding(.leading, 5)
                 .padding(.top, 10)
