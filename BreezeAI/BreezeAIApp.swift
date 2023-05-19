@@ -61,7 +61,9 @@ struct BreezeAIApp: App {
             }
         }
         
-        MenuBarExtra("", systemImage: "checkerboard.rectangle") {
+    
+        
+        MenuBarExtra("", image: "topBarIcon") {
             Button("Open BreezeAI") {
                 let systemWideElement = AXUIElementCreateSystemWide()
                 var focusedElement : AnyObject?
