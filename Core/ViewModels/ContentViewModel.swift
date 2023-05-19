@@ -13,9 +13,6 @@ public final class ContentViewModel: ObservableObject {
     @Published public var clipBoard = false
     @Published public var textEditor = ""
     @Published public var showLoadingAnimation = false
-    @Published public var showEnterBtn = false
-    @Published public var showBtns = false
-    
     
     public init() {
         

@@ -15,11 +15,10 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-//            BackgroundView()
             VStack{
                 HStack(spacing: 0){
                     textField
-                    if contentVM.showEnterBtn {
+                    if appState.selectedText != "" {
                         btnView
                     }
                 }
@@ -29,17 +28,18 @@ struct ContentView: View {
                 Spacer()
                 Divider()
                     .foregroundColor(.gray)
-                if contentVM.showBtns {
+                if appState.selectedText != "" {
                     copyToClipBoardBtn
                 }
             }
             if contentVM.showLoadingAnimation {
                 loadingView
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.black).opacity(0.8)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.black).opacity(0.8)
             }
         }
         .background(Color.backgroundColor)
+        
     }
     
 }
@@ -55,24 +55,17 @@ extension ContentView {
     var textField: some View {
         
         TextField("", text: $appState.selectedText)
-                .font(.custom("Roboto-Medium", size: 20))
-                .placeholder(when: appState.selectedText.isEmpty) {
-                    Text("What would you like to do?").foregroundColor(Color.placeholder)
-                        .font(.custom("Roboto-Medium", size: 20))
-                }
-                .textFieldStyle(PlainTextFieldStyle())
-                .foregroundColor(Color.inputText)
-                .padding(.leading, 16)
-                .onChange(of: appState.selectedText) { newValue in
-                    if newValue.isEmpty {
-                        self.contentVM.showEnterBtn = false
-                    } else {
-                        self.contentVM.showEnterBtn = true
-                    }
-                    
-                }
-
+            .font(.custom("Roboto-Medium", size: 20))
+            .placeholder(when: appState.selectedText.isEmpty) {
+                Text("What would you like to do?").foregroundColor(Color.placeholder)
+                    .font(.custom("Roboto-Medium", size: 20))
+            }
+            .textFieldStyle(PlainTextFieldStyle())
+            .foregroundColor(Color.inputText)
+            .padding(.leading, 16)
             
+        
+        
         
     }
     var btnView: some View {
@@ -138,14 +131,6 @@ extension ContentView {
                 .padding(.top, 10)
                 .background(Color.textEditorBackgroundColor)
                 .foregroundColor(Color.inputText)
-                .onChange(of: contentVM.textEditor) { newValue in
-                    if newValue.isEmpty {
-                        self.contentVM.showBtns = false
-                    } else {
-                        self.contentVM.showBtns = true
-                    }
-                    
-                }
         }
         .padding([.leading, .trailing], 10)
     }
@@ -153,7 +138,7 @@ extension ContentView {
     var loadingView: some View {
         VStack(spacing: -50) {
             QLImage("animation_300_lhabwwiy")
-            .frame(width: 200, height: 200, alignment: .center)
+                .frame(width: 200, height: 200, alignment: .center)
             Text("Loading some AI magic...")
                 .foregroundColor(.white)
                 .font(.custom("Roboto-Bold", size: 14))
