@@ -83,15 +83,15 @@ extension ContentView {
                     pasteboard.declareTypes([.string], owner: nil)
                     pasteboard.setString("Recipe text from Instgram", forType: .string)
                     Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
-                        withAnimation(.easeInOut(duration: 3)) {
-                            self.contentVM.showLoadingAnimation.toggle()
-                        }
+                        self.contentVM.showLoadingAnimation.toggle()
                     }
                 }
             } label: {
                 Text("Replace selected text")
                     .font(.custom("Roboto-Medium", size: 12))
-                    .padding(5)
+                    .padding([.leading, .trailing], 16)
+                    .padding(.top, 2)
+                    .padding([.top, .bottom], 8)
                     .background(Color.buttonColor)
                     .foregroundColor(Color.inputText)
             }
@@ -106,7 +106,9 @@ extension ContentView {
             } label: {
                 Text("Copy to clipboard")
                     .font(.custom("Roboto-Medium", size: 12))
-                    .padding(5)
+                    .padding([.leading, .trailing], 16)
+                    .padding(.top, 2)
+                    .padding([.top, .bottom], 8)
                     .background(Color.buttonColor)
                     .foregroundColor(Color.inputText)
             }
