@@ -13,7 +13,6 @@ struct SettingView: View {
     @State var selected =  "gpt-3.5-turbo"
     var body: some View {
         ZStack{
-            BackgroundView()
             VStack{
                 generalButton
                 Divider()
@@ -23,6 +22,7 @@ struct SettingView: View {
                 Spacer()
             }
         }
+        .background(Color.backgroundColor)
     }
 }
 
