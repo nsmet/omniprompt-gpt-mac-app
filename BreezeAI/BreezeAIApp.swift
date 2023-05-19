@@ -14,12 +14,31 @@ struct BreezeAIApp: App {
     
     @Environment(\.openWindow) var settingWindow
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
-    @ObservedObject var appState = AppState()
+    @StateObject var appState = AppState.shared
+    @Environment(\.scenePhase) var scenePhase
+    
+    
     
     let hotKey = HotKey(key: .b, modifiers: [.command, .shift], keyDownHandler: {
+        let systemWideElement = AXUIElementCreateSystemWide()
+        var focusedElement : AnyObject?
+
+        let error = AXUIElementCopyAttributeValue(systemWideElement, kAXFocusedUIElementAttribute as CFString, &focusedElement)
+        if (error != .success){
+            print("Couldn't get the focused element. Probably a webkit application")
+        } else {
+            var selectedRangeValue : AnyObject?
+            let selectedRangeError = AXUIElementCopyAttributeValue(focusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, &selectedRangeValue)
+            if (selectedRangeError == .success){
+                
+                if let text = AXUIElement.focusedElement?.selectedText {
+                    AppState.shared.selectedText = text
+                    print(AppState.shared.selectedText)
+                }
+                
+            }
+        }
         NSApplication.shared.activate(ignoringOtherApps: true)
-        print("Pasted: \(AXUIElement.focusedElement?.selectedText)")
-//        print(getSelectedText())
         NSApp.windows.first?.orderFrontRegardless()
         
     })
@@ -34,10 +53,37 @@ struct BreezeAIApp: App {
                 ContentView(contentVM: .init())
             }
         }
-        
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                
+            } else if newPhase == .inactive {
+                print("Inactive")
+            } else if newPhase == .background {
+                print("Background")
+            }
+        }
         
         MenuBarExtra("", systemImage: "checkerboard.rectangle") {
             Button("Open BreezeAI") {
+                let systemWideElement = AXUIElementCreateSystemWide()
+                var focusedElement : AnyObject?
+
+                let error = AXUIElementCopyAttributeValue(systemWideElement, kAXFocusedUIElementAttribute as CFString, &focusedElement)
+                if (error != .success){
+                    print("Couldn't get the focused element. Probably a webkit application")
+                } else {
+                    var selectedRangeValue : AnyObject?
+                    let selectedRangeError = AXUIElementCopyAttributeValue(focusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, &selectedRangeValue)
+                    if (selectedRangeError == .success){
+                        
+                        if let text = AXUIElement.focusedElement?.selectedText {
+                            AppState.shared.selectedText = text
+                        }
+                        
+                    }
+                }
+                NSApplication.shared.activate(ignoringOtherApps: true)
+                NSApp.windows.first?.orderFrontRegardless()
                 appState.router = .contentView
             }
             Button("Setting") {
@@ -52,6 +98,8 @@ struct BreezeAIApp: App {
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
+    
+    let pasteBoard = NSPasteboard.general
     
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
         guard let window = NSApplication.shared.windows.first else { assertionFailure(); return }

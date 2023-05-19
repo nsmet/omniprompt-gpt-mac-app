@@ -10,7 +10,6 @@ import Combine
 
 public final class ContentViewModel: ObservableObject {
 
-    @Published public var searchBar = ""
     @Published public var clipBoard = false
     @Published public var textEditor = ""
     @Published public var showLoadingAnimation = false

@@ -11,6 +11,7 @@ import Core
 struct ContentView: View {
     
     @ObservedObject var contentVM: ContentViewModel
+    @ObservedObject var appState = AppState.shared
     
     var body: some View {
         ZStack {
@@ -53,16 +54,16 @@ extension ContentView {
     
     var textField: some View {
         
-            TextField("", text: $contentVM.searchBar)
+        TextField("", text: $appState.selectedText)
                 .font(.custom("Roboto-Medium", size: 20))
-                .placeholder(when: contentVM.searchBar.isEmpty) {
+                .placeholder(when: appState.selectedText.isEmpty) {
                     Text("What would you like to do?").foregroundColor(Color.placeholder)
                         .font(.custom("Roboto-Medium", size: 20))
                 }
                 .textFieldStyle(PlainTextFieldStyle())
                 .foregroundColor(Color.inputText)
                 .padding(.leading, 16)
-                .onChange(of: contentVM.searchBar) { newValue in
+                .onChange(of: appState.selectedText) { newValue in
                     if newValue.isEmpty {
                         self.contentVM.showEnterBtn = false
                     } else {
