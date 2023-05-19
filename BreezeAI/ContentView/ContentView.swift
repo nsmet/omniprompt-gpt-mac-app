@@ -130,8 +130,8 @@ extension ContentView {
                         .font(.custom("Inter-Regular", size: 14))
                         .padding(.leading, 5)
                 }
-                .padding(.leading, 5)
-                .padding(.top, 10)
+                .padding([.leading, .trailing], 13)
+                .padding([.top, .bottom], 13)
                 .background(Color.textEditorBackgroundColor)
                 .foregroundColor(Color.inputText)
         }
