@@ -87,6 +87,8 @@ struct BreezeAIApp: App {
                 appState.router = .contentView
             }
             Button("Settings") {
+                NSApplication.shared.activate(ignoringOtherApps: true)
+                NSApp.windows.first?.orderFrontRegardless()
                 appState.router = .settingsView
             }
             
