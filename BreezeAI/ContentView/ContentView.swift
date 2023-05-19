@@ -28,9 +28,8 @@ struct ContentView: View {
                 Spacer()
                 Divider()
                     .foregroundColor(.gray)
-                if appState.selectedText != "" {
-                    copyToClipBoardBtn
-                }
+                bottomBar
+                
             }
             if contentVM.showLoadingAnimation {
                 loadingView
@@ -73,7 +72,7 @@ extension ContentView {
             .padding(.trailing, 16)
     }
     
-    var copyToClipBoardBtn: some View {
+    var bottomBar: some View {
         HStack(spacing: 10){
             Spacer()
             Button{
@@ -98,6 +97,7 @@ extension ContentView {
             .buttonStyle(.borderless)
             .cornerRadius(5)
             .padding(.bottom, 10)
+            .opacity(appState.selectedText == "" ? 0 : 1)
             
             Button{
                 let pasteboard = NSPasteboard.general
@@ -116,6 +116,7 @@ extension ContentView {
             .cornerRadius(5)
             .padding(.trailing, 15)
             .padding(.bottom, 10)
+            .opacity(appState.selectedText == "" ? 0 : 1)
             
             
         }
