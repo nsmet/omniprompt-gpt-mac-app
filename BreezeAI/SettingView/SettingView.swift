@@ -61,11 +61,12 @@ extension SettingView {
         HStack{
             Text("Desired OpenAI Model")
                 .foregroundColor(Color.inputText)
-            Picker("", selection: $selected) {
-                ForEach(settingVM.openAPIModel, id:\.self ) { i in
-                        Text(i)
-                    }
+            
+            Picker(selection: $settingVM.openAPIModel, label: Text("")) {
+                ForEach(settingVM.openAPIModels, id: \.self) { api in
+                    Text(api)
                 }
+            }
         }
         .padding([.leading, .trailing], 40)
     }

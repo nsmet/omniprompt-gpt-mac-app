@@ -257,11 +257,7 @@
 		68767BE92A0E1C0900E6D3B5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				68767C092A0E1C8400E6D3B5 /* Constants */,
 				68767C082A0E1C7D00E6D3B5 /* Extensions */,
-				68767C072A0E1C7600E6D3B5 /* Models */,
-				68767C062A0E1C6000E6D3B5 /* Protocols */,
-				68767C052A0E1C5A00E6D3B5 /* Services */,
 				68767C042A0E1C4500E6D3B5 /* ViewModels */,
 				68767BEA2A0E1C0900E6D3B5 /* Core.h */,
 			);
@@ -286,27 +282,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		68767C052A0E1C5A00E6D3B5 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		68767C062A0E1C6000E6D3B5 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		68767C072A0E1C7600E6D3B5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		68767C082A0E1C7D00E6D3B5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,13 +290,6 @@
 				686D430B2A1604B10070C969 /* AXUIElement+Extension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		68767C092A0E1C8400E6D3B5 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 		68767C0A2A0E1DD900E6D3B5 /* ContentView */ = {

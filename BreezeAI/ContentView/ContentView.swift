@@ -80,7 +80,7 @@ extension ContentView {
                     contentVM.showLoadingAnimation.toggle()
                     let pasteboard = NSPasteboard.general
                     pasteboard.declareTypes([.string], owner: nil)
-                    pasteboard.setString("Recipe text from Instgram", forType: .string)
+                    pasteboard.setString("", forType: .string)
                     Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
                         self.contentVM.showLoadingAnimation.toggle()
                     }
