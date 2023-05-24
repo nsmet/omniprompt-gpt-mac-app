@@ -22,6 +22,7 @@ public final class AppState: ObservableObject {
     @Published public var router: AppRouting = .none
     @Published public var isConnectedToInternet: Bool = false
     @Published public var selectedText: String = ""
+    @Published public var shouldPerformCommand: Bool = false
     
     public init () {
         let monitor = NWPathMonitor()

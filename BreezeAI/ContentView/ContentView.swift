@@ -38,6 +38,13 @@ struct ContentView: View {
             }
         }
         .background(Color.backgroundColor)
+        .onChange(of: appState.shouldPerformCommand) { newValue in
+            if newValue {
+                print(appState.selectedText)
+                appState.shouldPerformCommand = false
+            }
+        }
+        
         
     }
     

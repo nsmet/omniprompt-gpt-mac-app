@@ -8,6 +8,7 @@
 import SwiftUI
 import Core
 import HotKey
+import Foundation
 
 @main
 struct BreezeAIApp: App {
@@ -30,6 +31,7 @@ struct BreezeAIApp: App {
                 
                 if let text = AXUIElement.focusedElement?.selectedText {
                     AppState.shared.selectedText = text
+                    AppState.shared.shouldPerformCommand = true
                     print(AppState.shared.selectedText)
                 }
                 
@@ -77,6 +79,7 @@ struct BreezeAIApp: App {
                     if (selectedRangeError == .success){
                         
                         if let text = AXUIElement.focusedElement?.selectedText {
+                            AppState.shared.shouldPerformCommand = true
                             AppState.shared.selectedText = text
                         }
                         
