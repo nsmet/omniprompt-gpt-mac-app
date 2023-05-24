@@ -19,6 +19,7 @@ struct SettingView: View {
                     .foregroundColor(.gray)
                 apiKeyTextField
                 openApiModelView
+                doneBTn
                 Spacer()
             }
         }
@@ -69,5 +70,22 @@ extension SettingView {
             }
         }
         .padding([.leading, .trailing], 40)
+    }
+    
+    var doneBTn: some View {
+        Button{
+            AppState.shared.router = .done
+        } label: {
+            Text("Done")
+                .font(.custom("Roboto-Medium", size: 12))
+                .padding([.leading, .trailing], 16)
+                .padding(.top, 2)
+                .padding([.top, .bottom], 8)
+                .background(Color.buttonColor)
+                .foregroundColor(Color.inputText)
+        }
+        .buttonStyle(.borderless)
+        .cornerRadius(5)
+        .padding(.top, 50)
     }
 }

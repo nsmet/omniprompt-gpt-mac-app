@@ -49,6 +49,8 @@ struct BreezeAIApp: App {
             switch appState.router {
             case .settingsView:
                 SettingView(settingVM: .init())
+            case .done:
+                ContentView(contentVM: .init())
             default:
                 ContentView(contentVM: .init())
             }

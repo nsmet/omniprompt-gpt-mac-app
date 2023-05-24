@@ -13,6 +13,7 @@ import Network
 public enum AppRouting: String {
     case contentView // Show ContentView
     case settingsView // Show SettingsView
+    case done
     case none
 }
 
