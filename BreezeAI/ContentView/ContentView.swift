@@ -36,14 +36,14 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.black).opacity(0.8)
             }
-        }
-        .background(Color.backgroundColor)
-        .onChange(of: appState.shouldPerformCommand) { newValue in
-            if newValue {
-                print(appState.selectedText)
-                appState.shouldPerformCommand = false
+            if contentVM.showErrorView {
+                errorView
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.black).opacity(0.8)
+                
             }
         }
+        .background(Color.backgroundColor)
         
         
     }
@@ -77,6 +77,9 @@ extension ContentView {
     var btnView: some View {
         Image("enterBtn")
             .padding(.trailing, 16)
+            .onTapGesture {
+                contentVM.callApiChatGpt(inputText: appState.selectedText)
+            }
     }
     
     var bottomBar: some View {
@@ -169,7 +172,7 @@ extension ContentView {
                 .font(.custom("Roboto-Bold", size: 16))
                 .padding(.top, 20)
             Button{
-                
+                AppState.shared.router = .done
             } label: {
                 Text("Ok, I'll check")
                     .font(.custom("Roboto-Medium", size: 12))

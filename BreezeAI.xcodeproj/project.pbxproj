@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		680C44882A1F7D310059120F /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 680C44872A1F7D310059120F /* OpenAI */; };
 		686D430A2A15FC2E0070C969 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 686D43092A15FC2E0070C969 /* HotKey */; };
 		686D430C2A1604B10070C969 /* AXUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D430B2A1604B10070C969 /* AXUIElement+Extension.swift */; };
 		68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */; };
@@ -42,7 +43,6 @@
 		68767C312A0E5ADC00E6D3B5 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767C302A0E5ADC00E6D3B5 /* SettingView.swift */; };
 		68767C332A0E6E6000E6D3B5 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767C322A0E6E6000E6D3B5 /* SettingViewModel.swift */; };
 		68A70E0E2A1C97800004F756 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A70E0D2A1C97800004F756 /* Enums.swift */; };
-		68AF4C472A1BA46C0096E558 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 68AF4C462A1BA46C0096E558 /* OpenAI */; };
 		68DADFD42A14E6F900835173 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68DADFD32A14E6F900835173 /* Inter-Regular.ttf */; };
 		68DADFD62A14E89900835173 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68DADFD52A14E89900835173 /* Inter-Light.ttf */; };
 		68DADFD82A14F58800835173 /* GifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DADFD72A14F58800835173 /* GifImageView.swift */; };
@@ -176,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68AF4C472A1BA46C0096E558 /* OpenAI in Frameworks */,
+				680C44882A1F7D310059120F /* OpenAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +455,7 @@
 			);
 			name = Core;
 			packageProductDependencies = (
-				68AF4C462A1BA46C0096E558 /* OpenAI */,
+				680C44872A1F7D310059120F /* OpenAI */,
 			);
 			productName = Core;
 			productReference = 68767BE82A0E1C0900E6D3B5 /* Core.framework */;
@@ -522,7 +522,7 @@
 			mainGroup = 68767BA72A0E17E300E6D3B5;
 			packageReferences = (
 				686D43082A15FC2E0070C969 /* XCRemoteSwiftPackageReference "HotKey" */,
-				68AF4C452A1BA46C0096E558 /* XCRemoteSwiftPackageReference "OpenAI" */,
+				680C44862A1F7D310059120F /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			productRefGroup = 68767BB12A0E17E300E6D3B5 /* Products */;
 			projectDirPath = "";
@@ -1083,6 +1083,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		680C44862A1F7D310059120F /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
 		686D43082A15FC2E0070C969 /* XCRemoteSwiftPackageReference "HotKey" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/soffes/HotKey";
@@ -1091,26 +1099,18 @@
 				kind = branch;
 			};
 		};
-		68AF4C452A1BA46C0096E558 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		680C44872A1F7D310059120F /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 680C44862A1F7D310059120F /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
 		686D43092A15FC2E0070C969 /* HotKey */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 686D43082A15FC2E0070C969 /* XCRemoteSwiftPackageReference "HotKey" */;
 			productName = HotKey;
-		};
-		68AF4C462A1BA46C0096E558 /* OpenAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 68AF4C452A1BA46C0096E558 /* XCRemoteSwiftPackageReference "OpenAI" */;
-			productName = OpenAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 
