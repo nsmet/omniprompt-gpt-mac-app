@@ -69,6 +69,7 @@ extension ContentView {
             .textFieldStyle(PlainTextFieldStyle())
             .foregroundColor(Color.inputText)
             .padding(.leading, 16)
+            .padding(.bottom, 10)
             
         
         
@@ -77,6 +78,7 @@ extension ContentView {
     var btnView: some View {
         Image("enterBtn")
             .padding(.trailing, 16)
+            .padding(.bottom, 10)
             .onTapGesture {
                 contentVM.callApiChatGpt(inputText: appState.selectedText)
             }
