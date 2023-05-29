@@ -13,6 +13,7 @@ struct ContentView: View {
     @ObservedObject var contentVM: ContentViewModel
     @ObservedObject var appState = AppState.shared
     
+    
     var body: some View {
         ZStack {
             VStack{
@@ -59,18 +60,28 @@ struct ContentView_Previews: PreviewProvider {
 extension ContentView {
     
     var textField: some View {
-        
-        TextField("", text: $appState.selectedText)
-            .font(.custom("Roboto-Medium", size: 20))
-            .placeholder(when: appState.selectedText.isEmpty) {
-                Text("What would you like to do?").foregroundColor(Color.placeholder)
+        ZStack{
+            HStack{
+                Text("What would you like to do?")
                     .font(.custom("Roboto-Medium", size: 20))
+                    .foregroundColor(Color.placeholder)
+                    .opacity(appState.selectedText == "" ? 1 : 0)
+                    .padding(.leading, 16)
+                    .padding(.bottom, 10)
+                Spacer()
             }
-            .textFieldStyle(PlainTextFieldStyle())
-            .foregroundColor(Color.inputText)
-            .padding(.leading, 16)
-            .padding(.bottom, 10)
+            TextField("", text: $appState.selectedText)
+                .font(.custom("Roboto-Medium", size: 20))
+            //            .placeholder(when: appState.selectedText.isEmpty) {
+            //                Text("What would you like to do?").foregroundColor(Color.placeholder)
+            //                    .font(.custom("Roboto-Medium", size: 20))
+            //            }
+                .textFieldStyle(PlainTextFieldStyle())
+                .foregroundColor(Color.inputText)
+                .padding(.leading, 16)
+                .padding(.bottom, 10)
             
+        }
         
         
         
@@ -137,17 +148,18 @@ extension ContentView {
         VStack{
             TextEditor(text: $contentVM.textEditor)
                 .font(.custom("Roboto-Medium", size: 14))
-                .placeholder(when: contentVM.textEditor.isEmpty) {
-                    Text("Paste text, start typing or let us generate text").foregroundColor(Color.placeholder)
-                        .font(.custom("Roboto-Medium", size: 14))
-                        .padding(.leading, 5)
-                }
+//                .placeholder(when: contentVM.textEditor.isEmpty) {
+//                    Text("Paste text, start typing or let us generate text").foregroundColor(Color.placeholder)
+//                        .font(.custom("Roboto-Medium", size: 14))
+//                        .padding(.leading, 5)
+//                }
                 .padding([.leading, .trailing], 13)
                 .padding([.top, .bottom], 13)
                 .background(Color.textEditorBackgroundColor)
                 .foregroundColor(Color.inputText)
         }
         .padding([.leading, .trailing], 10)
+        .padding([.top, .bottom], 5)
     }
     
     var loadingView: some View {

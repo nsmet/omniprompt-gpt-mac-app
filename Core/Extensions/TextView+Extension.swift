@@ -14,6 +14,8 @@ extension NSTextView {
     didSet {
       backgroundColor = .clear
       drawsBackground = true
+//        textContainerInset = NSSize(width: 0, height: 5)
+//        textContainer?.lineFragmentPadding = 5
     }
   }
 }
