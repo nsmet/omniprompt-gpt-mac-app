@@ -70,7 +70,7 @@ extension ContentView {
                     .padding(.bottom, 10)
                 Spacer()
             }
-            TextField("", text: $appState.selectedText)
+            TextField("", text: $appState.selectedText, axis: .vertical)
                 .font(.custom("Roboto-Medium", size: 20))
             //            .placeholder(when: appState.selectedText.isEmpty) {
             //                Text("What would you like to do?").foregroundColor(Color.placeholder)

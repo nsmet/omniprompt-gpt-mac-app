@@ -10,6 +10,7 @@ import Core
 
 struct SettingView: View {
     @ObservedObject var settingVM: SettingViewModel
+    @ObservedObject var appState = AppState.shared
     @State var selected =  "gpt-3.5-turbo"
     var body: some View {
         ZStack{
@@ -47,7 +48,7 @@ extension SettingView {
         HStack{
             Text("OpenAI API key")
                 .foregroundColor(Color.inputText)
-            SecureField("", text: $settingVM.apiKeyTF)
+            SecureField("", text: $appState.apiKeyTF)
                 .accentColor(Color.inputText)
                 .foregroundColor(Color.inputText)
                 .textFieldStyle(PlainTextFieldStyle())
@@ -63,8 +64,8 @@ extension SettingView {
             Text("Desired OpenAI Model")
                 .foregroundColor(Color.inputText)
             
-            Picker(selection: $settingVM.openAPIModel, label: Text("")) {
-                ForEach(settingVM.openAPIModels, id: \.self) { api in
+            Picker(selection: $appState.openAPIModel, label: Text("")) {
+                ForEach(appState.openAPIModels, id: \.self) { api in
                     Text(api)
                 }
             }

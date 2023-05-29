@@ -22,22 +22,22 @@ public final class ContentViewModel: ObservableObject {
     @Published var showAlert = false
     var chatMessages: [Chat] = []
     var openAI: OpenAI!
+    @StateObject var appState = AppState.shared
     
     public init() {
         chatMessages.append(Chat(role: .system, content: "You are a helpful assistant."))
     }
     public func callApiChatGpt(inputText: String) {
         self.showLoadingAnimation = true
-        if let key = UserDefaults.standard.object(forKey: "apiKey") as? String {
+        if let key = UserDefaults.standard.object(forKey: "apiKey") as? String, key != "" {
             self.openAI = OpenAI(apiToken: key)
         } else {
             self.showErrorView = true
             return
         }
         chatMessages.append(Chat(role: .user, content: inputText))
-        
-        
-        let query = ChatQuery(model: .gpt3_5Turbo, messages: chatMessages)
+        guard let model = UserDefaults.standard.object(forKey: "openAPIModel") as? String else { return }
+        let query = ChatQuery(model: model, messages: chatMessages)
         self.openAI.chats(query: query) { result in
             DispatchQueue.main.async {
                 self.showLoadingAnimation = false
