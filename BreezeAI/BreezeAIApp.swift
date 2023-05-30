@@ -37,7 +37,8 @@ struct BreezeAIApp: App {
                 
             }
         }
-//        NSApplication.shared.activate(ignoringOtherApps: true)
+        
+        NSApplication.shared.unhide(nil)
 //        NSApp.windows.first?.orderFrontRegardless()
         
         
