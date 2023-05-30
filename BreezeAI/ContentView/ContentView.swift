@@ -10,7 +10,7 @@ import Core
 
 struct ContentView: View {
     
-    @ObservedObject var contentVM: ContentViewModel
+    @StateObject var contentVM: ContentViewModel
     @ObservedObject var appState = AppState.shared
     
     
@@ -80,6 +80,17 @@ extension ContentView {
                 .foregroundColor(Color.inputText)
                 .padding(.leading, 16)
                 .padding(.bottom, 10)
+                .onSubmit {
+                    contentVM.callApiChatGpt(inputText: appState.selectedText)
+                }
+//                .onChange(of: appState.selectedText) { newValue in
+//                    if newValue == "'\n'" {
+//                        contentVM.callApiChatGpt(inputText: appState.selectedText)
+//                    } else {
+//
+//                    }
+//                }
+                .keyboardShortcut(.defaultAction)
             
         }
         
