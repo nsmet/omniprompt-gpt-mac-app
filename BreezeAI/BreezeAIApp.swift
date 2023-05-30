@@ -37,8 +37,8 @@ struct BreezeAIApp: App {
                 
             }
         }
-        NSApplication.shared.activate(ignoringOtherApps: true)
-        NSApp.windows.first?.orderFrontRegardless()
+//        NSApplication.shared.activate(ignoringOtherApps: true)
+//        NSApp.windows.first?.orderFrontRegardless()
         
         
     })
@@ -117,6 +117,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         window.standardWindowButton(.closeButton)?.isHidden = true
         window.isReleasedWhenClosed = false
         window.delegate = self
+    }
+    
+    func applicationDidResignActive(_ notification: Notification) {
+        NSApplication.shared.hide(nil)
     }
     
 }
