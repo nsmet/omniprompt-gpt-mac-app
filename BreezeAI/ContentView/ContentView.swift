@@ -83,13 +83,6 @@ extension ContentView {
                 .onSubmit {
                     contentVM.callApiChatGpt(inputText: appState.selectedText)
                 }
-//                .onChange(of: appState.selectedText) { newValue in
-//                    if newValue == "'\n'" {
-//                        contentVM.callApiChatGpt(inputText: appState.selectedText)
-//                    } else {
-//
-//                    }
-//                }
                 .keyboardShortcut(.defaultAction)
             
         }
