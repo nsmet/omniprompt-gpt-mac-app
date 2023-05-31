@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		680C44882A1F7D310059120F /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 680C44872A1F7D310059120F /* OpenAI */; };
+		683DCE902A272B9000841094 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683DCE8F2A272B9000841094 /* ButtonStyle.swift */; };
 		686D430A2A15FC2E0070C969 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 686D43092A15FC2E0070C969 /* HotKey */; };
 		686D430C2A1604B10070C969 /* AXUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D430B2A1604B10070C969 /* AXUIElement+Extension.swift */; };
 		68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */; };
@@ -103,6 +104,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		683DCE8F2A272B9000841094 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		686D430B2A1604B10070C969 /* AXUIElement+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AXUIElement+Extension.swift"; sourceTree = "<group>"; };
 		68767BB02A0E17E300E6D3B5 /* BreezeAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreezeAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAIApp.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				68DADFD92A14F78300835173 /* animation_300_lhabwwiy.gif */,
 				68767C0C2A0E1E1A00E6D3B5 /* BackgroundView.swift */,
 				68DADFD72A14F58800835173 /* GifImageView.swift */,
+				683DCE8F2A272B9000841094 /* ButtonStyle.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68767C0D2A0E1E1A00E6D3B5 /* BackgroundView.swift in Sources */,
+				683DCE902A272B9000841094 /* ButtonStyle.swift in Sources */,
 				68767BC02A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld in Sources */,
 				68767BBD2A0E17E600E6D3B5 /* Persistence.swift in Sources */,
 				68767C312A0E5ADC00E6D3B5 /* SettingView.swift in Sources */,

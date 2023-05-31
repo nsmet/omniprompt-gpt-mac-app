@@ -93,7 +93,7 @@ extension ContentView {
     var btnView: some View {
         Image("enterBtn")
             .padding(.trailing, 16)
-            .padding(.bottom, 10)
+            .padding(.top, 20)
             .onTapGesture {
                 contentVM.callApiChatGpt(inputText: appState.selectedText)
             }
@@ -115,13 +115,8 @@ extension ContentView {
             } label: {
                 Text("Replace selected text")
                     .font(.custom("Roboto-Medium", size: 12))
-                    .padding([.leading, .trailing], 16)
-                    .padding(.top, 2)
-                    .padding([.top, .bottom], 8)
-                    .background(Color.buttonColor)
-                    .foregroundColor(Color.inputText)
             }
-            .buttonStyle(.borderless)
+            .buttonStyle(GradientButtonStyle())
             .cornerRadius(5)
             .padding(.bottom, 10)
             .opacity(appState.selectedText == "" ? 0 : 1)
@@ -133,14 +128,8 @@ extension ContentView {
             } label: {
                 Text("Copy to clipboard")
                     .font(.custom("Roboto-Medium", size: 12))
-                    .padding([.leading, .trailing], 16)
-                    .padding(.top, 2)
-                    .padding([.top, .bottom], 8)
-                    .background(Color.buttonColor)
-                    .foregroundColor(Color.inputText)
             }
-            .buttonStyle(.borderless)
-            .cornerRadius(5)
+            .buttonStyle(GradientButtonStyle())
             .padding(.trailing, 15)
             .padding(.bottom, 10)
             .opacity(appState.selectedText == "" ? 0 : 1)
