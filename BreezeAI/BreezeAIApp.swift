@@ -45,7 +45,7 @@ struct BreezeAIApp: App {
     })
     
     var body: some Scene {
-//        let _ = NSApplication.shared.setActivationPolicy(.accessory)
+        let _ = NSApplication.shared.setActivationPolicy(.accessory)
         WindowGroup{
             switch appState.router {
             case .settingsView:

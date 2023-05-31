@@ -33,6 +33,7 @@ public final class ContentViewModel: ObservableObject {
             self.openAI = OpenAI(apiToken: key)
         } else {
             self.showErrorView = true
+            showLoadingAnimation = false
             return
         }
         chatMessages.append(Chat(role: .user, content: inputText))

@@ -179,15 +179,12 @@ extension ContentView {
                 .font(.custom("Roboto-Bold", size: 16))
                 .padding(.top, 20)
             Button{
-                AppState.shared.router = .done
+                contentVM.showErrorView = false
             } label: {
                 Text("Ok, I'll check")
                     .font(.custom("Roboto-Medium", size: 12))
-                    .padding(5)
-                    .background(Color.buttonColor)
-                    .foregroundColor(Color.white)
             }
-            .buttonStyle(.borderless)
+            .buttonStyle(GradientButtonStyle())
             .cornerRadius(5)
             .padding(.trailing, 15)
             .padding(.bottom, 10)
