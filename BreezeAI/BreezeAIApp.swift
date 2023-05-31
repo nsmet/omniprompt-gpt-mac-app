@@ -28,13 +28,16 @@ struct BreezeAIApp: App {
             var selectedRangeValue : AnyObject?
             let selectedRangeError = AXUIElementCopyAttributeValue(focusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, &selectedRangeValue)
             if (selectedRangeError == .success){
-                
                 if let text = AXUIElement.focusedElement?.selectedText {
                     AppState.shared.selectedText = text
                     AppState.shared.shouldPerformCommand = true
                     print(AppState.shared.selectedText)
                 }
-                
+
+                    if let pastBoard = NSPasteboard.general.string(forType: .string) {
+                        AppState.shared.copiedText = pastBoard
+                    }
+
             }
         }
 //        NSRunningApplication.current.activate(options: [.activateIgnoringOtherApps, .activateAllWindows])

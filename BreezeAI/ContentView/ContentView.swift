@@ -43,9 +43,14 @@ struct ContentView: View {
                     .background(Color.black).opacity(0.8)
                 
             }
+            
         }
         .background(Color.backgroundColor)
-        
+//        .onAppear {
+//            if let pastBoard = NSPasteboard.general.string(forType: .string) {
+//                contentVM.copiedText = pastBoard
+//            }
+//        }
         
     }
     
@@ -104,13 +109,11 @@ extension ContentView {
             Spacer()
             Button{
                 withAnimation(.easeIn) {
-                    contentVM.showLoadingAnimation.toggle()
+                    appState.selectedText =  AppState.shared.copiedText
                     let pasteboard = NSPasteboard.general
                     pasteboard.declareTypes([.string], owner: nil)
                     pasteboard.setString("", forType: .string)
-                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
-                        self.contentVM.showLoadingAnimation.toggle()
-                    }
+                
                 }
             } label: {
                 Text("Replace selected text")
@@ -119,7 +122,7 @@ extension ContentView {
             .buttonStyle(GradientButtonStyle())
             .cornerRadius(5)
             .padding(.bottom, 10)
-            .opacity(appState.selectedText == "" ? 0 : 1)
+            .opacity(AppState.shared.copiedText == "" ? 0 : 1)
             
             Button{
                 let pasteboard = NSPasteboard.general
@@ -132,7 +135,7 @@ extension ContentView {
             .buttonStyle(GradientButtonStyle())
             .padding(.trailing, 15)
             .padding(.bottom, 10)
-            .opacity(appState.selectedText == "" ? 0 : 1)
+            .opacity(contentVM.textEditor == "" ? 0 : 1)
             
             
         }

@@ -24,6 +24,7 @@ public final class AppState: ObservableObject {
     @Published public var isConnectedToInternet: Bool = false
     @Published public var selectedText: String = ""
     @Published public var shouldPerformCommand: Bool = false
+    @Published public var copiedText = ""
     
     @Published public var apiKeyTF: String {
         didSet {
