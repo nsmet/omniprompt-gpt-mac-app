@@ -18,31 +18,20 @@ struct BreezeAIApp: App {
     @Environment(\.scenePhase) var scenePhase
     
     let hotKey = HotKey(key: .b, modifiers: [.command, .shift], keyDownHandler: {
-        let systemWideElement = AXUIElementCreateSystemWide()
-        var focusedElement : AnyObject?
+        let event1 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: true); // cmd-c down
+        event1?.flags = CGEventFlags.maskCommand;
+        event1?.post(tap: CGEventTapLocation.cghidEventTap)
         
-        let error = AXUIElementCopyAttributeValue(systemWideElement, kAXFocusedUIElementAttribute as CFString, &focusedElement)
-        if (error != .success){
-            print("Couldn't get the focused element. Probably a webkit application")
-        } else {
-            var selectedRangeValue : AnyObject?
-            let selectedRangeError = AXUIElementCopyAttributeValue(focusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, &selectedRangeValue)
-            if (selectedRangeError == .success){
-                if let text = AXUIElement.focusedElement?.selectedText {
-                    AppState.shared.selectedText = text
-                    AppState.shared.shouldPerformCommand = true
-                    print(AppState.shared.selectedText)
-                }
-
-                    if let pastBoard = NSPasteboard.general.string(forType: .string) {
-                        AppState.shared.copiedText = pastBoard
-                    }
-
+        let event2 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: false); // cmd-c up
+        event2?.post(tap: CGEventTapLocation.cghidEventTap)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            if let pastBoard = NSPasteboard.general.string(forType: .string) {
+                AppState.shared.selectedText = pastBoard
             }
         }
-//        NSRunningApplication.current.activate(options: [.activateIgnoringOtherApps, .activateAllWindows])
         NSApp.activate(ignoringOtherApps: true)
-//        NSApplication.shared.unhide(nil)
+        //        NSApplication.shared.unhide(nil)
         NSApp.windows.first?.orderFrontRegardless()
         
         
@@ -70,26 +59,38 @@ struct BreezeAIApp: App {
             }
         }
         
-    
+        
         
         MenuBarExtra("", image: "menuBarIcon") {
             Button("Open BreezeAI") {
-                let systemWideElement = AXUIElementCreateSystemWide()
-                var focusedElement : AnyObject?
+//                let systemWideElement = AXUIElementCreateSystemWide()
+//                var focusedElement : AnyObject?
+//
+//                let error = AXUIElementCopyAttributeValue(systemWideElement, kAXFocusedUIElementAttribute as CFString, &focusedElement)
+//                if (error != .success){
+//                    print("Couldn't get the focused element. Probably a webkit application")
+//                } else {
+//                    var selectedRangeValue : AnyObject?
+//                    let selectedRangeError = AXUIElementCopyAttributeValue(focusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, &selectedRangeValue)
+//                    if (selectedRangeError == .success){
+//
+//                        if let text = AXUIElement.focusedElement?.selectedText {
+//                            AppState.shared.shouldPerformCommand = true
+//                            AppState.shared.selectedText = text
+//                        }
+//
+//                    }
+//                }
+                let event1 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: true); // cmd-c down
+                event1?.flags = CGEventFlags.maskCommand;
+                event1?.post(tap: CGEventTapLocation.cghidEventTap)
                 
-                let error = AXUIElementCopyAttributeValue(systemWideElement, kAXFocusedUIElementAttribute as CFString, &focusedElement)
-                if (error != .success){
-                    print("Couldn't get the focused element. Probably a webkit application")
-                } else {
-                    var selectedRangeValue : AnyObject?
-                    let selectedRangeError = AXUIElementCopyAttributeValue(focusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, &selectedRangeValue)
-                    if (selectedRangeError == .success){
-                        
-                        if let text = AXUIElement.focusedElement?.selectedText {
-                            AppState.shared.shouldPerformCommand = true
-                            AppState.shared.selectedText = text
-                        }
-                        
+                let event2 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: false); // cmd-c up
+                event2?.post(tap: CGEventTapLocation.cghidEventTap)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    if let pastBoard = NSPasteboard.general.string(forType: .string) {
+                        AppState.shared.selectedText = pastBoard
                     }
                 }
                 NSApplication.shared.activate(ignoringOtherApps: true)

@@ -7,6 +7,17 @@
 
 import SwiftUI
 import Core
+import CoreGraphics
+
+extension CGKeyCode
+{
+    // Define whatever key codes you want to detect here
+    static let kVK_UpArrow: CGKeyCode = 0x24
+
+    var isPressed: Bool {
+        CGEventSource.keyState(.combinedSessionState, key: self)
+    }
+}
 
 struct ContentView: View {
     
@@ -86,9 +97,13 @@ extension ContentView {
                 .padding(.leading, 16)
                 .padding(.bottom, 10)
                 .onSubmit {
-                    contentVM.callApiChatGpt(inputText: appState.selectedText)
+                    if CGKeyCode.kVK_UpArrow.isPressed {
+                        // Do something in response to the key press.
+                        contentVM.callApiChatGpt(inputText: appState.selectedText)
+                    }
+                    
                 }
-                .keyboardShortcut(.defaultAction)
+//                .keyboardShortcut(.defaultAction)
             
         }
         
