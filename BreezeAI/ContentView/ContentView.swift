@@ -115,6 +115,7 @@ extension ContentView {
                     pasteboard.setString("", forType: .string)
                 
                 }
+                NSApplication.shared.hide(nil)
             } label: {
                 Text("Replace selected text")
                     .font(.custom("Roboto-Medium", size: 12))
@@ -128,6 +129,7 @@ extension ContentView {
                 let pasteboard = NSPasteboard.general
                 pasteboard.clearContents()
                 pasteboard.setString(contentVM.textEditor, forType: .string)
+                NSApplication.shared.hide(nil)
             } label: {
                 Text("Copy to clipboard")
                     .font(.custom("Roboto-Medium", size: 12))
