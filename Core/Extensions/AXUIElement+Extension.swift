@@ -31,35 +31,3 @@ extension AXUIElement {
         return error == .success ? rawValue : nil
     }
 }
-//public func getSelectedText() -> String? {
-//    let systemWideElement = AXUIElementCreateSystemWide()
-//
-//    var selectedTextValue: AnyObject?
-//    let errorCode = AXUIElementCopyAttributeValue(systemWideElement, kAXFocusedUIElementAttribute as CFString, &selectedTextValue)
-//    
-//    if errorCode == .success {
-//        let selectedTextElement = selectedTextValue as! AXUIElement
-//        var selectedText: AnyObject?
-//        let textErrorCode = AXUIElementCopyAttributeValue(selectedTextElement, kAXSelectedTextAttribute as CFString, &selectedText)
-//        
-//        if textErrorCode == .success, let selectedTextString = selectedText as? String {
-//            return selectedTextString
-//        } else {
-//            return nil
-//        }
-//    } else {
-//        return nil
-//    }
-//}
-
-//extension AXUIElement {
-//    var selectedText: String? {
-//        rawValue(for: kAXSelectedTextAttribute) as? String
-//    }
-//
-//    func rawValue(for attribute: String) -> AnyObject? {
-//        var rawValue: AnyObject?
-//        let error = AXUIElementCopyAttributeValue(self, attribute as CFString, &rawValue)
-//        return error == .success ? rawValue : nil
-//    }
-//}

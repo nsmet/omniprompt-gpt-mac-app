@@ -109,7 +109,7 @@ extension ContentView {
             Spacer()
             Button{
                 withAnimation(.easeIn) {
-                    appState.selectedText =  AppState.shared.copiedText
+//                    appState.selectedText =  AppState.shared.copiedText
                     let pasteboard = NSPasteboard.general
                     pasteboard.declareTypes([.string], owner: nil)
                     pasteboard.setString("", forType: .string)
@@ -123,7 +123,8 @@ extension ContentView {
             .buttonStyle(GradientButtonStyle())
             .cornerRadius(5)
             .padding(.bottom, 10)
-            .opacity(AppState.shared.copiedText == "" ? 0 : 1)
+//            .opacity(AppState.shared.copiedText == "" ? 0 : 1)
+            .opacity(contentVM.textEditor == "" ? 0 : 1)
             
             Button{
                 let pasteboard = NSPasteboard.general
