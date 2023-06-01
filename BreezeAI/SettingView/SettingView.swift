@@ -38,7 +38,6 @@ extension SettingView {
         VStack{
             Image(systemName: "gearshape")
                 .foregroundColor(.white)
-                .padding(.top, 20)
             Text("General")
                 .foregroundColor(.white)
         }
