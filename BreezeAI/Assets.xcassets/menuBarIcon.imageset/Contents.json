@@ -1,15 +1,83 @@
 {
   "images" : [
     {
+      "filename" : "_5627575d-4cda-4eb5-95c4-02fb96cd1cbe-removebg%203 2.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
       "filename" : "Group%203.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "_5627575d-4cda-4eb5-95c4-02fb96cd1cbe-removebg%203 3.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "_5627575d-4cda-4eb5-95c4-02fb96cd1cbe-removebg%203.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "filename" : "Group%203 1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "_5627575d-4cda-4eb5-95c4-02fb96cd1cbe-removebg%203 4.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "_5627575d-4cda-4eb5-95c4-02fb96cd1cbe-removebg%203 1.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "filename" : "Group%203 2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "_5627575d-4cda-4eb5-95c4-02fb96cd1cbe-removebg%203 5.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
