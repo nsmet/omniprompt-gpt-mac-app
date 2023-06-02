@@ -32,8 +32,8 @@ public final class ContentViewModel: ObservableObject {
         if let key = UserDefaults.standard.object(forKey: "apiKey") as? String, key != "" {
             self.openAI = OpenAI(apiToken: key)
         } else {
-            self.showErrorView = true
             showLoadingAnimation = false
+            self.showErrorView = true
             return
         }
         chatMessages.append(Chat(role: .user, content: inputText))
@@ -54,6 +54,7 @@ public final class ContentViewModel: ObservableObject {
                             self.chatMessages.append(Chat(role: .assistant, content: res.choices.last!.message.content))
                         } else {
                             self.showLoadingAnimation = true
+                            self.showErrorView = true
                             self.reset()
                         }
 
@@ -63,7 +64,8 @@ public final class ContentViewModel: ObservableObject {
                 print("Chat Erro: \(err)")
                 DispatchQueue.main.async {
                     self.alertMessage = err.localizedDescription
-                    self.showLoadingAnimation = true
+                    self.showLoadingAnimation = false
+                    self.showErrorView = true
                     self.reset()
                 }
             }
