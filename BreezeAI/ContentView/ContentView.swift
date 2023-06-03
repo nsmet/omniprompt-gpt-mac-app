@@ -28,7 +28,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack{
-                HStack(spacing: 0){
+                HStack(alignment: .top){
                     textField
                     if appState.selectedText != "" {
                         btnView
@@ -43,11 +43,11 @@ struct ContentView: View {
                 bottomBar
                 
             }
-            if contentVM.showLoadingAnimation {
-                loadingView
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.black).opacity(0.8)
-            }
+//            if contentVM.showLoadingAnimation {
+//                loadingView
+//                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                    .background(Color.black).opacity(0.8)
+//            }
             if contentVM.showErrorView {
                 errorView
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -56,7 +56,7 @@ struct ContentView: View {
             }
             
         }
-        .background(Color.backgroundColor)
+        .background(Color.bgColor)
 //        .onAppear {
 //            if let pastBoard = NSPasteboard.general.string(forType: .string) {
 //                contentVM.copiedText = pastBoard
@@ -83,7 +83,7 @@ extension ContentView {
                     .foregroundColor(Color.placeholder)
                     .opacity(appState.selectedText == "" ? 1 : 0)
                     .padding(.leading, 16)
-                    .padding(.bottom, 10)
+//                    .padding(.bottom, 10)
                 Spacer()
             }
             TextField("", text: $appState.selectedText, axis: .vertical)
@@ -95,7 +95,7 @@ extension ContentView {
                 .textFieldStyle(PlainTextFieldStyle())
                 .foregroundColor(Color.inputText)
                 .padding(.leading, 16)
-                .padding(.bottom, 10)
+//                .padding(.bottom, 10)
                 .onSubmit {
                     if CGKeyCode.kVK_UpArrow.isPressed {
                         // Do something in response to the key press.
@@ -111,35 +111,47 @@ extension ContentView {
         
     }
     var btnView: some View {
-        Image("enterBtn")
-            .padding(.trailing, 16)
-            .padding(.top, 20)
-            .onTapGesture {
-                contentVM.callApiChatGpt(inputText: appState.selectedText)
-            }
+//        ZStack(alignment: .topTrailing) {
+//            if contentVM.showLoadingAnimation {
+        GIFImageView(imageName: contentVM.showLoadingAnimation ? "animation_300_lhabwwiy.gif" : "enterBtn",width: 100, height: 100)
+//            .background(.yellow)
+//                    .frame(width: 100, height: 100)
+//                GIFView(imageName: contentVM.showLoadingAnimation ? "animation_300_lhabwwiy.gif" : "enterBtn", width: 50, height: 50)
+//            } else {
+//                Image("enterBtn")
+//                .padding(.trailing, 16)
+//                //            .padding(.bottom, 40)
+//                .onTapGesture {
+//                    contentVM.callApiChatGpt(inputText: appState.selectedText)
+//                }
+//            }
+//        }
+//        .clipped()
+        
+        
     }
     
     var bottomBar: some View {
         HStack(spacing: 10){
             Spacer()
-            Button{
-                withAnimation(.easeIn) {
-//                    appState.selectedText =  AppState.shared.copiedText
-                    let pasteboard = NSPasteboard.general
-                    pasteboard.declareTypes([.string], owner: nil)
-                    pasteboard.setString("", forType: .string)
-                
-                }
-                NSApplication.shared.hide(nil)
-            } label: {
-                Text("Replace selected text")
-                    .font(.custom("Roboto-Medium", size: 12))
-            }
-            .buttonStyle(GradientButtonStyle())
-            .cornerRadius(5)
-            .padding(.bottom, 10)
-//            .opacity(AppState.shared.copiedText == "" ? 0 : 1)
-            .opacity(contentVM.textEditor == "" ? 0 : 1)
+//            Button{
+//                withAnimation(.easeIn) {
+////                    appState.selectedText =  AppState.shared.copiedText
+//                    let pasteboard = NSPasteboard.general
+//                    pasteboard.declareTypes([.string], owner: nil)
+//                    pasteboard.setString("", forType: .string)
+//
+//                }
+//                NSApplication.shared.hide(nil)
+//            } label: {
+//                Text("Replace selected text")
+//                    .font(.custom("Roboto-Medium", size: 12))
+//            }
+//            .buttonStyle(GradientButtonStyle())
+//            .cornerRadius(5)
+//            .padding(.bottom, 10)
+////            .opacity(AppState.shared.copiedText == "" ? 0 : 1)
+//            .opacity(contentVM.textEditor == "" ? 0 : 1)
             
             Button{
                 let pasteboard = NSPasteboard.general

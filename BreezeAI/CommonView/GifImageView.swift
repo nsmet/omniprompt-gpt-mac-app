@@ -43,3 +43,44 @@ struct QLImage: NSViewRepresentable {
     typealias NSViewType = QLPreviewView
 }
 
+//struct GIFView: NSViewRepresentable {
+//    var imageName: String
+//    var width: CGFloat
+//    var height: CGFloat
+//
+//    func makeNSView(context: Context) -> NSImageView {
+//        let imageView = NSImageView()
+//        imageView.image = NSImage(named: imageName)
+//        imageView.animates = true // Enables animation
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+//        imageView.heightAnchor.constraint(equalToConstant: height).isActive = true
+//        return imageView
+//    }
+//
+//    func updateNSView(_ nsView: NSImageView, context: Context) {
+//        // Update the view if needed
+//    }
+//}
+struct GIFImageView: NSViewRepresentable {
+    var imageName: String
+    var width: CGFloat
+    var height: CGFloat
+    
+    func makeNSView(context: Context) -> NSImageView {
+        let imageView = NSImageView()
+        imageView.image = NSImage(named: imageName)
+        imageView.animates = true // Enables animation
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: height).isActive = true
+        return imageView
+    }
+
+    func updateNSView(_ nsView: NSImageView, context: Context) {
+        if let gifImage = NSImage(named: NSImage.Name(imageName)) {
+            nsView.image = gifImage
+            nsView.animates = true
+        }
+    }
+}

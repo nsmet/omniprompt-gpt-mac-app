@@ -24,7 +24,7 @@ struct SettingView: View {
                 Spacer()
             }
         }
-        .background(Color.backgroundColor)
+        .background(Color.bgColor)
     }
 }
 
