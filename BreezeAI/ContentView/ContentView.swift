@@ -9,15 +9,6 @@ import SwiftUI
 import Core
 import CoreGraphics
 
-extension CGKeyCode
-{
-    // Define whatever key codes you want to detect here
-    static let kVK_UpArrow: CGKeyCode = 0x24
-
-    var isPressed: Bool {
-        CGEventSource.keyState(.combinedSessionState, key: self)
-    }
-}
 
 struct ContentView: View {
     
@@ -57,11 +48,6 @@ struct ContentView: View {
             
         }
         .background(Color.bgColor)
-//        .onAppear {
-//            if let pastBoard = NSPasteboard.general.string(forType: .string) {
-//                contentVM.copiedText = pastBoard
-//            }
-//        }
         
     }
     
@@ -76,57 +62,16 @@ struct ContentView_Previews: PreviewProvider {
 extension ContentView {
     
     var textField: some View {
-        ZStack{
-            HStack{
-                Text("What would you like to do?")
-                    .font(.custom("Roboto-Medium", size: 20))
-                    .foregroundColor(Color.placeholder)
-                    .opacity(appState.selectedText == "" ? 1 : 0)
-                    .padding(.leading, 16)
-//                    .padding(.bottom, 10)
-                Spacer()
-            }
-            TextField("", text: $appState.selectedText, axis: .vertical)
-                .font(.custom("Roboto-Medium", size: 20))
-            //            .placeholder(when: appState.selectedText.isEmpty) {
-            //                Text("What would you like to do?").foregroundColor(Color.placeholder)
-            //                    .font(.custom("Roboto-Medium", size: 20))
-            //            }
-                .textFieldStyle(PlainTextFieldStyle())
-                .foregroundColor(Color.inputText)
-                .padding(.leading, 16)
-//                .padding(.bottom, 10)
-                .onSubmit {
-                    if CGKeyCode.kVK_UpArrow.isPressed {
-                        // Do something in response to the key press.
-                        contentVM.callApiChatGpt(inputText: appState.selectedText)
-                    }
-                    
-                }
-//                .keyboardShortcut(.defaultAction)
-            
+        
+        TextView(text: $appState.selectedText, placeholder: "What would you like to do?", backgroundColor: Color.bgColor) {
+            contentVM.callApiChatGpt(inputText: appState.selectedText)
         }
-        
-        
+        .frame(height: 100)
+//        .padding()
         
     }
     var btnView: some View {
-//        ZStack(alignment: .topTrailing) {
-//            if contentVM.showLoadingAnimation {
         GIFImageView(imageName: contentVM.showLoadingAnimation ? "animation_300_lhabwwiy.gif" : "enterBtn",width: 100, height: 100)
-//            .background(.yellow)
-//                    .frame(width: 100, height: 100)
-//                GIFView(imageName: contentVM.showLoadingAnimation ? "animation_300_lhabwwiy.gif" : "enterBtn", width: 50, height: 50)
-//            } else {
-//                Image("enterBtn")
-//                .padding(.trailing, 16)
-//                //            .padding(.bottom, 40)
-//                .onTapGesture {
-//                    contentVM.callApiChatGpt(inputText: appState.selectedText)
-//                }
-//            }
-//        }
-//        .clipped()
         
         
     }
@@ -174,11 +119,6 @@ extension ContentView {
         VStack{
             TextEditor(text: $contentVM.textEditor)
                 .font(.custom("Roboto-Medium", size: 14))
-//                .placeholder(when: contentVM.textEditor.isEmpty) {
-//                    Text("Paste text, start typing or let us generate text").foregroundColor(Color.placeholder)
-//                        .font(.custom("Roboto-Medium", size: 14))
-//                        .padding(.leading, 5)
-//                }
                 .padding([.leading, .trailing], 13)
                 .padding([.top, .bottom], 13)
                 .background(Color.textEditorBackgroundColor)
