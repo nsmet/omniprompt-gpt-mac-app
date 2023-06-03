@@ -65,24 +65,24 @@ struct BreezeAIApp: App {
         
         MenuBarExtra("", image: "menuBarIcon") {
             Button("Open BreezeAI") {
-//                let systemWideElement = AXUIElementCreateSystemWide()
-//                var focusedElement : AnyObject?
-//
-//                let error = AXUIElementCopyAttributeValue(systemWideElement, kAXFocusedUIElementAttribute as CFString, &focusedElement)
-//                if (error != .success){
-//                    print("Couldn't get the focused element. Probably a webkit application")
-//                } else {
-//                    var selectedRangeValue : AnyObject?
-//                    let selectedRangeError = AXUIElementCopyAttributeValue(focusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, &selectedRangeValue)
-//                    if (selectedRangeError == .success){
-//
-//                        if let text = AXUIElement.focusedElement?.selectedText {
-//                            AppState.shared.shouldPerformCommand = true
-//                            AppState.shared.selectedText = text
-//                        }
-//
-//                    }
-//                }
+                //                let systemWideElement = AXUIElementCreateSystemWide()
+                //                var focusedElement : AnyObject?
+                //
+                //                let error = AXUIElementCopyAttributeValue(systemWideElement, kAXFocusedUIElementAttribute as CFString, &focusedElement)
+                //                if (error != .success){
+                //                    print("Couldn't get the focused element. Probably a webkit application")
+                //                } else {
+                //                    var selectedRangeValue : AnyObject?
+                //                    let selectedRangeError = AXUIElementCopyAttributeValue(focusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, &selectedRangeValue)
+                //                    if (selectedRangeError == .success){
+                //
+                //                        if let text = AXUIElement.focusedElement?.selectedText {
+                //                            AppState.shared.shouldPerformCommand = true
+                //                            AppState.shared.selectedText = text
+                //                        }
+                //
+                //                    }
+                //                }
                 let event1 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: true); // cmd-c down
                 event1?.flags = CGEventFlags.maskCommand;
                 event1?.post(tap: CGEventTapLocation.cghidEventTap)
@@ -117,14 +117,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     let pasteBoard = NSPasteboard.general
     
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
-        guard let window = NSApplication.shared.windows.first else { assertionFailure(); return }
-        window.titlebarAppearsTransparent = true
-        window.titleVisibility = .hidden
-        window.standardWindowButton(.zoomButton)?.isHidden = true
-        window.standardWindowButton(.miniaturizeButton)?.isHidden = true
-        window.standardWindowButton(.closeButton)?.isHidden = true
-        window.isReleasedWhenClosed = false
-        window.delegate = self
+        if let window = NSApp.windows.first {
+            //hide buttons
+            window.standardWindowButton(.closeButton)?.isHidden = true
+            window.standardWindowButton(.miniaturizeButton)?.isHidden = true
+            window.standardWindowButton(.zoomButton)?.isHidden = true
+            
+            //hide title and bar
+            window.titleVisibility = .hidden
+            window.titlebarAppearsTransparent = true
+            window.backgroundColor = .clear
+            window.hasShadow = false
+            window.isOpaque = false
+        }
         NSApplication.shared.hide(nil)
     }
     

@@ -50,6 +50,8 @@
 		68DADFD82A14F58800835173 /* GifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DADFD72A14F58800835173 /* GifImageView.swift */; };
 		68DADFDA2A14F78300835173 /* animation_300_lhabwwiy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 68DADFD92A14F78300835173 /* animation_300_lhabwwiy.gif */; };
 		AA5863882A11015F0007FA10 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5863872A11015F0007FA10 /* AppState.swift */; };
+		AAC5069C2A2BEB2600AC8846 /* PromptTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5069B2A2BEB2600AC8846 /* PromptTextFieldStyle.swift */; };
+		AAC5069E2A2BEF4400AC8846 /* PromptTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5069D2A2BEF4400AC8846 /* PromptTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,8 @@
 		68DADFD72A14F58800835173 /* GifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageView.swift; sourceTree = "<group>"; };
 		68DADFD92A14F78300835173 /* animation_300_lhabwwiy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animation_300_lhabwwiy.gif; sourceTree = "<group>"; };
 		AA5863872A11015F0007FA10 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		AAC5069B2A2BEB2600AC8846 /* PromptTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptTextFieldStyle.swift; sourceTree = "<group>"; };
+		AAC5069D2A2BEF4400AC8846 /* PromptTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +321,8 @@
 				68DADFD72A14F58800835173 /* GifImageView.swift */,
 				683DCE8F2A272B9000841094 /* ButtonStyle.swift */,
 				68C79A7C2A2BB807006EBF7F /* TextView.swift */,
+				AAC5069B2A2BEB2600AC8846 /* PromptTextFieldStyle.swift */,
+				AAC5069D2A2BEF4400AC8846 /* PromptTextView.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -606,11 +612,13 @@
 				68767C0D2A0E1E1A00E6D3B5 /* BackgroundView.swift in Sources */,
 				683DCE902A272B9000841094 /* ButtonStyle.swift in Sources */,
 				68767BC02A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld in Sources */,
+				AAC5069C2A2BEB2600AC8846 /* PromptTextFieldStyle.swift in Sources */,
 				68767BBD2A0E17E600E6D3B5 /* Persistence.swift in Sources */,
 				68767C312A0E5ADC00E6D3B5 /* SettingView.swift in Sources */,
 				68DADFD82A14F58800835173 /* GifImageView.swift in Sources */,
 				68C79A7D2A2BB807006EBF7F /* TextView.swift in Sources */,
 				68767BB62A0E17E300E6D3B5 /* ContentView.swift in Sources */,
+				AAC5069E2A2BEF4400AC8846 /* PromptTextView.swift in Sources */,
 				68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,7 +14,7 @@ struct TextView: View {
     var placeholder: String
     var backgroundColor: Color
     var onCommit: () -> Void
-
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
             if text.isEmpty {
@@ -23,29 +23,25 @@ struct TextView: View {
                     .padding(EdgeInsets(top: 8, leading: 10, bottom: 0, trailing: 0))
             }
             TextEditor(text: $text)
+                .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(Color.inputText)
                 .disableAutocorrection(true)
                 .padding(4)
+                .padding(.top, 4)
                 .onReceive(NotificationCenter.default.publisher(for: NSTextView.didChangeNotification)) { _ in
-                                    handleTextChange()
+                    handleTextChange()
                 }
         }
         .font(.custom("Roboto-Medium", size: 20))
-        .background(backgroundColor)
-//        .cornerRadius(8)
-//        .overlay(
-//            RoundedRectangle(cornerRadius: 8)
-//                .stroke(Color.gray, lineWidth: 1)
-//        )
     }
-
+    
     private func handleTextChange() {
-           let lines = text.components(separatedBy: .newlines)
-           if let lastLine = lines.last, lastLine.hasSuffix("\n") {
-               text = text + "\n" // Append a newline character to preserve the last line
-           }
-           if text.last == "\n" {
-               onCommit() // Call the onCommit function when the enter key is pressed
-           }
-       }
+        let lines = text.components(separatedBy: .newlines)
+        if let lastLine = lines.last, lastLine.hasSuffix("\n") {
+            text = text + "\n" // Append a newline character to preserve the last line
+        }
+        if text.last == "\n" {
+            onCommit() // Call the onCommit function when the enter key is pressed
+        }
+    }
 }

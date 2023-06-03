@@ -14,40 +14,55 @@ struct ContentView: View {
     
     @StateObject var contentVM: ContentViewModel
     @ObservedObject var appState = AppState.shared
-    
+    @State var height: CGFloat = 50
     
     var body: some View {
-        ZStack {
+        //        ZStack {
+        //            VStack{
+        //                HStack(alignment: .top){
+        //                    textField
+        //                    if appState.selectedText != "" {
+        //                        btnView
+        //                    }
+        //                }
+        //                Divider()
+        //                    .foregroundColor(.gray)
+        //                textEditor
+        ////                Spacer()
+        //                Divider()
+        //                    .foregroundColor(.gray)
+        //                bottomBar
+        //
+        //            }
+        ////            if contentVM.showLoadingAnimation {
+        ////                loadingView
+        ////                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+        ////                    .background(Color.black).opacity(0.8)
+        ////            }
+        //            if contentVM.showErrorView {
+        //                errorView
+        //                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+        //                    .background(Color.black).opacity(0.8)
+        //
+        //            }
+        //
+        //        }
+        
+        ZStack{
             VStack{
-                HStack(alignment: .top){
-                    textField
-                    if appState.selectedText != "" {
-                        btnView
+                textField
+                    .overlay {
+                        HStack(spacing: 0){
+                            Spacer()
+                            btnView
+                        }
                     }
-                }
-                Divider()
-                    .foregroundColor(.gray)
-                textEditor
-//                Spacer()
-                Divider()
-                    .foregroundColor(.gray)
-                bottomBar
-                
             }
-//            if contentVM.showLoadingAnimation {
-//                loadingView
-//                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                    .background(Color.black).opacity(0.8)
-//            }
-            if contentVM.showErrorView {
-                errorView
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.black).opacity(0.8)
-                
-            }
-            
         }
+        .ignoresSafeArea()
         .background(Color.bgColor)
+        .cornerRadius(5)
+        
         
     }
     
@@ -63,12 +78,29 @@ extension ContentView {
     
     var textField: some View {
         
-        TextView(text: $appState.selectedText, placeholder: "What would you like to do?", backgroundColor: Color.bgColor) {
-            contentVM.callApiChatGpt(inputText: appState.selectedText)
-        }
-        .frame(height: 100)
-//        .padding()
+        Text(appState.selectedText.isEmpty ? "What would you like to do?" : appState.selectedText)
+            .padding([.leading, .top, .bottom], 20)
+            .foregroundColor(Color.placeholder)
+            .font(.custom("Roboto-Medium", size: 20))
+            .opacity(appState.selectedText.isEmpty ? 1 : 0)
+            .frame(maxWidth: .infinity, minHeight: 40, alignment: .leading)
+            .overlay(
+                TextEditor(text: $appState.selectedText)
+                    .foregroundColor(Color.inputText)
+                    .font(.custom("Roboto-Medium", size: 20))
+                    .disableAutocorrection(true)
+                    .padding([.top, .bottom], 20)
+                    .padding(.leading, 14)
+                    .textFieldStyle(.plain)
+                
+            )
         
+    }
+    
+    var placeholder:some View {
+        Text("What would you like to do?")
+            .foregroundColor(.white)
+            .font(.custom("Roboto-Medium", size: 18))
     }
     var btnView: some View {
         GIFImageView(imageName: contentVM.showLoadingAnimation ? "animation_300_lhabwwiy.gif" : "enterBtn",width: 100, height: 100)
@@ -79,24 +111,24 @@ extension ContentView {
     var bottomBar: some View {
         HStack(spacing: 10){
             Spacer()
-//            Button{
-//                withAnimation(.easeIn) {
-////                    appState.selectedText =  AppState.shared.copiedText
-//                    let pasteboard = NSPasteboard.general
-//                    pasteboard.declareTypes([.string], owner: nil)
-//                    pasteboard.setString("", forType: .string)
-//
-//                }
-//                NSApplication.shared.hide(nil)
-//            } label: {
-//                Text("Replace selected text")
-//                    .font(.custom("Roboto-Medium", size: 12))
-//            }
-//            .buttonStyle(GradientButtonStyle())
-//            .cornerRadius(5)
-//            .padding(.bottom, 10)
-////            .opacity(AppState.shared.copiedText == "" ? 0 : 1)
-//            .opacity(contentVM.textEditor == "" ? 0 : 1)
+            //            Button{
+            //                withAnimation(.easeIn) {
+            ////                    appState.selectedText =  AppState.shared.copiedText
+            //                    let pasteboard = NSPasteboard.general
+            //                    pasteboard.declareTypes([.string], owner: nil)
+            //                    pasteboard.setString("", forType: .string)
+            //
+            //                }
+            //                NSApplication.shared.hide(nil)
+            //            } label: {
+            //                Text("Replace selected text")
+            //                    .font(.custom("Roboto-Medium", size: 12))
+            //            }
+            //            .buttonStyle(GradientButtonStyle())
+            //            .cornerRadius(5)
+            //            .padding(.bottom, 10)
+            ////            .opacity(AppState.shared.copiedText == "" ? 0 : 1)
+            //            .opacity(contentVM.textEditor == "" ? 0 : 1)
             
             Button{
                 let pasteboard = NSPasteboard.general
@@ -164,3 +196,4 @@ extension ContentView {
         }
     }
 }
+
