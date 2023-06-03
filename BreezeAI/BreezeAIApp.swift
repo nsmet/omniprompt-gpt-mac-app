@@ -18,6 +18,7 @@ struct BreezeAIApp: App {
     @Environment(\.scenePhase) var scenePhase
     
     let hotKey = HotKey(key: .b, modifiers: [.command, .shift], keyDownHandler: {
+        NSPasteboard.general.clearContents()
         let event1 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: true); // cmd-c down
         event1?.flags = CGEventFlags.maskCommand;
         event1?.post(tap: CGEventTapLocation.cghidEventTap)
@@ -29,6 +30,7 @@ struct BreezeAIApp: App {
             if let pastBoard = NSPasteboard.general.string(forType: .string) {
                 AppState.shared.selectedText = pastBoard
             }
+            NSPasteboard.general.clearContents()
         }
         NSApp.activate(ignoringOtherApps: true)
         //        NSApplication.shared.unhide(nil)
