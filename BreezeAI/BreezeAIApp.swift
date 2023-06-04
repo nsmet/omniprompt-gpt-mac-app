@@ -65,24 +65,6 @@ struct BreezeAIApp: App {
         
         MenuBarExtra("", image: "menuBarIcon") {
             Button("Open BreezeAI") {
-                //                let systemWideElement = AXUIElementCreateSystemWide()
-                //                var focusedElement : AnyObject?
-                //
-                //                let error = AXUIElementCopyAttributeValue(systemWideElement, kAXFocusedUIElementAttribute as CFString, &focusedElement)
-                //                if (error != .success){
-                //                    print("Couldn't get the focused element. Probably a webkit application")
-                //                } else {
-                //                    var selectedRangeValue : AnyObject?
-                //                    let selectedRangeError = AXUIElementCopyAttributeValue(focusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, &selectedRangeValue)
-                //                    if (selectedRangeError == .success){
-                //
-                //                        if let text = AXUIElement.focusedElement?.selectedText {
-                //                            AppState.shared.shouldPerformCommand = true
-                //                            AppState.shared.selectedText = text
-                //                        }
-                //
-                //                    }
-                //                }
                 let event1 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: true); // cmd-c down
                 event1?.flags = CGEventFlags.maskCommand;
                 event1?.post(tap: CGEventTapLocation.cghidEventTap)
@@ -129,6 +111,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             window.backgroundColor = .clear
             window.hasShadow = false
             window.isOpaque = false
+            window.setFrame(CGRect(origin: window.frame.origin, size: CGSize(width: 752, height: NSScreen.main?.frame.height ?? 100)), display: true)
         }
         NSApplication.shared.hide(nil)
     }

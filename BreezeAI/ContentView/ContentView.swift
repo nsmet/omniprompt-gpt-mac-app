@@ -51,6 +51,12 @@ struct ContentView: View {
         
         VStack{
             textField
+            if !contentVM.textEditor.isEmpty {
+                textEditor
+                    .background(RoundedRectangle(cornerRadius: 5).fill(.background).padding([.leading, .trailing], 10))
+                    .cornerRadius(5)
+                bottomBar
+            }
         }
         .overlay(
             VStack(alignment:.trailing) {
@@ -115,7 +121,8 @@ extension ContentView {
     var btnView: some View {
         
         Button(action: {
-            contentVM.showLoadingAnimation = true
+//            contentVM.showLoadingAnimation = true
+            contentVM.textEditor = "sdfsdf asdfadsfasd sdaf\nafsdfs\nsdfsdf asdfadsfasd sdaf\nafsdfs\nsdfsdf asdfadsfasd sdaf\nafsdfs\nsdfsdf asdfadsfasd sdaf\nafsdfs\nsdfsdf asdfadsfasd sdaf\nafsdfs\nsdfsdf asdfadsfasd sdaf\nafsdfs\n"
         }) {
             HStack {
                 Image("enterBtn")
@@ -173,16 +180,35 @@ extension ContentView {
         }
     }
     var textEditor: some View {
-        VStack{
-            TextEditor(text: $contentVM.textEditor)
-                .font(.custom("Roboto-Medium", size: 14))
-                .padding([.leading, .trailing], 13)
-                .padding([.top, .bottom], 13)
-                .background(Color.textEditorBackgroundColor)
-                .foregroundColor(Color.inputText)
-        }
-        .padding([.leading, .trailing], 10)
-        .padding([.top, .bottom], 5)
+        Text(contentVM.textEditor)
+            .padding([.top], 10)
+            .padding([.leading, .trailing], 15)
+            .foregroundColor(Color.placeholder)
+            .font(.custom("Inter-Regular", size: 14))
+            .opacity(contentVM.textEditor.isEmpty ? 1 : 0)
+            .frame(maxWidth: .infinity, minHeight: 40, alignment: .leading)
+            .overlay(
+                TextEditor(text: $contentVM.textEditor)
+                    .foregroundColor(Color.inputText)
+                    .font(.custom("Inter-Regular", size: 14))
+                    .disableAutocorrection(true)
+                    .padding([.top], 10)
+                    .padding([.leading, .trailing], 15)
+                    .padding([.bottom], 10)
+                    .textFieldStyle(.plain)
+                
+            )
+            
+//        VStack{
+//            TextEditor(text: $contentVM.textEditor)
+//                .font(.custom("Roboto-Medium", size: 14))
+//                .padding([.leading, .trailing], 13)
+//                .padding([.top, .bottom], 13)
+//                .background(Color.textEditorBackgroundColor)
+//                .foregroundColor(Color.inputText)
+//        }
+//        .padding([.leading, .trailing], 10)
+//        .padding([.top, .bottom], 5)
     }
     
     var loadingView: some View {
