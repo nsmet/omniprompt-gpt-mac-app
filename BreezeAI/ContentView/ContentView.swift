@@ -69,8 +69,9 @@ struct ContentView: View {
             }
         )
         .ignoresSafeArea()
-        .background(Color.bgColor)
+        .background(Color.bgColor.opacity(0.95).blur(radius: 1))
         .cornerRadius(5)
+        .preferredColorScheme(.dark)
         
         
     }
