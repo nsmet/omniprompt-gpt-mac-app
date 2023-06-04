@@ -39,45 +39,54 @@ struct ContentView: View {
         ////                    .frame(maxWidth: .infinity, maxHeight: .infinity)
         ////                    .background(Color.black).opacity(0.8)
         ////            }
-        //            if contentVM.showErrorView {
-        //                errorView
-        //                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-        //                    .background(Color.black).opacity(0.8)
-        //
-        //            }
+//                    if contentVM.showErrorView {
+//                        errorView
+//                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                            .background(Color.black).opacity(0.8)
+//
+//                    }
         //
         //        }
         
-        
-        VStack{
-            textField
-            if !contentVM.textEditor.isEmpty {
-                textEditor
-                    .background(RoundedRectangle(cornerRadius: 5).fill(.background).padding([.leading, .trailing], 10))
+        ZStack {
+            VStack{
+                textField
+                if !contentVM.textEditor.isEmpty {
+                    textEditor
+                        .background(RoundedRectangle(cornerRadius: 5).fill(.background).padding([.leading, .trailing], 10))
+                        .cornerRadius(5)
+                    bottomBar
+                }
+            }
+            .overlay(
+                VStack(alignment:.trailing) {
+                    
+                    HStack(alignment: .top) {
+                        Spacer()
+                        if contentVM.showLoadingAnimation {
+                            loadingViewAnimation
+                        } else {
+                            btnView
+                        }
+                        
+                    }
+                    .padding(.top, 5)
+                    Spacer()
+                }
+            )
+            .ignoresSafeArea()
+            .background(Color.bgColor.opacity(0.95).blur(radius: 1))
+            .cornerRadius(5)
+            .preferredColorScheme(.dark)
+            
+            if contentVM.showErrorView {
+                errorView
+                    .frame(width: 750, height: 475)
+                    .background(Color.black)
                     .cornerRadius(5)
-                bottomBar
+
             }
         }
-        .overlay(
-            VStack(alignment:.trailing) {
-                
-                HStack(alignment: .top) {
-                    Spacer()
-                    if contentVM.showLoadingAnimation {
-                        loadingViewAnimation
-                    } else {
-                        btnView
-                    }
-                    
-                }
-                .padding(.top, 5)
-                Spacer()
-            }
-        )
-        .ignoresSafeArea()
-        .background(Color.bgColor.opacity(0.95).blur(radius: 1))
-        .cornerRadius(5)
-        .preferredColorScheme(.dark)
         
         
     }
@@ -121,8 +130,8 @@ extension ContentView {
     var btnView: some View {
         
         Button(action: {
-//            contentVM.showLoadingAnimation = true
-            contentVM.textEditor = "sdfsdf asdfadsfasd sdaf\nafsdfs\nsdfsdf asdfadsfasd sdaf\nafsdfs\nsdfsdf asdfadsfasd sdaf\nafsdfs\nsdfsdf asdfadsfasd sdaf\nafsdfs\nsdfsdf asdfadsfasd sdaf\nafsdfs\nsdfsdf asdfadsfasd sdaf\nafsdfs\n"
+            contentVM.callApiChatGpt(inputText: appState.selectedText)
+            
         }) {
             HStack {
                 Image("enterBtn")
