@@ -48,17 +48,26 @@ struct ContentView: View {
         //
         //        }
         
-        ZStack{
-            VStack{
-                textField
-                    .overlay {
-                        HStack(spacing: 0){
-                            Spacer()
-                            btnView
-                        }
-                    }
-            }
+        
+        VStack{
+            textField
         }
+        .overlay(
+            VStack(alignment:.trailing) {
+                
+                HStack(alignment: .top) {
+                    Spacer()
+                    if contentVM.showLoadingAnimation {
+                        loadingViewAnimation
+                    } else {
+                        btnView
+                    }
+                    
+                }
+                .padding(.top, 5)
+                Spacer()
+            }
+        )
         .ignoresSafeArea()
         .background(Color.bgColor)
         .cornerRadius(5)
@@ -103,9 +112,24 @@ extension ContentView {
             .font(.custom("Roboto-Medium", size: 18))
     }
     var btnView: some View {
-        GIFImageView(imageName: contentVM.showLoadingAnimation ? "animation_300_lhabwwiy.gif" : "enterBtn",width: 100, height: 100)
         
+        Button(action: {
+            contentVM.showLoadingAnimation = true
+        }) {
+            HStack {
+                Image("enterBtn")
+            }
+        }
+        .padding([.top, .trailing], 12)
+        .buttonStyle(.borderless)
         
+    }
+    
+    var loadingViewAnimation: some View {
+        GIFImageView(imageName: "animation_300_lhabwwiy.gif" ,width: 100, height: 100)
+            .padding(.trailing, -25)
+            .frame(maxHeight: 100)
+            .offset(y: 0)
     }
     
     var bottomBar: some View {
