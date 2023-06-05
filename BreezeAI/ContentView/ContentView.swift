@@ -15,6 +15,7 @@ struct ContentView: View {
     @StateObject var contentVM: ContentViewModel
     @ObservedObject var appState = AppState.shared
     @State var height: CGFloat = 50
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         //        ZStack {
@@ -49,11 +50,14 @@ struct ContentView: View {
         //        }
         
         ZStack {
-            VStack{
+            VStack(spacing: 0){
                 textField
                 if !contentVM.textEditor.isEmpty {
                     textEditor
-                        .background(RoundedRectangle(cornerRadius: 5).fill(.background).padding([.leading, .trailing], 10))
+                        .background(RoundedRectangle(cornerRadius: 5)
+                            .fill(.background)
+                            .padding([.leading, .trailing], 10)
+                        )
                         .cornerRadius(5)
                     bottomBar
                 }
@@ -104,19 +108,34 @@ extension ContentView {
     var textField: some View {
         
         Text(appState.selectedText.isEmpty ? "What would you like to do?" : appState.selectedText)
-            .padding([.leading, .top, .bottom], 20)
+//            .padding([.leading, .top, .bottom], 20)
+            
             .foregroundColor(Color.placeholder)
             .font(.custom("Roboto-Medium", size: 20))
             .opacity(appState.selectedText.isEmpty ? 1 : 0)
             .frame(maxWidth: .infinity, minHeight: 40, alignment: .leading)
+            .padding(.leading, 15)
+            .padding(.top, 10)
             .overlay(
                 TextEditor(text: $appState.selectedText)
                     .foregroundColor(Color.inputText)
                     .font(.custom("Roboto-Medium", size: 20))
                     .disableAutocorrection(true)
-                    .padding([.top, .bottom], 20)
-                    .padding(.leading, 14)
+//                    .padding([.top, .bottom], 20)
+//                    .padding(.leading, 14)
                     .textFieldStyle(.plain)
+                    .padding(.leading, 14)
+                    .padding(.top, 18)
+                    .padding(.bottom, 5)
+                    .onChange(of: appState.selectedText) { _ in
+                        if appState.selectedText.last?.isNewline == .some(true) {
+                            appState.selectedText.removeLast()
+                            isFocused = false
+                            contentVM.callApiChatGpt(inputText: appState.selectedText)
+                        }
+                    }
+                    .focused($isFocused)
+                    .submitLabel(.done)
                 
             )
         
@@ -181,8 +200,9 @@ extension ContentView {
                     .font(.custom("Roboto-Medium", size: 12))
             }
             .buttonStyle(GradientButtonStyle())
-            .padding(.trailing, 15)
+            .padding(.trailing, 10)
             .padding(.bottom, 10)
+            .padding(.top, 10)
             .opacity(contentVM.textEditor == "" ? 0 : 1)
             
             

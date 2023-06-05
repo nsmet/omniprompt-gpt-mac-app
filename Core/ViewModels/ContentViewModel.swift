@@ -28,6 +28,9 @@ public final class ContentViewModel: ObservableObject {
         chatMessages.append(Chat(role: .system, content: "You are a helpful assistant."))
     }
     public func callApiChatGpt(inputText: String) {
+//        guard !NSEvent.modifierFlags.contains(.shift) else {
+//            return
+//        }
         self.showLoadingAnimation = true
         if let key = UserDefaults.standard.object(forKey: "apiKey") as? String, key != "" {
             self.openAI = OpenAI(apiToken: key)
