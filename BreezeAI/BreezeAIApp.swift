@@ -28,7 +28,7 @@ struct BreezeAIApp: App {
             window.isOpaque = false
             let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
             let y = ((NSScreen.main?.frame.height ?? 1080) / 2) - 37
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 if let pastBoard = NSPasteboard.general.string(forType: .string) {
                     var height = pastBoard.height(withConstrainedWidth: 752, font: .systemFont(ofSize: 20))
                     if height > 400 {
