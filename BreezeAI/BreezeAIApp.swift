@@ -111,7 +111,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             window.backgroundColor = .clear
             window.hasShadow = false
             window.isOpaque = false
-            window.setFrame(CGRect(origin: window.frame.origin, size: CGSize(width: 752, height: NSScreen.main?.frame.height ?? 100)), display: true)
+//            window.setFrame(CGRect(origin: window.frame.origin, size: CGSize(width: 752, height: NSScreen.main?.frame.height ?? 100)), display: true)
         }
         NSApplication.shared.hide(nil)
     }
