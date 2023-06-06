@@ -22,7 +22,7 @@ public final class AppState: ObservableObject {
     public static let shared = AppState()
     @Published public var router: AppRouting = .none
     @Published public var isConnectedToInternet: Bool = false
-    @Published public var selectedText: String = "Hi what is your name?"
+    @Published public var selectedText: String = ""
     @Published public var shouldPerformCommand: Bool = false
     @Published public var copiedText = ""
     
