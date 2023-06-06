@@ -23,6 +23,7 @@ struct SettingView: View {
                 doneBTn
                 Spacer()
             }
+            .frame(height: 300)
         }
         .background(Color.bgColor)
     }
@@ -74,7 +75,21 @@ extension SettingView {
     
     var doneBTn: some View {
         Button{
+            
+//
             AppState.shared.router = .done
+            if let window = NSApp.windows.first {
+            //
+                            //hide title and bar
+                            window.titleVisibility = .hidden
+                            window.titlebarAppearsTransparent = true
+            //                window.backgroundColor = .clear
+                            window.hasShadow = false
+                            window.isOpaque = false
+                            let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
+                            let y = ((NSScreen.main?.frame.height ?? 1080) / 2) - 37
+                            window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: 100)), display: true)
+                        }
         } label: {
             Text("Done")
                 .font(.custom("Roboto-Medium", size: 12))

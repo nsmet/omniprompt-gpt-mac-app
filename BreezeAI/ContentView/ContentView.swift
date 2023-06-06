@@ -51,7 +51,17 @@ struct ContentView: View {
         
         ZStack {
             VStack(spacing: 0){
-                textField
+                
+                HStack(alignment: .top) {
+                    textField
+                    if contentVM.showLoadingAnimation {
+                        loadingViewAnimation
+                    }
+                     else if appState.selectedText != ""{
+                        btnView
+                    }
+                    
+                }
                 if !contentVM.textEditor.isEmpty {
                     textEditor
                         .background(RoundedRectangle(cornerRadius: 5)
@@ -62,22 +72,22 @@ struct ContentView: View {
                     bottomBar
                 }
             }
-            .overlay(
-                VStack(alignment:.trailing) {
-                    
-                    HStack(alignment: .top) {
-                        Spacer()
-                        if contentVM.showLoadingAnimation {
-                            loadingViewAnimation
-                        } else {
-                            btnView
-                        }
-                        
-                    }
-                    .padding(.top, 5)
-                    Spacer()
-                }
-            )
+//            .overlay(
+//                VStack(alignment:.trailing) {
+//
+//                    HStack(alignment: .top) {
+//                        Spacer()
+//                        if contentVM.showLoadingAnimation {
+//                            loadingViewAnimation
+//                        } else {
+//                            btnView
+//                        }
+//
+//                    }
+//                    .padding(.top, 5)
+//                    Spacer()
+//                }
+//            )
             .ignoresSafeArea()
             .background(Color.bgColor.opacity(0.95).blur(radius: 1))
             .cornerRadius(5)
@@ -128,6 +138,20 @@ extension ContentView {
                     .padding(.top, 18)
                     .padding(.bottom, 5)
                     .onChange(of: appState.selectedText) { _ in
+                        
+                        if appState.selectedText == "" {
+                            if let window = NSApp.windows.first {
+                                //hide title and bar
+                                window.titleVisibility = .hidden
+                                window.titlebarAppearsTransparent = true
+                                window.backgroundColor = .clear
+                                window.hasShadow = false
+                                window.isOpaque = false
+                                let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
+                                let y = ((NSScreen.main?.frame.height ?? 1080) / 2) - 37
+                                window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: 100)), display: true)
+                            }
+                        }
                         if appState.selectedText.last?.isNewline == .some(true) {
                             appState.selectedText.removeLast()
                             isFocused = false
@@ -162,10 +186,12 @@ extension ContentView {
     }
     
     var loadingViewAnimation: some View {
-        GIFImageView(imageName: "animation_300_lhabwwiy.gif" ,width: 100, height: 100)
-            .padding(.trailing, -25)
-            .frame(maxHeight: 100)
-            .offset(y: 0)
+        
+        ActivityIndicator()
+        .frame(width: 25, height: 25)
+        .padding(.trailing, 10)
+        .foregroundColor(.blue)
+        .offset(y: 10)
     }
     
     var bottomBar: some View {
@@ -265,6 +291,18 @@ extension ContentView {
                 .padding(.top, 20)
             Button{
                 contentVM.showErrorView = false
+                if let window = NSApp.windows.first {
+                    
+                    //hide title and bar
+                    window.titleVisibility = .hidden
+                    window.titlebarAppearsTransparent = true
+    //                window.backgroundColor = .clear
+                    window.hasShadow = false
+                    window.isOpaque = false
+                    let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
+                    let y = ((NSScreen.main?.frame.height ?? 1080) / 2) - 37
+                    window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: 100)), display: true)
+                }
             } label: {
                 Text("Ok, I'll check")
                     .font(.custom("Roboto-Medium", size: 12))
