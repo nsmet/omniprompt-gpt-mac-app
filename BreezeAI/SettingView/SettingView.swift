@@ -87,5 +87,6 @@ extension SettingView {
         .buttonStyle(.borderless)
         .cornerRadius(5)
         .padding(.top, 50)
+        .padding(.bottom, 50)
     }
 }

@@ -80,6 +80,22 @@ struct BreezeAIApp: App {
                 NSApplication.shared.activate(ignoringOtherApps: true)
                 NSApp.windows.first?.orderFrontRegardless()
                 appState.router = .contentView
+                if let window = NSApp.windows.first {
+                    //hide buttons
+                    window.standardWindowButton(.closeButton)?.isHidden = true
+                    window.standardWindowButton(.miniaturizeButton)?.isHidden = true
+                    window.standardWindowButton(.zoomButton)?.isHidden = true
+                    
+                    //hide title and bar
+                    window.titleVisibility = .hidden
+                    window.titlebarAppearsTransparent = true
+                    window.backgroundColor = .clear
+                    window.hasShadow = false
+                    window.isOpaque = false
+                    let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
+                    let y = ((NSScreen.main?.frame.height ?? 1080) / 2) + 40
+                    window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: 100)), display: true)
+                }
             }
             Button("Settings") {
                 NSApplication.shared.activate(ignoringOtherApps: true)
