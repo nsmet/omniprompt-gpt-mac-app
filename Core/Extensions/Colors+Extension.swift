@@ -14,5 +14,6 @@ extension Color {
     public static let buttonColor = Color(red: 68/255, green: 72/255, blue: 76/255)
     public static let inputText = Color(red: 204/255, green: 204/255, blue: 204/255)
     public static let textEditorBackgroundColor = Color(red: 34/255, green: 34/255, blue: 35/255)
+    public static let bgButton = Color(red: 55/255, green: 55/255, blue: 55/255)
     
 }

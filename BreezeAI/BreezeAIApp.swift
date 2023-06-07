@@ -18,9 +18,10 @@ struct BreezeAIApp: App {
     @Environment(\.scenePhase) var scenePhase
     
     let hotKey = HotKey(key: .b, modifiers: [.command, .shift], keyDownHandler: {
+        
         if let window = NSApp.windows.first {
-            
             //hide title and bar
+            AppState.shared.selectedText = ""
             window.titleVisibility = .hidden
             window.titlebarAppearsTransparent = true
             window.backgroundColor = .clear
@@ -34,7 +35,12 @@ struct BreezeAIApp: App {
                     if height > 400 {
                         height = 400
                     }
+                    if height < 100 {
+                        height = 100
+                    }
                     window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: height)), display: true)
+                } else {
+                    window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: 100)), display: true)
                 }
             }
             
@@ -88,7 +94,7 @@ struct BreezeAIApp: App {
         MenuBarExtra("", image: "menuBarIcon") {
             Button("Open BreezeAI") {
                 if let window = NSApp.windows.first {
-                    
+                    AppState.shared.selectedText = ""
                     //hide title and bar
                     window.titleVisibility = .hidden
                     window.titlebarAppearsTransparent = true
@@ -97,17 +103,23 @@ struct BreezeAIApp: App {
                     window.isOpaque = false
                     let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
                     let y = ((NSScreen.main?.frame.height ?? 1080) / 2) - 37
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         if let pastBoard = NSPasteboard.general.string(forType: .string) {
                             var height = pastBoard.height(withConstrainedWidth: 752, font: .systemFont(ofSize: 20))
                             if height > 400 {
                                 height = 400
                             }
+                            if height < 100 {
+                                height = 100
+                            }
                             window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: height)), display: true)
+                        } else {
+                            window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: 100)), display: true)
                         }
                     }
                     
                 }
+                NSPasteboard.general.clearContents()
                 let event1 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: true); // cmd-c down
                 event1?.flags = CGEventFlags.maskCommand;
                 event1?.post(tap: CGEventTapLocation.cghidEventTap)
@@ -119,6 +131,7 @@ struct BreezeAIApp: App {
                     if let pastBoard = NSPasteboard.general.string(forType: .string) {
                         AppState.shared.selectedText = pastBoard
                     }
+                    NSPasteboard.general.clearContents()
                 }
                 NSApplication.shared.activate(ignoringOtherApps: true)
                 NSApp.windows.first?.orderFrontRegardless()
