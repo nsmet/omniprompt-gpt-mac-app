@@ -9,10 +9,10 @@ import SwiftUI
 
 struct BackgroundView: View {
     var body: some View {
-        ZStack {
+//        ZStack {
             RoundedRectangle(cornerRadius: 1)
-                .background(Color.backgroundColor)
-        }
+                .background(Color.bgColor)
+//        }
 //        .padding(.top, -50)
     }
 }

@@ -9,59 +9,101 @@ import SwiftUI
 import Core
 import CoreGraphics
 
-extension CGKeyCode
-{
-    // Define whatever key codes you want to detect here
-    static let kVK_UpArrow: CGKeyCode = 0x24
-
-    var isPressed: Bool {
-        CGEventSource.keyState(.combinedSessionState, key: self)
-    }
-}
 
 struct ContentView: View {
     
     @StateObject var contentVM: ContentViewModel
     @ObservedObject var appState = AppState.shared
-    
+    @State var height: CGFloat = 50
+    @FocusState private var isFocused: Bool
     
     var body: some View {
+        //        ZStack {
+        //            VStack{
+        //                HStack(alignment: .top){
+        //                    textField
+        //                    if appState.selectedText != "" {
+        //                        btnView
+        //                    }
+        //                }
+        //                Divider()
+        //                    .foregroundColor(.gray)
+        //                textEditor
+        ////                Spacer()
+        //                Divider()
+        //                    .foregroundColor(.gray)
+        //                bottomBar
+        //
+        //            }
+        ////            if contentVM.showLoadingAnimation {
+        ////                loadingView
+        ////                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+        ////                    .background(Color.black).opacity(0.8)
+        ////            }
+//                    if contentVM.showErrorView {
+//                        errorView
+//                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                            .background(Color.black).opacity(0.8)
+//
+//                    }
+        //
+        //        }
+        
         ZStack {
-            VStack{
-                HStack(spacing: 0){
+            VStack(spacing: 0){
+                
+                HStack(alignment: .top) {
                     textField
-                    if appState.selectedText != "" {
+                    if contentVM.showLoadingAnimation {
+                        loadingViewAnimation
+                    }
+                     else if appState.selectedText != ""{
                         btnView
                     }
+                    
                 }
-                Divider()
-                    .foregroundColor(.gray)
-                textEditor
-//                Spacer()
-                Divider()
-                    .foregroundColor(.gray)
-                bottomBar
-                
+                if !contentVM.textEditor.isEmpty {
+                    textEditor
+                        .background(RoundedRectangle(cornerRadius: 5)
+                            .fill(Color.textEditorBackgroundColor)
+                            .padding([.leading, .trailing], 10)
+                        )
+                        .cornerRadius(5)
+                    bottomBar
+                }
             }
-            if contentVM.showLoadingAnimation {
-                loadingView
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.black).opacity(0.8)
-            }
+//            .overlay(
+//                VStack(alignment:.trailing) {
+//
+//                    HStack(alignment: .top) {
+//                        Spacer()
+//                        if contentVM.showLoadingAnimation {
+//                            loadingViewAnimation
+//                        } else {
+//                            btnView
+//                        }
+//
+//                    }
+//                    .padding(.top, 5)
+//                    Spacer()
+//                }
+//            )
+            .ignoresSafeArea()
+            .background(Color.bgColor.opacity(0.95).blur(radius: 1))
+            .background(Color.bgColor)
+            .cornerRadius(5)
+            .preferredColorScheme(.dark)
+            
             if contentVM.showErrorView {
                 errorView
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.black).opacity(0.8)
-                
+                    .frame(width: 750, height: 475)
+                    .background(Color.black)
+                    .cornerRadius(5)
+                    .offset(y: -100)
+
             }
-            
         }
-        .background(Color.backgroundColor)
-//        .onAppear {
-//            if let pastBoard = NSPasteboard.general.string(forType: .string) {
-//                contentVM.copiedText = pastBoard
-//            }
-//        }
+        
         
     }
     
@@ -76,70 +118,120 @@ struct ContentView_Previews: PreviewProvider {
 extension ContentView {
     
     var textField: some View {
-        ZStack{
-            HStack{
-                Text("What would you like to do?")
-                    .font(.custom("Roboto-Medium", size: 20))
-                    .foregroundColor(Color.placeholder)
-                    .opacity(appState.selectedText == "" ? 1 : 0)
-                    .padding(.leading, 16)
-                    .padding(.bottom, 10)
-                Spacer()
-            }
-            TextField("", text: $appState.selectedText, axis: .vertical)
-                .font(.custom("Roboto-Medium", size: 20))
-            //            .placeholder(when: appState.selectedText.isEmpty) {
-            //                Text("What would you like to do?").foregroundColor(Color.placeholder)
-            //                    .font(.custom("Roboto-Medium", size: 20))
-            //            }
-                .textFieldStyle(PlainTextFieldStyle())
-                .foregroundColor(Color.inputText)
-                .padding(.leading, 16)
-                .padding(.bottom, 10)
-                .onSubmit {
-                    if CGKeyCode.kVK_UpArrow.isPressed {
-                        // Do something in response to the key press.
-                        contentVM.callApiChatGpt(inputText: appState.selectedText)
-                    }
-                    
-                }
-//                .keyboardShortcut(.defaultAction)
+        
+        Text(appState.selectedText.isEmpty ? "What would you like to do?" : appState.selectedText)
+//            .padding([.leading, .top, .bottom], 20)
             
-        }
-        
-        
+            .foregroundColor(Color.placeholder)
+            .font(.custom("Roboto-Medium", size: 20))
+            .opacity(appState.selectedText.isEmpty ? 1 : 0)
+            .frame(maxWidth: .infinity, minHeight: 40, alignment: .leading)
+            .padding(.leading, 15)
+            .padding(.top, 10)
+            .overlay(
+                TextEditor(text: $appState.selectedText)
+                    .foregroundColor(Color.white)
+                    .font(.custom("Roboto-Medium", size: 20))
+                    .disableAutocorrection(true)
+//                    .padding([.top, .bottom], 20)
+//                    .padding(.leading, 14)
+                    .textFieldStyle(.plain)
+                    .padding(.leading, 14)
+                    .padding(.top, 18)
+                    .padding(.bottom, 5)
+                    .onChange(of: appState.selectedText) { _ in
+                        
+                        if appState.selectedText == "" {
+                            contentVM.textEditor = ""
+                            if let window = NSApp.windows.first {
+                                //hide title and bar
+                                window.titleVisibility = .hidden
+                                window.titlebarAppearsTransparent = true
+                                window.backgroundColor = .clear
+                                window.hasShadow = false
+                                window.isOpaque = false
+                                let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
+                                let y = ((NSScreen.main?.frame.height ?? 1080) / 2) - 37
+                                window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: 100)), display: true)
+                            }
+                            
+                        } else if appState.selectedText.count == 200 {
+                            if let window = NSApp.windows.first {
+                                //hide title and bar
+                                window.titleVisibility = .hidden
+                                window.titlebarAppearsTransparent = true
+                                window.backgroundColor = .clear
+                                window.hasShadow = false
+                                window.isOpaque = false
+                                let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
+                                let y = ((NSScreen.main?.frame.height ?? 1080) / 2) - 37
+                                window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: 400)), display: true)
+                            }
+                        }
+                        if appState.selectedText.last?.isNewline == .some(true) {
+                            appState.selectedText.removeLast()
+                            isFocused = false
+                            contentVM.callApiChatGpt(inputText: appState.selectedText)
+                            
+                        }
+                    }
+                    .focused($isFocused)
+                    .submitLabel(.done)
+                
+            )
         
     }
+    
+    var placeholder:some View {
+        Text("What would you like to do?")
+            .foregroundColor(.white)
+            .font(.custom("Roboto-Medium", size: 18))
+    }
     var btnView: some View {
-        Image("enterBtn")
-            .padding(.trailing, 16)
-            .padding(.top, 20)
-            .onTapGesture {
-                contentVM.callApiChatGpt(inputText: appState.selectedText)
+        
+        Button(action: {
+            contentVM.callApiChatGpt(inputText: appState.selectedText)
+            
+        }) {
+            HStack {
+                Image("enterBtn")
             }
+        }
+        .padding([.top, .trailing], 12)
+        .buttonStyle(.borderless)
+        
+    }
+    
+    var loadingViewAnimation: some View {
+        
+        ActivityIndicator()
+        .frame(width: 25, height: 25)
+        .padding(.trailing, 10)
+        .foregroundColor(.blue)
+        .offset(y: 10)
     }
     
     var bottomBar: some View {
         HStack(spacing: 10){
             Spacer()
-            Button{
-                withAnimation(.easeIn) {
-//                    appState.selectedText =  AppState.shared.copiedText
-                    let pasteboard = NSPasteboard.general
-                    pasteboard.declareTypes([.string], owner: nil)
-                    pasteboard.setString("", forType: .string)
-                
-                }
-                NSApplication.shared.hide(nil)
-            } label: {
-                Text("Replace selected text")
-                    .font(.custom("Roboto-Medium", size: 12))
-            }
-            .buttonStyle(GradientButtonStyle())
-            .cornerRadius(5)
-            .padding(.bottom, 10)
-//            .opacity(AppState.shared.copiedText == "" ? 0 : 1)
-            .opacity(contentVM.textEditor == "" ? 0 : 1)
+            //            Button{
+            //                withAnimation(.easeIn) {
+            ////                    appState.selectedText =  AppState.shared.copiedText
+            //                    let pasteboard = NSPasteboard.general
+            //                    pasteboard.declareTypes([.string], owner: nil)
+            //                    pasteboard.setString("", forType: .string)
+            //
+            //                }
+            //                NSApplication.shared.hide(nil)
+            //            } label: {
+            //                Text("Replace selected text")
+            //                    .font(.custom("Roboto-Medium", size: 12))
+            //            }
+            //            .buttonStyle(GradientButtonStyle())
+            //            .cornerRadius(5)
+            //            .padding(.bottom, 10)
+            ////            .opacity(AppState.shared.copiedText == "" ? 0 : 1)
+            //            .opacity(contentVM.textEditor == "" ? 0 : 1)
             
             Button{
                 let pasteboard = NSPasteboard.general
@@ -151,29 +243,80 @@ extension ContentView {
                     .font(.custom("Roboto-Medium", size: 12))
             }
             .buttonStyle(GradientButtonStyle())
-            .padding(.trailing, 15)
+            .padding(.trailing, 10)
             .padding(.bottom, 10)
+            .padding(.top, 10)
             .opacity(contentVM.textEditor == "" ? 0 : 1)
             
             
         }
     }
     var textEditor: some View {
-        VStack{
-            TextEditor(text: $contentVM.textEditor)
-                .font(.custom("Roboto-Medium", size: 14))
-//                .placeholder(when: contentVM.textEditor.isEmpty) {
-//                    Text("Paste text, start typing or let us generate text").foregroundColor(Color.placeholder)
-//                        .font(.custom("Roboto-Medium", size: 14))
-//                        .padding(.leading, 5)
-//                }
-                .padding([.leading, .trailing], 13)
-                .padding([.top, .bottom], 13)
-                .background(Color.textEditorBackgroundColor)
-                .foregroundColor(Color.inputText)
-        }
-        .padding([.leading, .trailing], 10)
-        .padding([.top, .bottom], 5)
+        Text(contentVM.textEditor)
+            .padding([.top], 10)
+            .padding([.leading, .trailing], 15)
+            .foregroundColor(Color.placeholder)
+            .font(.custom("Inter-Regular", size: 14))
+            .opacity(contentVM.textEditor.isEmpty ? 1 : 0)
+            .frame(maxWidth: .infinity, minHeight: 40, alignment: .leading)
+            .overlay(
+                TextEditor(text: $contentVM.textEditor)
+                    .foregroundColor(Color.inputText)
+                    .font(.custom("Inter-Regular", size: 14))
+                    .disableAutocorrection(true)
+                    .padding([.top], 10)
+                    .padding([.leading, .trailing], 15)
+                    .padding([.bottom], 10)
+                    .textFieldStyle(.plain)
+                    .onAppear {
+//                        if contentVM.textEditor != "" {
+//                            if let window = NSApp.windows.first {
+//                                //hide title and bar
+//                                window.titleVisibility = .hidden
+//                                window.titlebarAppearsTransparent = true
+//                                window.backgroundColor = .clear
+//                                window.hasShadow = false
+//                                window.isOpaque = false
+//                                let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
+//                                let y = ((NSScreen.main?.frame.height ?? 1080) / 2) - 37
+//                                window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: 400)), display: true)
+//                            }
+//                        }
+                        if let window = NSApp.windows.first {
+                            
+                            //hide title and bar
+                            window.titleVisibility = .hidden
+                            window.titlebarAppearsTransparent = true
+                            window.backgroundColor = .clear
+                            window.hasShadow = false
+                            window.isOpaque = false
+                            let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
+                            let y = ((NSScreen.main?.frame.height ?? 1080) / 2) - 37
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                let text = contentVM.textEditor
+                                    var height = text.height(withConstrainedWidth: 752, font: .systemFont(ofSize: 20))
+                                    if height > 200 {
+                                        height = 800
+                                    }
+                                    window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: height)), display: true)
+                                
+                            }
+                        }
+                    }
+                
+            )
+        
+            
+//        VStack{
+//            TextEditor(text: $contentVM.textEditor)
+//                .font(.custom("Roboto-Medium", size: 14))
+//                .padding([.leading, .trailing], 13)
+//                .padding([.top, .bottom], 13)
+//                .background(Color.textEditorBackgroundColor)
+//                .foregroundColor(Color.inputText)
+//        }
+//        .padding([.leading, .trailing], 10)
+//        .padding([.top, .bottom], 5)
     }
     
     var loadingView: some View {
@@ -201,6 +344,18 @@ extension ContentView {
                 .padding(.top, 20)
             Button{
                 contentVM.showErrorView = false
+                if let window = NSApp.windows.first {
+                    
+                    //hide title and bar
+                    window.titleVisibility = .hidden
+                    window.titlebarAppearsTransparent = true
+    //                window.backgroundColor = .clear
+                    window.hasShadow = false
+                    window.isOpaque = false
+                    let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
+                    let y = ((NSScreen.main?.frame.height ?? 1080) / 2) - 37
+                    window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: 100)), display: true)
+                }
             } label: {
                 Text("Ok, I'll check")
                     .font(.custom("Roboto-Medium", size: 12))
@@ -212,3 +367,4 @@ extension ContentView {
         }
     }
 }
+
