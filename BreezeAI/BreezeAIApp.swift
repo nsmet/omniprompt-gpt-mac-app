@@ -53,9 +53,14 @@ struct BreezeAIApp: App {
         let event2 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: false); // cmd-c up
         event2?.post(tap: CGEventTapLocation.cghidEventTap)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
             if let pastBoard = NSPasteboard.general.string(forType: .string) {
-                AppState.shared.selectedText = pastBoard
+                
+                if pastBoard.compare(AppState.shared.originalSelectedText, options: .caseInsensitive) != .orderedSame {
+                    AppState.shared.selectedText = pastBoard
+                    AppState.shared.originalSelectedText = pastBoard
+                }
+                
             }
             NSPasteboard.general.clearContents()
         }
