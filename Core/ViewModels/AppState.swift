@@ -18,11 +18,10 @@ public enum AppRouting: String {
 }
 
 public final class AppState: ObservableObject {
-    
     public static let shared = AppState()
     @Published public var router: AppRouting = .none
     @Published public var isConnectedToInternet: Bool = false
-    @Published public var selectedText: String = ""
+    @Published public var promptText: String = ""
     @Published public var originalSelectedText: String = ""
     @Published public var shouldPerformCommand: Bool = false
     @Published public var copiedText = ""
@@ -46,16 +45,12 @@ public final class AppState: ObservableObject {
         let monitor = NWPathMonitor()
         monitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
-                
                 DispatchQueue.main.async {
-                    
                     self.isConnectedToInternet = true
                     
                 }
             } else {
-                
                 DispatchQueue.main.async {
-                    
                     self.isConnectedToInternet = false
                     
                 }
@@ -63,7 +58,5 @@ public final class AppState: ObservableObject {
         }
         let queue = DispatchQueue(label: "MyCardsNetworkMonitor")
         monitor.start(queue: queue)
-        
-        
     }
 }

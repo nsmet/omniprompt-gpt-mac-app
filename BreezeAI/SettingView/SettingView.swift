@@ -23,8 +23,11 @@ struct SettingView: View {
                 doneBTn
                 Spacer()
             }
-            .frame(height: 300)
+            .padding([.top, .leading, .bottom])
+            
         }
+        .padding(.top)
+        .frame(height: /*@START_MENU_TOKEN@*/250.0/*@END_MENU_TOKEN@*/)
         .background(Color.bgColor)
     }
 }
@@ -78,7 +81,7 @@ extension SettingView {
             
 //
             AppState.shared.router = .done
-            if appState.selectedText == "" {
+            if appState.promptText == "" {
                 if let window = NSApp.windows.first {
                     //hide title and bar
                     window.titleVisibility = .hidden

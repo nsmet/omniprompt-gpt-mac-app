@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "hotkey",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/soffes/HotKey",
+      "state" : {
+        "branch" : "master",
+        "revision" : "c13662730cb5bc28de4a799854bbb018a90649bf"
+      }
+    },
+    {
+      "identity" : "openai",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MacPaw/OpenAI.git",
+      "state" : {
+        "revision" : "4da423fe637a628ebee8f214217a9e96060a5222",
+        "version" : "0.2.1"
+      }
+    }
+  ],
+  "version" : 2
+}
