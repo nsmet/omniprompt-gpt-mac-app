@@ -24,7 +24,10 @@ public final class AppState: ObservableObject {
     @Published public var promptText: String = ""
     @Published public var originalSelectedText: String = ""
     @Published public var shouldPerformCommand: Bool = false
+    @Published public var isLoading: Bool = false;
     @Published public var copiedText = ""
+    @Published public var messages: [Message] = []
+
     
     @Published public var apiKeyTF: String {
         didSet {
@@ -41,6 +44,13 @@ public final class AppState: ObservableObject {
     public init () {
         self.apiKeyTF = UserDefaults.standard.object(forKey: "apiKey") as? String ?? ""
         self.openAPIModel = UserDefaults.standard.object(forKey: "openAPIModel") as? String ?? "gpt-3.5-turbo"
+        
+        if let savedMessages = UserDefaults.standard.object(forKey: "messages") as? Data {
+           let decoder = JSONDecoder()
+           if let loadedMessages = try? decoder.decode([Message].self, from: savedMessages) {
+               self.messages = loadedMessages
+           }
+        }
         
         let monitor = NWPathMonitor()
         monitor.pathUpdateHandler = { path in
@@ -59,4 +69,21 @@ public final class AppState: ObservableObject {
         let queue = DispatchQueue(label: "MyCardsNetworkMonitor")
         monitor.start(queue: queue)
     }
+    
+    public func addMessage(isUser: Bool, message: String) {
+        let newMessage = Message(message: message, isUser: isUser, date: Date())
+        self.messages.append(newMessage)
+
+        // Save messages to UserDefaults
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(self.messages) {
+           UserDefaults.standard.set(encoded, forKey: "messages")
+        }
+//        self.clearConversation()
+   }
+    
+    public func clearConversation() {
+        // Save messages to UserDefaults
+        UserDefaults.standard.removeObject(forKey: "messages")
+   }
 }

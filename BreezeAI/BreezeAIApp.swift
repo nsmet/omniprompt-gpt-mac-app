@@ -23,9 +23,11 @@ struct BreezeAIApp: App {
             case .settingsView:
                 SettingView(settingVM: .init())
             case .done:
-                ContentView(contentVM: .init())
+                ContentView(contentVM: .init(appState: AppState.shared))
+                    .environmentObject(AppState.shared)
             default:
-                ContentView(contentVM: .init())
+                ContentView(contentVM: .init(appState: AppState.shared))
+                    .environmentObject(AppState.shared)
             }
         }
         .onChange(of: scenePhase) { newPhase in
@@ -116,7 +118,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
                 }
                 
             }
-            NSPasteboard.general.clearContents()
+//            NSPasteboard.general.clearContents()
         }
         
         NSApp.activate(ignoringOtherApps: true)

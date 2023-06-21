@@ -14,38 +14,48 @@ public final class ContentViewModel: ObservableObject {
     @Published public var textEditor = ""
     @Published public var showLoadingAnimation = false
     @Published public var showErrorView = false
+    @Published public var isUserAtBottom = false
     
     @Published var chatResponseStatus : ChatResponseStatus = .none
     @Published var chatResponse = ""
     @Published var alertMessage = ""
     @Published var showAlert = false
-    var chatMessages: [Chat] = []
     var openAI: OpenAI!
-    @StateObject var appState = AppState.shared
+    var appState: AppState
     
-    public init() {
-        chatMessages.append(Chat(role: .system, content: "You are a helpful assistant."))
+    public init(appState: AppState) {
+        self.appState = appState
     }
+    
     public func callApiChatGpt(inputText: String) {
+        appState.addMessage(isUser: true, message: inputText)
+        // init the loading state
+        
+        
         guard !NSEvent.modifierFlags.contains(.shift) else {
             return
         }
-        self.showLoadingAnimation = true
         if let key = UserDefaults.standard.object(forKey: "apiKey") as? String, key != "" {
             self.openAI = OpenAI(apiToken: key)
         } else {
-            showLoadingAnimation = false
             self.showErrorView = true
             return
         }
-        chatMessages.append(Chat(role: .user, content: inputText))
+        // build the conversation
+        var chatMessages: [Chat] = []
+        chatMessages.append(Chat(role: .system, content: "You are a helpful assistant."))
+        
+        for message in appState.messages {
+            chatMessages.append(Chat(role: message.isUser ? .user : .assistant, content: message.message))
+        }
+        
         guard let model = UserDefaults.standard.object(forKey: "openAPIModel") as? String else { return }
         let query = ChatQuery(model: model, messages: chatMessages)
+        
         self.openAI.chats(query: query) { result in
             DispatchQueue.main.async {
-                self.showLoadingAnimation = false
+                self.appState.isLoading = false
             }
-            
             
             switch result {
             case .success(let res):
@@ -53,9 +63,8 @@ public final class ContentViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         if res.choices.count > 0 {
                             self.textEditor = res.choices.last!.message.content
-                            self.chatMessages.append(Chat(role: .assistant, content: res.choices.last!.message.content))
+                            self.appState.addMessage(isUser: false, message: res.choices.last!.message.content)
                         } else {
-                            self.showLoadingAnimation = true
                             self.showErrorView = true
                             self.reset()
                         }
@@ -66,7 +75,6 @@ public final class ContentViewModel: ObservableObject {
                 print("Chat Erro: \(err)")
                 DispatchQueue.main.async {
                     self.alertMessage = err.localizedDescription
-                    self.showLoadingAnimation = false
                     self.showErrorView = true
                     self.reset()
                 }
@@ -74,7 +82,5 @@ public final class ContentViewModel: ObservableObject {
         }
     }
     func reset() {
-        self.chatMessages.removeAll()
-        chatMessages.append(Chat(role: .system, content: "You are a helpful assistant."))
     }
 }

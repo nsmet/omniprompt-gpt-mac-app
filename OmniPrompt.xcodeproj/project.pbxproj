@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4C00C7212A41E90D0021979E /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C00C7202A41E90D0021979E /* WindowManager.swift */; };
 		4C00C7222A41EB9D0021979E /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C00C7202A41E90D0021979E /* WindowManager.swift */; };
+		4C00C7262A434EC20021979E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C00C7252A434EC20021979E /* Message.swift */; };
+		4C00C72F2A435BDA0021979E /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C00C7292A4357E70021979E /* PromptView.swift */; };
+		4C00C7302A435BF10021979E /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C00C72B2A4357FD0021979E /* MessagesView.swift */; };
+		4C00C7312A435BF40021979E /* ActionBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C00C72D2A4358060021979E /* ActionBarView.swift */; };
 		680C44882A1F7D310059120F /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 680C44872A1F7D310059120F /* OpenAI */; };
 		683DCE902A272B9000841094 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683DCE8F2A272B9000841094 /* ButtonStyle.swift */; };
 		686D430A2A15FC2E0070C969 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 686D43092A15FC2E0070C969 /* HotKey */; };
@@ -109,6 +113,10 @@
 
 /* Begin PBXFileReference section */
 		4C00C7202A41E90D0021979E /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		4C00C7252A434EC20021979E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		4C00C7292A4357E70021979E /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
+		4C00C72B2A4357FD0021979E /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		4C00C72D2A4358060021979E /* ActionBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarView.swift; sourceTree = "<group>"; };
 		683DCE8F2A272B9000841094 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		686D430B2A1604B10070C969 /* AXUIElement+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AXUIElement+Extension.swift"; sourceTree = "<group>"; };
 		68767BB02A0E17E300E6D3B5 /* OmniPrompt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniPrompt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,6 +320,9 @@
 			isa = PBXGroup;
 			children = (
 				68767BB52A0E17E300E6D3B5 /* ContentView.swift */,
+				4C00C7292A4357E70021979E /* PromptView.swift */,
+				4C00C72B2A4357FD0021979E /* MessagesView.swift */,
+				4C00C72D2A4358060021979E /* ActionBarView.swift */,
 			);
 			path = ContentView;
 			sourceTree = "<group>";
@@ -368,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				68A70E0D2A1C97800004F756 /* Enums.swift */,
+				4C00C7252A434EC20021979E /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -615,11 +627,14 @@
 				68767BC02A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld in Sources */,
 				68767BBD2A0E17E600E6D3B5 /* Persistence.swift in Sources */,
 				68767C312A0E5ADC00E6D3B5 /* SettingView.swift in Sources */,
+				4C00C72F2A435BDA0021979E /* PromptView.swift in Sources */,
 				68DADFD82A14F58800835173 /* GifImageView.swift in Sources */,
 				68C79A7D2A2BB807006EBF7F /* TextView.swift in Sources */,
+				4C00C7302A435BF10021979E /* MessagesView.swift in Sources */,
 				68767BB62A0E17E300E6D3B5 /* ContentView.swift in Sources */,
 				68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */,
 				4C00C7222A41EB9D0021979E /* WindowManager.swift in Sources */,
+				4C00C7312A435BF40021979E /* ActionBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +666,7 @@
 				686D430C2A1604B10070C969 /* AXUIElement+Extension.swift in Sources */,
 				4C00C7212A41E90D0021979E /* WindowManager.swift in Sources */,
 				68A70E0E2A1C97800004F756 /* Enums.swift in Sources */,
+				4C00C7262A434EC20021979E /* Message.swift in Sources */,
 				68767C112A0E26F800E6D3B5 /* Colors+Extension.swift in Sources */,
 				68767C332A0E6E6000E6D3B5 /* SettingViewModel.swift in Sources */,
 			);
