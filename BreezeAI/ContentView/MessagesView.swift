@@ -24,7 +24,7 @@ struct MessagesView: View {
                         if (appState.messages[index].isUser) {
                             Text(appState.messages[index].message)
                                 .foregroundColor(Color.inputText)
-                                .font(.custom("Inter-Regular", size: 20))
+                                .font(.custom("Inter-Regular", size: 16))
                                 .lineSpacing(8)
                                 .padding(.all, 14.0)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -61,7 +61,8 @@ struct MessagesView: View {
                 }
             }
         }
-        .frame(width: 752, height: 350)
+        .frame( height: 350)
+        .frame(minWidth: 752, maxWidth: .infinity)
         .cornerRadius(5)
     }
 }

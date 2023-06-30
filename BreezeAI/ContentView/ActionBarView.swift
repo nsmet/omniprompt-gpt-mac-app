@@ -20,7 +20,6 @@ struct ActionBarView: View {
                     pasteboard.clearContents()
                     pasteboard.setString(appState.messages[appState.messages.count - 1].message, forType: .string)
                     NSApplication.shared.hide(nil)
-                    
                 } label: {
                     Text("Copy to clipboard ⌘ + d")
                         .font(.custom("Roboto-Medium", size: 14))

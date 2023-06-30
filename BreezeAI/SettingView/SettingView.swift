@@ -40,6 +40,15 @@ struct SettingView: View {
                 
                 Spacer()
                 
+                Link("For more information or feedback please visit our website.",
+                         destination: URL(string: "https://omniprompt.app")!)
+                        .font(.custom("Roboto-Medium", size: 16))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.blue)
+                        .opacity(0.6)
+                
+                Spacer()
+                
                 Button{
                     AppState.shared.router = .contentView
                 } label: {
@@ -55,6 +64,7 @@ struct SettingView: View {
         .padding(24)
         .preferredColorScheme(.dark)
         .background(Color.bgColor.opacity(0.98).blur(radius: 0.8))
+        .frame(height: 450)
         .cornerRadius(5)
     }
 }
@@ -115,9 +125,6 @@ struct GeneralSettingsView: View {
                     .padding(.leading, -5)
                     Spacer()
                 }
-                
-                
-               
             }
             .padding(20)
         }

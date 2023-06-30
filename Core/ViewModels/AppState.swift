@@ -36,19 +36,6 @@ public final class AppState: ObservableObject {
       }
     }
 
-//    @Published public var startOnLogin: Bool = true {
-//      didSet {
-//          UserDefaults.standard.set(startOnLogin, forKey: "startOnLogin")
-//          Launch
-//          if startOnLogin {
-//              SMAppService.regi
-//          } else {
-//              SMAppService.lo
-//          }
-////          SMLoginItemSetEnabled("com.TappAgency.OmniPrompt.AutoLauncher" as CFString, startOnLogin)
-//      }
-//    }
-
     @Published public var openAIPromptModel: String {
       didSet {
           UserDefaults.standard.set(openAIPromptModel, forKey: "openAIPromptModel")
@@ -100,6 +87,7 @@ public final class AppState: ObservableObject {
     public func clearConversation() {
         // Save messages to UserDefaults
         UserDefaults.standard.removeObject(forKey: "messages")
+        WindowManager.shared.setWindowFrame(small: true)
    }
 }
 

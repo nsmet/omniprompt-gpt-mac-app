@@ -18,7 +18,7 @@ extension Theme {
   public static let CustomMarkdownTheme = Theme()
     .text {
       ForegroundColor(.text)
-      FontSize(20)
+      FontSize(16)
       FontFamily(.custom("Inter-Regular"))
     }
     .code {

@@ -31,6 +31,8 @@ struct BreezeAIApp: App {
                         .environmentObject(AppState.shared)
             }
         }
+        .windowStyle(HiddenTitleBarWindowStyle())
+        .windowResizability(.contentSize)
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .active {
             } else if newPhase == .inactive {
@@ -40,15 +42,14 @@ struct BreezeAIApp: App {
         
         MenuBarExtra("", image: "menuBarIcon") {
             Button("Open OmniPrompt") {
-                appDelegate.openBreezeAI()
                 appState.router = .contentView
+                appDelegate.openBreezeAI()
             }.keyboardShortcut("b", modifiers: [.command, .shift])
             
             Button("Settings") {
                 NSApplication.shared.activate(ignoringOtherApps: true)
                 NSApp.windows.first?.orderFrontRegardless()
                 appState.router = .settingsView
-                WindowManager.shared.setWindowFrame(resultVisible: false)
             }
             
             Button("Quit") {
@@ -87,15 +88,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         NSApplication.shared.hide(nil)
     }
     
+    
     private func setWindowFrame() {
        if let window = NSApp.windows.first {
-           window.titleVisibility = .hidden
-           window.titlebarAppearsTransparent = true
-           window.backgroundColor = .clear
-           window.hasShadow = false
-           window.isOpaque = false
-           
-           WindowManager.shared.setWindowFrame(resultVisible: false)
+           WindowManager.shared.setWindowFrame(small: AppState.shared.messages.count == 0)
        }
    }
     
@@ -114,10 +110,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 if let pastBoard = NSPasteboard.general.string(forType: .string) {
-                    if pastBoard.compare(AppState.shared.originalSelectedText, options: .caseInsensitive) != .orderedSame {
+//                    if pastBoard.compare(AppState.shared.originalSelectedText, options: .caseInsensitive) != .orderedSame {
                         AppState.shared.promptText = pastBoard
                         AppState.shared.originalSelectedText = pastBoard
-                    }
+//                    }
                     
                 }
                 
