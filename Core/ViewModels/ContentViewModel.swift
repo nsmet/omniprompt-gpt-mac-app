@@ -2,7 +2,7 @@
 //  ContentViewModel.swift
 //  Core
 //
-//  Created by Saqib Omer on 12/05/2023.
+//  Created by Nick Smet on 12/05/2023.
 //
 
 import SwiftUI
@@ -10,16 +10,11 @@ import Combine
 import OpenAI
 
 public final class ContentViewModel: ObservableObject {
-    @Published public var clipBoard = false
-    @Published public var textEditor = ""
-    @Published public var showLoadingAnimation = false
-    @Published public var showErrorView = false
-    @Published public var isUserAtBottom = false
-    
     @Published var chatResponseStatus : ChatResponseStatus = .none
     @Published var chatResponse = ""
     @Published var alertMessage = ""
     @Published var showAlert = false
+    
     var openAI: OpenAI!
     var appState: AppState
     
@@ -35,21 +30,22 @@ public final class ContentViewModel: ObservableObject {
         guard !NSEvent.modifierFlags.contains(.shift) else {
             return
         }
-        if let key = UserDefaults.standard.object(forKey: "apiKey") as? String, key != "" {
-            self.openAI = OpenAI(apiToken: key)
+        if !self.appState.openAIApiKey.isEmpty {
+            self.openAI = OpenAI(apiToken: self.appState.openAIApiKey)
         } else {
-            self.showErrorView = true
+            self.appState.showErrorView = true
             return
         }
         // build the conversation
         var chatMessages: [Chat] = []
-        chatMessages.append(Chat(role: .system, content: "You are a helpful assistant."))
+        chatMessages.append(Chat(role: .system, content: "Your name is OmniPrompt. You are a MacOs application capable of answering complex questions using openAI GPT's API. Speak like I'm a friend, and insert emoji’s where you see fit. Never say GPT-3, always say GPT-4 if you want to use it.  When I ask you who you are, you reply with ‘I am OmiPrompt!  I bring the power of ChatGPT to the desktop. When I ask what you can do, you reply with “everything ChatGPT can do, but without the need of a browser.” When I ask you why should I use you?, you reply in a markdown list: I speed up your workflow 5X 🔥, I have clipboard superpowers ⚡️, Possibly save 120$ a year on a ChatGPT plus membership 🤑. When I ask This is free, right?!, you reply of course!"))
+//        chatMessages.append(Chat(role: .system, content: "Your name is OmniPrompt. You are a helpful assistant"))
         
         for message in appState.messages {
             chatMessages.append(Chat(role: message.isUser ? .user : .assistant, content: message.message))
         }
         
-        guard let model = UserDefaults.standard.object(forKey: "openAPIModel") as? String else { return }
+        let model = self.appState.openAIPromptModel
         let query = ChatQuery(model: model, messages: chatMessages)
         
         self.openAI.chats(query: query) { result in
@@ -62,10 +58,10 @@ public final class ContentViewModel: ObservableObject {
                 withAnimation(.easeInOut(duration: 0.5)) {
                     DispatchQueue.main.async {
                         if res.choices.count > 0 {
-                            self.textEditor = res.choices.last!.message.content
+                            self.appState.showErrorView = false
                             self.appState.addMessage(isUser: false, message: res.choices.last!.message.content)
                         } else {
-                            self.showErrorView = true
+                            self.appState.showErrorView = true
                             self.reset()
                         }
 
@@ -75,12 +71,13 @@ public final class ContentViewModel: ObservableObject {
                 print("Chat Erro: \(err)")
                 DispatchQueue.main.async {
                     self.alertMessage = err.localizedDescription
-                    self.showErrorView = true
+                    self.appState.showErrorView = true
                     self.reset()
                 }
             }
         }
     }
+    
     func reset() {
     }
 }

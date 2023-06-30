@@ -25,7 +25,7 @@ struct PromptView: View {
                     .frame(width: CGFloat(45))
             }
         }
-        .background(Color.textEditorBackgroundColor)
+        .background(Color.darkBg)
         .cornerRadius(5)
     }
     
@@ -51,27 +51,31 @@ struct PromptView: View {
                 .textFieldStyle(.plain)
                 .focused($isFocused)
                 .submitLabel(.done)
-                
         }
         .padding(.all, 8)
         .cornerRadius(5)
     }
 
     var BtnView: some View {
-        Button(action: {
-            appState.isLoading = true
-            contentVM.callApiChatGpt(inputText: appState.promptText)
-            appState.promptText = ""
-        }) {
-            HStack {
-                Image(appState.promptText.isEmpty ? "submit-disabled" : "submit-active")
+        VStack(alignment:.center, spacing: 8) {
+            Button(action: {
+                appState.isLoading = true
+                contentVM.callApiChatGpt(inputText: appState.promptText)
+                appState.promptText = ""
+            }) {
+                HStack {
+                    Image(appState.promptText.isEmpty ? "submit-disabled" : "submit-active")
+                }
             }
+            .padding([.top, .trailing], 12)
+            .buttonStyle(.borderless)
+            .keyboardShortcut("r", modifiers: [.command])
+            
+            Text("⌘ + r")
+                .foregroundColor(Color.placeholder)
+                .font(.custom("Roboto-Medium", size: 12))
+                .padding([.trailing], 12)
         }
-        .padding([.top, .trailing], 12)
-        .buttonStyle(.borderless)
-        .disabled(appState.promptText.isEmpty)
-        
-        
     }
     
     var LoadingViewAnimation: some View {

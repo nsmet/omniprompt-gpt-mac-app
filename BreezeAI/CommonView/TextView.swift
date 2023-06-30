@@ -2,7 +2,7 @@
 //  TextView.swift
 //  BreezeAI
 //
-//  Created by Saqib Omer on 03/06/2023.
+//  Created by Nick Smet on 03/06/2023.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  BreezeAIApp.swift
 //  BreezeAI
 //
-//  Created by Saqib Omer on 12/05/2023.
+//  Created by Nick Smet on 12/05/2023.
 //
 
 import SwiftUI
@@ -18,25 +18,23 @@ struct BreezeAIApp: App {
     
     var body: some Scene {
         let _ = NSApplication.shared.setActivationPolicy(.accessory)
-        WindowGroup{
+
+        WindowGroup {
             switch appState.router {
-            case .settingsView:
-                SettingView(settingVM: .init())
-            case .done:
-                ContentView(contentVM: .init(appState: AppState.shared))
-                    .environmentObject(AppState.shared)
-            default:
-                ContentView(contentVM: .init(appState: AppState.shared))
-                    .environmentObject(AppState.shared)
+                case .settingsView:
+                    SettingView()
+                case .contentView:
+                    ContentView(contentVM: .init(appState: AppState.shared))
+                        .environmentObject(AppState.shared)
+                default:
+                    ContentView(contentVM: .init(appState: AppState.shared))
+                        .environmentObject(AppState.shared)
             }
         }
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .active {
-                
             } else if newPhase == .inactive {
-//                print("Inactive")
             } else if newPhase == .background {
-//                print("Background")
             }
         }
         
@@ -44,12 +42,13 @@ struct BreezeAIApp: App {
             Button("Open OmniPrompt") {
                 appDelegate.openBreezeAI()
                 appState.router = .contentView
-            }
+            }.keyboardShortcut("b", modifiers: [.command, .shift])
             
             Button("Settings") {
                 NSApplication.shared.activate(ignoringOtherApps: true)
                 NSApp.windows.first?.orderFrontRegardless()
                 appState.router = .settingsView
+                WindowManager.shared.setWindowFrame(resultVisible: false)
             }
             
             Button("Quit") {
@@ -66,10 +65,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     override init() {
        super.init()
 
-       // Initialize hotKey here
-       hotKey = HotKey(key: .b, modifiers: [.command, .shift], keyDownHandler: {
+        // Initialize hotKey here
+        hotKey = HotKey(key: .b, modifiers: [.command, .shift], keyDownHandler: {
            self.handleKeyDown()
-       })
+        })
    }
     
     @MainActor func applicationDidFinishLaunching(_ notification: Notification) {
@@ -101,24 +100,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
    }
     
     private func handleKeyDown() {
-        NSPasteboard.general.clearContents()
-        let event1 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: true); // cmd-c down
-        event1?.flags = CGEventFlags.maskCommand;
-        event1?.post(tap: CGEventTapLocation.cghidEventTap)
-        
-        let event2 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: false); // cmd-c up
-        event2?.post(tap: CGEventTapLocation.cghidEventTap)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            if let pastBoard = NSPasteboard.general.string(forType: .string) {
-                
-                if pastBoard.compare(AppState.shared.originalSelectedText, options: .caseInsensitive) != .orderedSame {
-                    AppState.shared.promptText = pastBoard
-                    AppState.shared.originalSelectedText = pastBoard
+        // if we already have state in the input -> don't do it
+        if (AppState.shared.promptText.isEmpty) {
+            let oldClipBoardContent = NSPasteboard.general.string(forType: .string)
+            
+            NSPasteboard.general.clearContents()
+            let event1 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: true); // cmd-c down
+            event1?.flags = CGEventFlags.maskCommand;
+            event1?.post(tap: CGEventTapLocation.cghidEventTap)
+            
+            let event2 = CGEvent(keyboardEventSource: nil, virtualKey: 0x08, keyDown: false); // cmd-c up
+            event2?.post(tap: CGEventTapLocation.cghidEventTap)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                if let pastBoard = NSPasteboard.general.string(forType: .string) {
+                    if pastBoard.compare(AppState.shared.originalSelectedText, options: .caseInsensitive) != .orderedSame {
+                        AppState.shared.promptText = pastBoard
+                        AppState.shared.originalSelectedText = pastBoard
+                    }
+                    
                 }
                 
+                // If we have content in our pasteboard, set it back
+                if let oldContent = oldClipBoardContent, !oldContent.isEmpty {
+                    NSPasteboard.general.setString(oldContent, forType: .string)
+                }
             }
-//            NSPasteboard.general.clearContents()
         }
         
         NSApp.activate(ignoringOtherApps: true)
@@ -129,6 +136,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     func openBreezeAI() {
         AppState.shared.promptText = ""
         setWindowFrame()
+        handleKeyDown()
         
         NSApplication.shared.activate(ignoringOtherApps: true)
         NSApp.windows.first?.orderFrontRegardless()

@@ -2,13 +2,14 @@
 //  AppState.swift
 //  Core
 //
-//  Created by Saqib Omer on 14/05/2023.
+//  Created by Nick Smet on 14/05/2023.
 //
 
 import Foundation
 import Combine
 import SwiftUI
 import Network
+import ServiceManagement
 
 public enum AppRouting: String {
     case contentView // Show ContentView
@@ -23,28 +24,43 @@ public final class AppState: ObservableObject {
     @Published public var isConnectedToInternet: Bool = false
     @Published public var promptText: String = ""
     @Published public var originalSelectedText: String = ""
-    @Published public var shouldPerformCommand: Bool = false
     @Published public var isLoading: Bool = false;
-    @Published public var copiedText = ""
     @Published public var messages: [Message] = []
-
+    @Published public var showErrorView: Bool = false
     
-    @Published public var apiKeyTF: String {
-        didSet {
-            UserDefaults.standard.set(apiKeyTF, forKey: "apiKey")
-        }
-    }
+    // settings
     public var openAPIModels = ["gpt-4", "gpt-4-32k", "gpt-3.5-turbo"]
-    @Published public var openAPIModel: String {
+    @Published public var openAIApiKey: String {
         didSet {
-            UserDefaults.standard.set(openAPIModel, forKey: "openAPIModel")
-        }
+          UserDefaults.standard.set(openAIApiKey, forKey: "openAIApiKey")
+      }
     }
+
+//    @Published public var startOnLogin: Bool = true {
+//      didSet {
+//          UserDefaults.standard.set(startOnLogin, forKey: "startOnLogin")
+//          Launch
+//          if startOnLogin {
+//              SMAppService.regi
+//          } else {
+//              SMAppService.lo
+//          }
+////          SMLoginItemSetEnabled("com.TappAgency.OmniPrompt.AutoLauncher" as CFString, startOnLogin)
+//      }
+//    }
+
+    @Published public var openAIPromptModel: String {
+      didSet {
+          UserDefaults.standard.set(openAIPromptModel, forKey: "openAIPromptModel")
+      }
+    }
+    
     
     public init () {
-        self.apiKeyTF = UserDefaults.standard.object(forKey: "apiKey") as? String ?? ""
-        self.openAPIModel = UserDefaults.standard.object(forKey: "openAPIModel") as? String ?? "gpt-3.5-turbo"
-        
+        self.openAIApiKey = UserDefaults.standard.string(forKey: "openAIApiKey") ?? ""
+//        self.startOnLogin = UserDefaults.standard.bool(forKey: "startOnLogin")
+        self.openAIPromptModel = UserDefaults.standard.string(forKey: "openAIPromptModel") ?? "gpt-3.5-turbo"
+
         if let savedMessages = UserDefaults.standard.object(forKey: "messages") as? Data {
            let decoder = JSONDecoder()
            if let loadedMessages = try? decoder.decode([Message].self, from: savedMessages) {
@@ -79,7 +95,6 @@ public final class AppState: ObservableObject {
         if let encoded = try? encoder.encode(self.messages) {
            UserDefaults.standard.set(encoded, forKey: "messages")
         }
-//        self.clearConversation()
    }
     
     public func clearConversation() {
@@ -87,3 +102,4 @@ public final class AppState: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "messages")
    }
 }
+

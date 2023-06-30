@@ -2,7 +2,7 @@
 //  Enums.swift
 //  Core
 //
-//  Created by Saqib Omer on 23/05/2023.
+//  Created by Nick Smet on 23/05/2023.
 //
 
 import Foundation

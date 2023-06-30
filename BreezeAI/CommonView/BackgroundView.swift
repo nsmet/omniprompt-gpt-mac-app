@@ -2,7 +2,7 @@
 //  BackgroundView.swift
 //  BreezeAI
 //
-//  Created by Saqib Omer on 12/05/2023.
+//  Created by Nick Smet on 12/05/2023.
 //
 
 import SwiftUI
@@ -10,7 +10,7 @@ import SwiftUI
 struct BackgroundView: View {
     var body: some View {
 //        ZStack {
-            RoundedRectangle(cornerRadius: 1)
+            RoundedRectangle(cornerRadius: 5)
                 .background(Color.bgColor)
 //        }
 //        .padding(.top, -50)

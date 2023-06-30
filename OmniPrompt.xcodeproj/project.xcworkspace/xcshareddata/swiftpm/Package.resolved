@@ -10,12 +10,30 @@
       }
     },
     {
+      "identity" : "launchatlogin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/LaunchAtLogin",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7ad6331f9c38953eb1ce8737758e18f7607e984a"
+      }
+    },
+    {
       "identity" : "openai",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MacPaw/OpenAI.git",
       "state" : {
         "revision" : "4da423fe637a628ebee8f214217a9e96060a5222",
         "version" : "0.2.1"
+      }
+    },
+    {
+      "identity" : "swift-markdown-ui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gonzalezreal/swift-markdown-ui",
+      "state" : {
+        "revision" : "12b351a75201a8124c2f2e1f9fc6ef5cd812c0b9",
+        "version" : "2.1.0"
       }
     }
   ],

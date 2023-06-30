@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Core
+import MarkdownUI
 
 struct MessagesView: View {
     @EnvironmentObject var appState: AppState
@@ -20,16 +21,30 @@ struct MessagesView: View {
             ScrollViewReader { scrollProxy in
                 VStack(spacing: 0) {
                     ForEach(appState.messages.indices, id: \.self) { index in
-                        Text(appState.messages[index].message)
-                            .foregroundColor(Color.inputText)
-                            .font(.custom("Inter-Regular", size: 16))
-                            .lineSpacing(8)
-                            .padding(.all, 14.0)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .multilineTextAlignment(.leading)
-                            .textSelection(.enabled)
-                            .background(appState.messages[index].isUser ? Color.userMessageBgColor : Color.botMessageBgColor)
-                            .id(appState.messages[index].id)
+                        if (appState.messages[index].isUser) {
+                            Text(appState.messages[index].message)
+                                .foregroundColor(Color.inputText)
+                                .font(.custom("Inter-Regular", size: 20))
+                                .lineSpacing(8)
+                                .padding(.all, 14.0)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .multilineTextAlignment(.leading)
+                                .textSelection(.enabled)
+                                .background(Color.userMessageBgColor)
+                                .id(appState.messages[index].id)
+                        } else {
+                            Markdown("""
+                                     \(appState.messages[index].message)
+                                     """)
+                            .markdownTheme(.CustomMarkdownTheme)
+                                .foregroundColor(Color.inputText)
+                                .padding(.all, 14.0)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .multilineTextAlignment(.leading)
+                                .textSelection(.enabled)
+                                .background(Color.botMessageBgColor)
+                                .id(appState.messages[index].id)
+                        }
                     }
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: Alignment.topLeading)

@@ -2,111 +2,124 @@
 //  SettingView.swift
 //  BreezeAI
 //
-//  Created by Saqib Omer on 12/05/2023.
+//  Created by Nick Smet on 12/05/2023.
 //
 
 import SwiftUI
 import Core
+import LaunchAtLogin
+
 
 struct SettingView: View {
-    @ObservedObject var settingVM: SettingViewModel
-    @ObservedObject var appState = AppState.shared
-    @State var selected =  "gpt-3.5-turbo"
+    @EnvironmentObject var appState: AppState
+    
+    private enum Tabs: Hashable {
+       case general
+    }
+    
     var body: some View {
-        ZStack{
-            VStack{
-                generalButton
-                Divider()
-                    .foregroundColor(.gray)
-                apiKeyTextField
-                openApiModelView
-                doneBTn
-                Spacer()
+        VStack {
+            HStack {
+                VStack(alignment: .center) {
+                    Image(systemName: "gear")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                        .opacity(0.6)
+                    Text("General")
+                        .font(.custom("Roboto-Medium", size: 16))
+                        .foregroundColor(.white)
+                        .padding(.top, 8)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color.inputText)
+                        .opacity(0.6)
+                    Divider()
+                }
             }
-            .padding([.top, .leading, .bottom])
-            
+            VStack {
+                GeneralSettingsView().environmentObject(AppState.shared)
+                
+                Spacer()
+                
+                Button{
+                    AppState.shared.router = .contentView
+                } label: {
+                    Text("Done")
+                        .font(.custom("Roboto-Medium", size: 14))
+                        .padding([.top, .trailing, .leading, .bottom], 8)
+                }
+                .buttonStyle(.borderedProminent)
+                .padding(.top, 24)
+            }
+            Spacer()
         }
-        .padding(.top)
-        .frame(height: /*@START_MENU_TOKEN@*/250.0/*@END_MENU_TOKEN@*/)
-        .background(Color.bgColor)
+        .padding(24)
+        .preferredColorScheme(.dark)
+        .background(Color.bgColor.opacity(0.98).blur(radius: 0.8))
+        .cornerRadius(5)
     }
 }
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView(settingVM: SettingViewModel())
+        SettingView().environmentObject(AppState.shared)
     }
 }
-extension SettingView {
-    var generalButton: some View {
-        VStack{
-            Image(systemName: "gearshape")
-                .foregroundColor(.white)
-            Text("General")
-                .foregroundColor(.white)
-        }
-    }
-    
-    var apiKeyTextField: some View {
-        HStack{
-            Text("OpenAI API key")
-                .foregroundColor(Color.inputText)
-            SecureField("", text: $appState.apiKeyTF)
-                .accentColor(Color.inputText)
-                .foregroundColor(Color.inputText)
-                .textFieldStyle(PlainTextFieldStyle())
-                .padding(5)
-                .overlay(RoundedRectangle(cornerRadius: 2).stroke(Color.gray))
-                .padding(.trailing, 5)
-                .padding(.leading, 50)
-        }
-        .padding([.leading, .trailing], 40)
-    }
-    var openApiModelView: some View {
-        HStack{
-            Text("Desired OpenAI Model")
-                .foregroundColor(Color.inputText)
-            
-            Picker(selection: $appState.openAPIModel, label: Text("")) {
-                ForEach(appState.openAPIModels, id: \.self) { api in
-                    Text(api)
+
+struct GeneralSettingsView: View {
+    @EnvironmentObject var appState: AppState
+
+    var body: some View {
+        Form() {
+            VStack(alignment: .center) {
+                HStack {
+                    LaunchAtLogin.Toggle {
+                        Text("Launch at login (recommended)")
+                            .foregroundColor(Color.inputText)
+                            .multilineTextAlignment(.leading)
+                            .font(.custom("Roboto-Medium", size: 14))
+                            .padding(.leading, 8)
+                    }
+                    Spacer()
+                }.padding(.bottom, 24)
+                
+                HStack {
+                    Text("OpenAI API key")
+                        .foregroundColor(Color.inputText)
+                        .frame(width: 200, alignment: .leading)
+                        .multilineTextAlignment(.leading)
+                        .font(.custom("Roboto-Medium", size: 14))
+                    
+                    SecureField("", text: $appState.openAIApiKey)
+                        .accentColor(Color.inputText)
+                        .foregroundColor(Color.inputText)
+                        .textFieldStyle(PlainTextFieldStyle())
+                        .padding(5)
+                        .overlay(RoundedRectangle(cornerRadius: 2).stroke(Color.gray))
+                        .frame(maxWidth: .infinity)
                 }
-            }
-        }
-        .padding([.leading, .trailing], 40)
-    }
-    
-    var doneBTn: some View {
-        Button{
-            
-//
-            AppState.shared.router = .done
-            if appState.promptText == "" {
-                if let window = NSApp.windows.first {
-                    //hide title and bar
-                    window.titleVisibility = .hidden
-                    window.titlebarAppearsTransparent = true
-                    window.backgroundColor = .clear
-                    window.hasShadow = false
-                    window.isOpaque = false
-                    let x = ((NSScreen.main?.frame.width ?? 1080) / 2) - 376
-                    let y = ((NSScreen.main?.frame.height ?? 1080) / 2) - 37
-                    window.setFrame(CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 752, height: 100)), display: true)
+                .padding([ .bottom], 16)
+                
+                HStack() {
+                    Text("Desired OpenAI Model")
+                        .foregroundColor(Color.inputText)
+                        .frame(width: 200, alignment: .leading)
+                        .multilineTextAlignment(.leading)
+                        .font(.custom("Roboto-Medium", size: 14))
+                    
+                    Picker(selection: $appState.openAIPromptModel, label: Text("")) {
+                        ForEach(appState.openAPIModels, id: \.self) { api in
+                            Text(api)
+                        }
+                    }
+                    .frame(maxWidth: 150, alignment: .leading)
+                    .padding(.leading, -5)
+                    Spacer()
                 }
                 
+                
+               
             }
-        } label: {
-            Text("Done")
-                .font(.custom("Roboto-Medium", size: 12))
-                .padding([.leading, .trailing], 16)
-                .padding(.top, 2)
-                .padding([.top, .bottom], 8)
-                .background(Color.buttonColor)
-                .foregroundColor(Color.inputText)
+            .padding(20)
         }
-        .buttonStyle(.borderless)
-        .cornerRadius(5)
-        .padding(.top, 50)
-        .padding(.bottom, 50)
     }
 }

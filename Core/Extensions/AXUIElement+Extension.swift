@@ -2,7 +2,7 @@
 //  AXUIElement+Extension.swift
 //  Core
 //
-//  Created by Saqib Omer on 18/05/2023.
+//  Created by Nick Smet on 18/05/2023.
 //
 
 import Foundation

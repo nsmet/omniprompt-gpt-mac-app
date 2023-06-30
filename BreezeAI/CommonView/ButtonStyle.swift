@@ -2,7 +2,7 @@
 //  ButtonStyle.swift
 //  BreezeAI
 //
-//  Created by Saqib Omer on 31/05/2023.
+//  Created by Nick Smet on 31/05/2023.
 //
 
 import Foundation
@@ -15,8 +15,7 @@ struct GradientButtonStyle: ButtonStyle {
             .padding([.leading, .trailing], 16)
             .padding(.top, 2)
             .padding([.top, .bottom], 8)
-            .background(Color.bgButton)
-//            .background(configuration.isPressed ? Color.inputText : Color.buttonColor)
+            .background(Color.darkBg)
             .cornerRadius(5)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }

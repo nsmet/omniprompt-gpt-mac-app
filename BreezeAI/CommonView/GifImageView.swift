@@ -2,7 +2,7 @@
 //  GifImageView.swift
 //  BreezeAI
 //
-//  Created by Saqib Omer on 17/05/2023.
+//  Created by Nick Smet on 17/05/2023.
 //
 
 import SwiftUI

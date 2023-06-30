@@ -2,7 +2,7 @@
 //  SettingViewModel.swift
 //  Core
 //
-//  Created by Saqib Omer on 12/05/2023.
+//  Created by Nick Smet on 12/05/2023.
 //
 
 import SwiftUI
