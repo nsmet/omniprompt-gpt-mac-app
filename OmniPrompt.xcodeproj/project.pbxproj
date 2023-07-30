@@ -21,15 +21,15 @@
 		683DCE902A272B9000841094 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683DCE8F2A272B9000841094 /* ButtonStyle.swift */; };
 		686D430A2A15FC2E0070C969 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 686D43092A15FC2E0070C969 /* HotKey */; };
 		686D430C2A1604B10070C969 /* AXUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D430B2A1604B10070C969 /* AXUIElement+Extension.swift */; };
-		68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */; };
+		68767BB42A0E17E300E6D3B5 /* OmniPromptApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BB32A0E17E300E6D3B5 /* OmniPromptApp.swift */; };
 		68767BB62A0E17E300E6D3B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BB52A0E17E300E6D3B5 /* ContentView.swift */; };
 		68767BB82A0E17E600E6D3B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68767BB72A0E17E600E6D3B5 /* Assets.xcassets */; };
 		68767BBB2A0E17E600E6D3B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68767BBA2A0E17E600E6D3B5 /* Preview Assets.xcassets */; };
 		68767BBD2A0E17E600E6D3B5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BBC2A0E17E600E6D3B5 /* Persistence.swift */; };
-		68767BC02A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68767BBE2A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld */; };
-		68767BCB2A0E17E600E6D3B5 /* BreezeAITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BCA2A0E17E600E6D3B5 /* BreezeAITests.swift */; };
-		68767BD52A0E17E600E6D3B5 /* BreezeAIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BD42A0E17E600E6D3B5 /* BreezeAIUITests.swift */; };
-		68767BD72A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BD62A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift */; };
+		68767BC02A0E17E600E6D3B5 /* OmniPrompt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68767BBE2A0E17E600E6D3B5 /* OmniPrompt.xcdatamodeld */; };
+		68767BCB2A0E17E600E6D3B5 /* OmniPromptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BCA2A0E17E600E6D3B5 /* OmniPromptTests.swift */; };
+		68767BD52A0E17E600E6D3B5 /* OmniPromptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BD42A0E17E600E6D3B5 /* OmniPromptUITests.swift */; };
+		68767BD72A0E17E600E6D3B5 /* OmniPromptUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BD62A0E17E600E6D3B5 /* OmniPromptUITestsLaunchTests.swift */; };
 		68767BF02A0E1C0A00E6D3B5 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68767BE82A0E1C0900E6D3B5 /* Core.framework */; };
 		68767BF72A0E1C0A00E6D3B5 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68767BF62A0E1C0A00E6D3B5 /* CoreTests.swift */; };
 		68767BF82A0E1C0A00E6D3B5 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 68767BEA2A0E1C0900E6D3B5 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -69,14 +69,14 @@
 			containerPortal = 68767BA82A0E17E300E6D3B5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 68767BAF2A0E17E300E6D3B5;
-			remoteInfo = BreezeAI;
+			remoteInfo = OmniPrompt;
 		};
 		68767BD12A0E17E600E6D3B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 68767BA82A0E17E300E6D3B5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 68767BAF2A0E17E300E6D3B5;
-			remoteInfo = BreezeAI;
+			remoteInfo = OmniPrompt;
 		};
 		68767BF12A0E1C0A00E6D3B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -90,7 +90,7 @@
 			containerPortal = 68767BA82A0E17E300E6D3B5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 68767BAF2A0E17E300E6D3B5;
-			remoteInfo = BreezeAI;
+			remoteInfo = OmniPrompt;
 		};
 		68767BF92A0E1C0A00E6D3B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -127,18 +127,18 @@
 		683DCE8F2A272B9000841094 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		686D430B2A1604B10070C969 /* AXUIElement+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AXUIElement+Extension.swift"; sourceTree = "<group>"; };
 		68767BB02A0E17E300E6D3B5 /* OmniPrompt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniPrompt.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAIApp.swift; sourceTree = "<group>"; };
+		68767BB32A0E17E300E6D3B5 /* OmniPromptApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniPromptApp.swift; sourceTree = "<group>"; };
 		68767BB52A0E17E300E6D3B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		68767BB72A0E17E600E6D3B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68767BBA2A0E17E600E6D3B5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68767BBC2A0E17E600E6D3B5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		68767BBF2A0E17E600E6D3B5 /* BreezeAI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BreezeAI.xcdatamodel; sourceTree = "<group>"; };
-		68767BC12A0E17E600E6D3B5 /* BreezeAI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BreezeAI.entitlements; sourceTree = "<group>"; };
+		68767BBF2A0E17E600E6D3B5 /* OmniPrompt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OmniPrompt.xcdatamodel; sourceTree = "<group>"; };
+		68767BC12A0E17E600E6D3B5 /* OmniPrompt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmniPrompt.entitlements; sourceTree = "<group>"; };
 		68767BC62A0E17E600E6D3B5 /* OmniPromptTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniPromptTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		68767BCA2A0E17E600E6D3B5 /* BreezeAITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAITests.swift; sourceTree = "<group>"; };
+		68767BCA2A0E17E600E6D3B5 /* OmniPromptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniPromptTests.swift; sourceTree = "<group>"; };
 		68767BD02A0E17E600E6D3B5 /* OmniPromptUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniPromptUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		68767BD42A0E17E600E6D3B5 /* BreezeAIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAIUITests.swift; sourceTree = "<group>"; };
-		68767BD62A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreezeAIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		68767BD42A0E17E600E6D3B5 /* OmniPromptUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniPromptUITests.swift; sourceTree = "<group>"; };
+		68767BD62A0E17E600E6D3B5 /* OmniPromptUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniPromptUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		68767BE82A0E1C0900E6D3B5 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68767BEA2A0E1C0900E6D3B5 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		68767BEF2A0E1C0A00E6D3B5 /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,9 +238,9 @@
 			children = (
 				68767BE92A0E1C0900E6D3B5 /* Core */,
 				68767BF52A0E1C0A00E6D3B5 /* CoreTests */,
-				68767BB22A0E17E300E6D3B5 /* BreezeAI */,
-				68767BC92A0E17E600E6D3B5 /* BreezeAITests */,
-				68767BD32A0E17E600E6D3B5 /* BreezeAIUITests */,
+				68767BB22A0E17E300E6D3B5 /* OmniPrompt */,
+				68767BC92A0E17E600E6D3B5 /* OmniPromptTests */,
+				68767BD32A0E17E600E6D3B5 /* OmniPromptUITests */,
 				68767BB12A0E17E300E6D3B5 /* Products */,
 				4C86A3542A4D8A5F00A17CCB /* Frameworks */,
 			);
@@ -258,7 +258,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		68767BB22A0E17E300E6D3B5 /* BreezeAI */ = {
+		68767BB22A0E17E300E6D3B5 /* OmniPrompt */ = {
 			isa = PBXGroup;
 			children = (
 				4CE677232A4ADD6B008A093A /* Markdown */,
@@ -267,14 +267,14 @@
 				68767C0B2A0E1DEB00E6D3B5 /* CommonView */,
 				68767C2F2A0E5AC200E6D3B5 /* SettingView */,
 				68767C0A2A0E1DD900E6D3B5 /* ContentView */,
-				68767BB32A0E17E300E6D3B5 /* BreezeAIApp.swift */,
+				68767BB32A0E17E300E6D3B5 /* OmniPromptApp.swift */,
 				68767BB72A0E17E600E6D3B5 /* Assets.xcassets */,
 				68767BBC2A0E17E600E6D3B5 /* Persistence.swift */,
-				68767BC12A0E17E600E6D3B5 /* BreezeAI.entitlements */,
-				68767BBE2A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld */,
+				68767BC12A0E17E600E6D3B5 /* OmniPrompt.entitlements */,
+				68767BBE2A0E17E600E6D3B5 /* OmniPrompt.xcdatamodeld */,
 				68767BB92A0E17E600E6D3B5 /* Preview Content */,
 			);
-			path = BreezeAI;
+			path = OmniPrompt;
 			sourceTree = "<group>";
 		};
 		68767BB92A0E17E600E6D3B5 /* Preview Content */ = {
@@ -285,21 +285,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		68767BC92A0E17E600E6D3B5 /* BreezeAITests */ = {
+		68767BC92A0E17E600E6D3B5 /* OmniPromptTests */ = {
 			isa = PBXGroup;
 			children = (
-				68767BCA2A0E17E600E6D3B5 /* BreezeAITests.swift */,
+				68767BCA2A0E17E600E6D3B5 /* OmniPromptTests.swift */,
 			);
-			path = BreezeAITests;
+			path = OmniPromptTests;
 			sourceTree = "<group>";
 		};
-		68767BD32A0E17E600E6D3B5 /* BreezeAIUITests */ = {
+		68767BD32A0E17E600E6D3B5 /* OmniPromptUITests */ = {
 			isa = PBXGroup;
 			children = (
-				68767BD42A0E17E600E6D3B5 /* BreezeAIUITests.swift */,
-				68767BD62A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift */,
+				68767BD42A0E17E600E6D3B5 /* OmniPromptUITests.swift */,
+				68767BD62A0E17E600E6D3B5 /* OmniPromptUITestsLaunchTests.swift */,
 			);
-			path = BreezeAIUITests;
+			path = OmniPromptUITests;
 			sourceTree = "<group>";
 		};
 		68767BE92A0E1C0900E6D3B5 /* Core */ = {
@@ -455,7 +455,7 @@
 				4CE677042A49E1EF008A093A /* MarkdownUI */,
 				4C86A3582A4D8F0F00A17CCB /* LaunchAtLogin */,
 			);
-			productName = BreezeAI;
+			productName = OmniPrompt;
 			productReference = 68767BB02A0E17E300E6D3B5 /* OmniPrompt.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -473,7 +473,7 @@
 				68767BC82A0E17E600E6D3B5 /* PBXTargetDependency */,
 			);
 			name = OmniPromptTests;
-			productName = BreezeAITests;
+			productName = OmniPromptTests;
 			productReference = 68767BC62A0E17E600E6D3B5 /* OmniPromptTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -491,7 +491,7 @@
 				68767BD22A0E17E600E6D3B5 /* PBXTargetDependency */,
 			);
 			name = OmniPromptUITests;
-			productName = BreezeAIUITests;
+			productName = OmniPromptUITests;
 			productReference = 68767BD02A0E17E600E6D3B5 /* OmniPromptUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -656,7 +656,7 @@
 			files = (
 				68767C0D2A0E1E1A00E6D3B5 /* BackgroundView.swift in Sources */,
 				683DCE902A272B9000841094 /* ButtonStyle.swift in Sources */,
-				68767BC02A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld in Sources */,
+				68767BC02A0E17E600E6D3B5 /* OmniPrompt.xcdatamodeld in Sources */,
 				68767BBD2A0E17E600E6D3B5 /* Persistence.swift in Sources */,
 				4CE677252A4ADD7D008A093A /* CustomMarkdownTheme.swift in Sources */,
 				68767C312A0E5ADC00E6D3B5 /* SettingView.swift in Sources */,
@@ -665,7 +665,7 @@
 				68C79A7D2A2BB807006EBF7F /* TextView.swift in Sources */,
 				4C00C7302A435BF10021979E /* MessagesView.swift in Sources */,
 				68767BB62A0E17E300E6D3B5 /* ContentView.swift in Sources */,
-				68767BB42A0E17E300E6D3B5 /* BreezeAIApp.swift in Sources */,
+				68767BB42A0E17E300E6D3B5 /* OmniPromptApp.swift in Sources */,
 				4C2AB26F2A4479EA00B685C4 /* ErrorView.swift in Sources */,
 				4C00C7222A41EB9D0021979E /* WindowManager.swift in Sources */,
 				4C00C7312A435BF40021979E /* ActionBarView.swift in Sources */,
@@ -676,7 +676,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68767BCB2A0E17E600E6D3B5 /* BreezeAITests.swift in Sources */,
+				68767BCB2A0E17E600E6D3B5 /* OmniPromptTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,8 +684,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68767BD72A0E17E600E6D3B5 /* BreezeAIUITestsLaunchTests.swift in Sources */,
-				68767BD52A0E17E600E6D3B5 /* BreezeAIUITests.swift in Sources */,
+				68767BD72A0E17E600E6D3B5 /* OmniPromptUITestsLaunchTests.swift in Sources */,
+				68767BD52A0E17E600E6D3B5 /* OmniPromptUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,18 +864,18 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = BreezeAI/BreezeAI.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = OmniPrompt/OmniPrompt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BreezeAI/Preview Content\"";
-				DEVELOPMENT_TEAM = HNY46KCWAA;
+				DEVELOPMENT_ASSET_PATHS = "\"OmniPrompt/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BreezeAI/Info.plist;
+				INFOPLIST_FILE = OmniPrompt/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OmniPrompt;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "";
@@ -885,8 +885,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TappAgency.OmniPrompt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -898,18 +898,18 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = BreezeAI/BreezeAI.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = OmniPrompt/OmniPrompt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BreezeAI/Preview Content\"";
-				DEVELOPMENT_TEAM = HNY46KCWAA;
+				DEVELOPMENT_ASSET_PATHS = "\"OmniPrompt/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BreezeAI/Info.plist;
+				INFOPLIST_FILE = OmniPrompt/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OmniPrompt;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "";
@@ -919,8 +919,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TappAgency.OmniPrompt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -977,7 +977,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = BreezeAI;
+				TEST_TARGET_NAME = OmniPrompt;
 			};
 			name = Debug;
 		};
@@ -994,7 +994,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = BreezeAI;
+				TEST_TARGET_NAME = OmniPrompt;
 			};
 			name = Release;
 		};
@@ -1006,7 +1006,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = J5M5VP8T78;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1023,7 +1023,6 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.mac.core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1042,7 +1041,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = J5M5VP8T78;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1059,7 +1058,6 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.mac.core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1221,13 +1219,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		68767BBE2A0E17E600E6D3B5 /* BreezeAI.xcdatamodeld */ = {
+		68767BBE2A0E17E600E6D3B5 /* OmniPrompt.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				68767BBF2A0E17E600E6D3B5 /* BreezeAI.xcdatamodel */,
+				68767BBF2A0E17E600E6D3B5 /* OmniPrompt.xcdatamodel */,
 			);
-			currentVersion = 68767BBF2A0E17E600E6D3B5 /* BreezeAI.xcdatamodel */;
-			path = BreezeAI.xcdatamodeld;
+			currentVersion = 68767BBF2A0E17E600E6D3B5 /* OmniPrompt.xcdatamodel */;
+			path = OmniPrompt.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

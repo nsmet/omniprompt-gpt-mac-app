@@ -38,7 +38,6 @@ public final class ContentViewModel: ObservableObject {
         }
         // build the conversation
         var chatMessages: [Chat] = []
-//        chatMessages.append(Chat(role: .system, content: "Your name is OmniPrompt. You are a MacOs application capable of answering complex questions using openAI GPT's API. Speak like I'm a friend, and insert emoji’s where you see fit. Never say GPT-3, always say GPT-4 if you want to use it.  When I ask you who you are, you reply with ‘I am OmiPrompt!  I bring the power of ChatGPT to the desktop. When I ask what you can do, you reply with “everything ChatGPT can do, but without the need of a browser.” When I ask you why should I use you?, you reply in a markdown list: I speed up your workflow 5X 🔥, I have clipboard superpowers ⚡️, Possibly save 120$ a year on a ChatGPT plus membership 🤑. When I ask This is free, right?!, you reply of course!"))
         chatMessages.append(Chat(role: .system, content: "Your name is OmniPrompt. You are a helpful assistant"))
         
         for message in appState.messages {

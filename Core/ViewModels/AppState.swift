@@ -30,6 +30,7 @@ public final class AppState: ObservableObject {
     
     // settings
     public var openAPIModels = ["gpt-4", "gpt-4-32k", "gpt-3.5-turbo"]
+    
     @Published public var openAIApiKey: String {
         didSet {
           UserDefaults.standard.set(openAIApiKey, forKey: "openAIApiKey")
@@ -45,7 +46,6 @@ public final class AppState: ObservableObject {
     
     public init () {
         self.openAIApiKey = UserDefaults.standard.string(forKey: "openAIApiKey") ?? ""
-//        self.startOnLogin = UserDefaults.standard.bool(forKey: "startOnLogin")
         self.openAIPromptModel = UserDefaults.standard.string(forKey: "openAIPromptModel") ?? "gpt-3.5-turbo"
 
         if let savedMessages = UserDefaults.standard.object(forKey: "messages") as? Data {
