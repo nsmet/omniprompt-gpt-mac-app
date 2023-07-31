@@ -3,6 +3,8 @@
 # OmniPrompt
 Download the latest build [here](https://github.com/nsmet/omniprompt-gpt-mac-app/tree/main/latest-build/OmniPrompt-v1.0.0.dmg)
 
+For more information visit the website: [https://omniprompt.app](https://omniprompt.app)
+
 ## 🤦‍♂️ Why another GPT mac app?
 Did the world really need another Mac Desktop App?... I'd say so! 
 
